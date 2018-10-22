@@ -20,8 +20,8 @@ for k = 1 : 1 : sizeY - 2
     minimumValue = min(A(A>0))
     % and its index...
     [minValueY, minValueX] = find(A == minimumValue)
-    minValueY=min(minValueY)
-    minValueX=min(minValueX)
+    minValueY=minValueY(1)
+    minValueX=minValueX(1)
     
     for i = 1 : 1 : sizeY
         if(i == 1)
