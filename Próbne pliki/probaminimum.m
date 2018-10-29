@@ -12,11 +12,11 @@ A = [0, 10, 8, 2, 6, 4; 0, 0, 4, 6, 8, 2; 0, 0, 0, 10, 2, 6; 0, 0, 0, 0, 8, 4; 0
 
 for k = 1 : 1 : sizeY - 2
     % find minimum value of the matrix
-    minimumValue = min(A(A>0))
+    minimumValue = min(A(A>0));
     % and its index...
-    [minY, minX] = find(A == minimumValue)
+    [minY, minX] = find(A == minimumValue);
      minValueY=min(minY)
-    [Y, X] = find(minY == minValueY)
+    [Y, X] = find(minY == minValueY);
      minValueX=minX(Y,X)
     
 %     [minValueY, minValueX] = find(A == minimumValue)
