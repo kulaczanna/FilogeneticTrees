@@ -22,7 +22,7 @@ function varargout = FilogeneticTrees(varargin)
 
 % Edit the above text to modify the response to help FilogeneticTrees
 
-% Last Modified by GUIDE v2.5 25-Oct-2018 21:17:32
+% Last Modified by GUIDE v2.5 07-Nov-2018 12:53:14
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -444,3 +444,36 @@ function popupmenu1_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in nextStepBtn.
+function nextStepBtn_Callback(hObject, eventdata, handles)
+% hObject    handle to nextStepBtn (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes when entered data in editable cell(s) in lengthMatrixTable.
+function lengthMatrixTable_CellEditCallback(hObject, eventdata, handles)
+% hObject    handle to lengthMatrixTable (see GCBO)
+% eventdata  structure with the following fields (see MATLAB.UI.CONTROL.TABLE)
+%	Indices: row and column indices of the cell(s) edited
+%	PreviousData: previous data for the cell(s) edited
+%	EditData: string(s) entered by the user
+%	NewData: EditData or its converted form set on the Data property. Empty if Data was not changed
+%	Error: error string when failed to convert EditData to appropriate value for Data
+% handles    structure with handles and user data (see GUIDATA)
+clc
+B = loadMatrix;
+assignin('base', 'B', B)
+A = get(handles.lengthMatrixTable, 'data')
+% [y1, x1] = size(distanceMatrix);
+
+A=cell2mat(A)
+% for i=1:length(A)
+% for j=1:length(A)
+% str2double(A(i,j))
+% end
+% end
+assignin('base', 'A', A)
+% disp(distanceMatrix)
