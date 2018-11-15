@@ -1,14 +1,17 @@
 % UPGMA method
 clc
-% clear all;
+clear all;
 
-% distanceMatrix = loadMatrix;
+w = zeros(10)
+distanceMatrix = loadMatrix;
 sizeOfMatrix = getMatrixSize(distanceMatrix);
-if (sizeOfMatrix > 2)
 
-% for k = 1 : 1 : sizeOfMatrix - 2
+for k = 1 : 1 : sizeOfMatrix - 2
     
-     [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
+     [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix)
+     minimumValue = distanceMatrix(minValueY, minValueX);
+     w = makeClasterGroups(k, w, minValueY, minValueX)
+     branchLength = minimumValue/2;
      distanceMatrixCopy = distanceMatrix;
      newDistanceMatrix = zeros(sizeOfMatrix-1);
      
@@ -18,11 +21,4 @@ if (sizeOfMatrix > 2)
      distanceMatrix = newDistanceMatrix
      sizeOfMatrix = sizeOfMatrix - 1;
     
-% end
-
-else
-    break;
 end
-
-
-
