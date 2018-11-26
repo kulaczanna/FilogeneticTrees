@@ -1,53 +1,60 @@
 function [w] = makeClasterGroups(k, w, minValueY, minValueX)
 
+%     for x = 1:9
+%         if ismember(minValueX, w)
+%             minValueX = minValueX + 1;
+%         end
+%     end
 
+    
+        
     if (k == 1)
-        
-        w(1,1) = minValueY
-        w(1,2) = minValueX
-        
+        w(1,1) = minValueY;
+        w(1,2) = minValueX;
     else
-
-        for j = 1 : 10 % szukamy w ka¿dym wierszu
-            for i = 1 : 10
-                if(minValueY == w(j,1))
-                    if(minValueX == w(j,1))
-                        
-                        if (w(minValueY, i) == 0)
-                            w(minValueY, i) = minValueY
-%                             w(minValueY, i + 1) = minValueY
-                            
+        
+                for z = 2:10
+                    for v = 1 : 10
+                        if minValueX > w(v, z)
+                            minValueX = minValueX+1
                         end
-                        w(minValueX, i) = 0
-                    elseif (w(minValueY, i) == 0)
-                            w(minValueY, i) = minValueX
-                    else
-                        return;
+                        break
                     end
-                    
-                else
-                    
-                    if(minValueX == w(j,1))
-                        
-                        if (w(minValueY, i) == 0)
-                            w(minValueY, i) = minValueY
-%                             w(minValueY, i + 1) = minValueY
-                            
-                        end
-                        
-                        w(minValueX, i) = 0
-                        
+                    break
+                end
+    
+        for j = 1 : 9
+            if ismember(minValueY, w(j,:))
+                yWiersz = j;
+                
+                for h = 1 : 9
+                    if ismember(minValueX, w(h,:))
+                        xWiersz = h;
                     else
-                        w(minValueY,1) = minValueY
-                        w(minValueY,2) = minValueX
-                        break;
-                        
+                        for i = 1 : 9
+                            if w(yWiersz, i) == 0
+                                w(yWiersz, i) = minValueX;
+                                return
+                            end
+                        end
                     end
                 end
+            else
+                for g = 1 : 10
+                    if ismember(minValueX, w(g,:))
+                        xWiersz = g;
+                        if w(xWiersz, g ) == 0
+                            w(xWiersz, g) = minValueX;
+                                return
+                        end
+                    end
+                end
+                
+                w(minValueY,1) = minValueY;
+                w(minValueY,2) = minValueX;
+                return
+        
             end
-            break;
         end
     end
-    
-    
-end
+                  

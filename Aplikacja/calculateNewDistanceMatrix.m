@@ -2,11 +2,7 @@ function [newDistanceMatrix] = calculateNewDistanceMatrix(sizeOfMatrix, minValue
 
     for row = 1 : 1 : sizeOfMatrix-1        
         for column = 1 : 1 : sizeOfMatrix - 1
-          
-                        if(row >= column)
-                            newDistanceMatrix(row, column) = 0;
-
-                        elseif(row < minValueY)
+                       if(row < minValueY)
                             if(column < minValueY)
                                 newDistanceMatrix(row, column) = distanceMatrixCopy(row, column);
                             elseif(column == minValueY)
