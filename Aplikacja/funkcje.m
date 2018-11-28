@@ -15,10 +15,10 @@ end
 for k = 1 : 1 : sizeOfMatrix - 1
     
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
-     minimumValue = distanceMatrix(minValueY, minValueX);
-     w = makeClasterGroups(k, w, w1, minValueY, minValueX, sizeOfMatrix)
-     w1 = vectors(w1, sizeOfMatrix, minValueX);
+     minimumValue = distanceMatrix(minValueY, minValueX)
      branchLength = minimumValue/2;
+     w = makeClasterGroups(k, w, w1, minValueY, minValueX, sizeOfMatrix, branchLength)
+     w1 = vectors(w1, sizeOfMatrix, minValueX);
      distanceMatrixCopy = distanceMatrix;
      newDistanceMatrix = zeros(sizeOfMatrix-1);
      
