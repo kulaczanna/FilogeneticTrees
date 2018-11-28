@@ -2,22 +2,23 @@
 clc
 clear all;
 
-distanceMatrix = loadMatrix;
-sizeOfMatrix = getMatrixSize(distanceMatrix);
-
-w = zeros(sizeOfMatrix);
-w1 = zeros(2, sizeOfMatrix);
-for wi = 1 : sizeOfMatrix
+w = zeros(6);
+w1 = zeros(2, 6);
+for wi = 1 : 6
     w1(1, wi) = wi;
     w1(2, wi) = wi;
 end
+w1
+distanceMatrix = loadMatrix;
+sizeOfMatrix = getMatrixSize(distanceMatrix);
 
 for k = 1 : 1 : sizeOfMatrix - 1
     
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      minimumValue = distanceMatrix(minValueY, minValueX);
-     w = makeClasterGroups(k, w, w1, minValueY, minValueX, sizeOfMatrix)
-     w1 = vectors(w1, sizeOfMatrix, minValueX);
+     w1 = vectors(w1, sizeOfMatrix, minValueX)
+     minValu
+     w = makeClasterGroups(k, w, minValueY, minValueX, sizeOfMatrix)
      branchLength = minimumValue/2;
      distanceMatrixCopy = distanceMatrix;
      newDistanceMatrix = zeros(sizeOfMatrix-1);

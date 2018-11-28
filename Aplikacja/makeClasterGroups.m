@@ -1,35 +1,34 @@
-function [w] = makeClasterGroups(k, w, minValueY, minValueX)
+function [w] = makeClasterGroups(k, w, w1, minValueY, minValueX, matrixLength)
     
+minValueX = w1(2, minValueX);
     if (k == 1)
         w(1,1) = minValueY;
         w(1,2) = minValueX;      
-    else
-                for z = 2:10
-                    for v = 1 : 10
-                        if minValueX >= w(v, z)
-                            minValueX = minValueX+1   % czy na pewno zawsze ma siê zwiêkszaæ?
-                        end
-                        break
-                    end
-                    break
-                end
-                
+    else                
             wierszX = 0;
-                for p = 1 : 10
+                for p = 1 : matrixLength
                     if (ismember(minValueX, w(p, 1)))
                         wierszX = p;
                         break
                     end
                 end
                 
-        for j = 1 : 10
-            if ismember(minValueY, w(j,:))
+                wierszY = 0;
+                for q = 1 : matrixLength
+                    if (ismember(minValueY, w(q, :)))
+                        wierszY = q;
+                        break
+                    end
+                end
+                
+        for j = 1 : matrixLength
+            if (~(wierszY == 0))
                 if (~(wierszX == 0))
                     temp = w;
-                    w = mergeRows(temp, j, wierszX)
+                    w = mergeRows(temp, wierszY, wierszX);
                     return
                 else
-                    for i = 1 : 10
+                    for i = 1 : matrixLength
                             if w(j, i) == 0
                                 w(j, i) = minValueX;
                                 return
@@ -39,7 +38,7 @@ function [w] = makeClasterGroups(k, w, minValueY, minValueX)
                 end
             else
                 if (~(wierszX == 0))
-                      for i = 1 : 10
+                      for i = 1 : matrixLength
                             if w(wierszX, i) == 0
                                 w(wierszX, i) = minValueY;
                                 return
