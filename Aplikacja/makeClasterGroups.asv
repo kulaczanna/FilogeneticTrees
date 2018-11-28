@@ -26,7 +26,7 @@ function [w] = makeClasterGroups(k, w, minValueY, minValueX)
             if ismember(minValueY, w(j,:))
                 if (~(wierszX == 0))
                     temp = w;
-                    w = mergeRows(temp, j, wierszX)
+                    w = mergeRows(temp, wierszX)
                     return
                 else
                     for i = 1 : 10
