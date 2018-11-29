@@ -452,27 +452,25 @@ function nextStepBtn_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % UPGMA method
-clc
-clear all;
-
-distanceMatrix = loadMatrix;
-sizeOfMatrix = getMatrixSize(distanceMatrix);
-% if (sizeOfMatrix > 2)
-
-for k = 1 : 1 : sizeOfMatrix - 2
-    
-     [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
-     distanceMatrixCopy = distanceMatrix;
-     newDistanceMatrix = zeros(sizeOfMatrix-1);
-     
-     newDistanceMatrix = calculateNewDistanceMatrix(sizeOfMatrix, minValueY, minValueX, ...
-         distanceMatrixCopy, newDistanceMatrix);       
-     
-     distanceMatrix = newDistanceMatrix
-     sizeOfMatrix = sizeOfMatrix - 1;
-    
-end
-% end
+            % clc
+            % clear all;
+            % 
+            % distanceMatrix = loadMatrix;
+            % sizeOfMatrix = getMatrixSize(distanceMatrix);
+            % 
+            % for k = 1 : 1 : sizeOfMatrix - 2
+            %     
+            %      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
+            %      distanceMatrixCopy = distanceMatrix;
+            %      newDistanceMatrix = zeros(sizeOfMatrix-1);
+            %      
+            %      newDistanceMatrix = calculateNewDistanceMatrix(sizeOfMatrix, minValueY, minValueX, ...
+            %          distanceMatrixCopy, newDistanceMatrix);       
+            %      
+            %      distanceMatrix = newDistanceMatrix
+            %      sizeOfMatrix = sizeOfMatrix - 1;
+            %     
+            % end
 
 
 % --- Executes when entered data in editable cell(s) in lengthMatrixTable.
@@ -485,37 +483,13 @@ function lengthMatrixTable_CellEditCallback(hObject, eventdata, handles)
 %	NewData: EditData or its converted form set on the Data property. Empty if Data was not changed
 %	Error: error string when failed to convert EditData to appropriate value for Data
 % handles    structure with handles and user data (see GUIDATA)
-clc
-B = loadMatrix;
-assignin('base', 'B', B)
-A = get(handles.lengthMatrixTable, 'data')
+            % clc
+            % B = loadMatrix;
+            % assignin('base', 'B', B)
+            % A = get(handles.lengthMatrixTable, 'data')
 
-% [y1, x1] = size(distanceMatrix);
-assignin('base', 'A', A)
-distanceMatrix=cell2mat(A)
-% assignin('base', 'distanceMatrix', distanceMatrix)
-% disp(distanceMatrix)
-
-
-% UPGMA method
-clc
-clear all;
-
-% distanceMatrix = loadMatrix;
-sizeOfMatrix = getMatrixSize(distanceMatrix);
-% if (sizeOfMatrix > 2)
-
-% for k = 1 : 1 : sizeOfMatrix - 2
-    
-     [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
-     distanceMatrixCopy = distanceMatrix;
-     newDistanceMatrix = zeros(sizeOfMatrix-1);
-     
-     newDistanceMatrix = calculateNewDistanceMatrix(sizeOfMatrix, minValueY, minValueX, ...
-         distanceMatrixCopy, newDistanceMatrix);       
-     
-     distanceMatrix = newDistanceMatrix
-     sizeOfMatrix = sizeOfMatrix - 1;
-    
-% end
-% end
+            % [y1, x1] = size(distanceMatrix);
+            % assignin('base', 'A', A)
+            % distanceMatrix=cell2mat(A)
+            % assignin('base', 'distanceMatrix', distanceMatrix)
+            % disp(distanceMatrix)

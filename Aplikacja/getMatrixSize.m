@@ -1,6 +1,6 @@
-function [sizeOfMatrix] = getMatrixSize(A)
+function [lengthOfMatrix] = getMatrixSize(A)
 
-[sizeY, sizeX] = size(A);
-sizeOfMatrix = sizeY;
+    [sizeY, sizeX] = size(A);
+    lengthOfMatrix = sizeY;
 
 end
