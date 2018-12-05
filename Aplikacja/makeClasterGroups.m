@@ -1,4 +1,4 @@
-function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperclusterGroupsArray, ... % change 'i'...
+function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperclusterGroupsArray, ...
     minValueY, minValueX, lengthOfMatrix, branchLength)
     
     minValueX = helperclusterGroupsArray(2, minValueX);
@@ -7,42 +7,40 @@ function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperc
 
         clusterGroupsArray(1,1) = minValueY;
         clusterGroupsArray(1,2) = minValueX; 
-        fprintf('The %d branch is: %d - %d. The Length is: %f. \n', i, ...
-            minValueY, minValueX, branchLength); % make function to display
+        displayResult(i, minValueY, minValueX, branchLength, 1);
         
     else
 
         rowWithMinValueX = 0;
-        for p = 1 : length(clusterGroupsArray)
-            if (ismember(minValueX, clusterGroupsArray(p, 1)))
-                rowWithMinValueX = p;
+        for r1 = 1 : length(clusterGroupsArray)
+            if (ismember(minValueX, clusterGroupsArray(r1, 1)))
+                rowWithMinValueX = r1;
                 break
             end
         end
         
         rowWithMinValueY = 0;
-        for q = 1 : length(clusterGroupsArray)
-            if (ismember(minValueY, clusterGroupsArray(q, :)))
-                rowWithMinValueY = q;
+        for r2 = 1 : length(clusterGroupsArray)
+            if (ismember(minValueY, clusterGroupsArray(r2, :)))
+                rowWithMinValueY = r2;
                 break
             end
         end
 
-        for j = 1 : length(clusterGroupsArray)  % change name of iterators!!!
+        for r3 = 1 : length(clusterGroupsArray)
             if (~(rowWithMinValueY == 0))
                 if (~(rowWithMinValueX == 0))
                     
                     clusterGroupsArray = mergeRows(clusterGroupsArray, rowWithMinValueY, rowWithMinValueX);
-                    fprintf('The %d branch is merge of: %d and %d. The Length is: %f. \n', i, ... 
-                        rowWithMinValueY, rowWithMinValueX, branchLength);
+                    displayResult(i, rowWithMinValueY, rowWithMinValueX, branchLength, 4);
                     return
                     
                 else
                     
-                    for i = 1 : length(clusterGroupsArray)
-                        if clusterGroupsArray(j, i) == 0
-                            clusterGroupsArray(j, i) = minValueX;
-                            fprintf('The %d branch is: %d. The Length is: %f. \n', i, minValueX, branchLength);
+                    for c1 = 1 : length(clusterGroupsArray)
+                        if clusterGroupsArray(r3, c1) == 0
+                            clusterGroupsArray(r3, c1) = minValueX;
+                            displayResult(i, minValueY, minValueX, branchLength, 3);
                             return
                         end
                     end
@@ -53,10 +51,10 @@ function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperc
                 
                 if (~(rowWithMinValueX == 0))
                     
-                    for i = 1 : length(clusterGroupsArray)
-                        if clusterGroupsArray(rowWithMinValueX, i) == 0
-                            clusterGroupsArray(rowWithMinValueX, i) = minValueY;
-                            fprintf('The %d branch is: %d. The Length is: %f. \n', i, minValueY, branchLength);
+                    for c2 = 1 : length(clusterGroupsArray)
+                        if clusterGroupsArray(rowWithMinValueX, c2) == 0
+                            clusterGroupsArray(rowWithMinValueX, c2) = minValueY;
+                            displayResult(i, minValueY, minValueX, branchLength, 2);
                             return
                         end
                     end
@@ -65,7 +63,7 @@ function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperc
                     
                     clusterGroupsArray(minValueY,1) = minValueY;
                     clusterGroupsArray(minValueY,2) = minValueX;
-                    fprintf('The %d branch is: %d - %d. The Length is: %f. \n', i, minValueY, minValueX, branchLength);
+                    displayResult(i, minValueY, minValueX, branchLength, 1);
                     return
                     
                 end

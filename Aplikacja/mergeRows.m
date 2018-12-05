@@ -2,7 +2,7 @@ function [clusterGroupsArray] = mergeRows(clusterGroupsArray, row1, row2)
    
     counter = 1;
  
-    for column = 1 : 6
+    for column = 1 : length(clusterGroupsArray)
         if (clusterGroupsArray(row1, column) == 0)
             
             if (~(clusterGroupsArray(row2, counter) == 0))

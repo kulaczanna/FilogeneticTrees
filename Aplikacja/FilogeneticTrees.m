@@ -22,7 +22,7 @@ function varargout = FilogeneticTrees(varargin)
 
 % Edit the above text to modify the response to help FilogeneticTrees
 
-% Last Modified by GUIDE v2.5 07-Nov-2018 12:53:14
+% Last Modified by GUIDE v2.5 05-Dec-2018 22:57:52
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -451,27 +451,6 @@ function nextStepBtn_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% UPGMA method
-            % clc
-            % clear all;
-            % 
-            % distanceMatrix = loadMatrix;
-            % sizeOfMatrix = getMatrixSize(distanceMatrix);
-            % 
-            % for k = 1 : 1 : sizeOfMatrix - 2
-            %     
-            %      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
-            %      distanceMatrixCopy = distanceMatrix;
-            %      newDistanceMatrix = zeros(sizeOfMatrix-1);
-            %      
-            %      newDistanceMatrix = calculateNewDistanceMatrix(sizeOfMatrix, minValueY, minValueX, ...
-            %          distanceMatrixCopy, newDistanceMatrix);       
-            %      
-            %      distanceMatrix = newDistanceMatrix
-            %      sizeOfMatrix = sizeOfMatrix - 1;
-            %     
-            % end
-
 
 % --- Executes when entered data in editable cell(s) in lengthMatrixTable.
 function lengthMatrixTable_CellEditCallback(hObject, eventdata, handles)
@@ -483,13 +462,3 @@ function lengthMatrixTable_CellEditCallback(hObject, eventdata, handles)
 %	NewData: EditData or its converted form set on the Data property. Empty if Data was not changed
 %	Error: error string when failed to convert EditData to appropriate value for Data
 % handles    structure with handles and user data (see GUIDATA)
-            % clc
-            % B = loadMatrix;
-            % assignin('base', 'B', B)
-            % A = get(handles.lengthMatrixTable, 'data')
-
-            % [y1, x1] = size(distanceMatrix);
-            % assignin('base', 'A', A)
-            % distanceMatrix=cell2mat(A)
-            % assignin('base', 'distanceMatrix', distanceMatrix)
-            % disp(distanceMatrix)
