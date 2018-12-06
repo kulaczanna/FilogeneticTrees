@@ -354,16 +354,9 @@ for i = rows : -1 : 1
      rows = rows - 1;
 end
 distanceMatrix
-% data = get(handles.lengthMatrixTable, 'data')
-% data(4,5) = distanceMatrix(4,5);
-% set(handles.lengthMatrixTable, 'data', data)
-% f = figure;
-lengthMatrixTable = uitable('ColumnName', {'1', '2', '3', '4', '5', '6'});
-set(lengthMatrixTable, 'Position', [20 20 300 200])
-set(lengthMatrixTable, 'FontUnits', 'Normalized');
-drawnow;
-set(lengthMatrixTable, 'Data', distanceMatrix)
-set(lengthMatrixTable, 'ColumnWidth', {30})
+data = get(handles.length)
+set(handles.lengthMatrixTable, 'String')
+
 
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
