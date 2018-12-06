@@ -1,4 +1,4 @@
-% Application for filogenetic trees conctruction - UPGMA method
+% Application for filogenetic trees construction - UPGMA method
 clc
 clear all;
 
@@ -18,7 +18,7 @@ for i = 1 : lengthOfMatrix - 1
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
      clusterGroupsArray = makeClasterGroups(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
-         minValueX, lengthOfMatrix, branchLength);
+         minValueX, branchLength);
      
      helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
      distanceMatrixCopy = distanceMatrix;
