@@ -2,9 +2,9 @@ function[distanceMatrix] = loadMatrix(numberOfMatrix)
 
     switch numberOfMatrix
         case 1
-            distanceMatrix = [0, 9, 2, 4, 9, 10;
-                        0, 0, 9, 6, 2, 10; 
-                        0, 0, 0, 5, 9, 10;
+            distanceMatrix = [0, 9, 2, 4, 9, 11;
+                        0, 0, 9, 6, 2, 11; 
+                        0, 0, 0, 5, 9, 11;
                         0, 0, 0, 0, 6, 10;
                         0, 0, 0, 0, 0, 10;
                         0, 0, 0, 0, 0, 0];

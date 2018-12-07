@@ -5,7 +5,7 @@ function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperc
 
     if (i == 1)
 
-        displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 1);
+%         displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 1);
         clusterGroupsArray(1,1) = minValueY;
         clusterGroupsArray(1,2) = minValueX; 
         
@@ -31,7 +31,7 @@ function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperc
             if (~(rowWithMinValueY == 0))
                 if (~(rowWithMinValueX == 0))
 
-                    displayResult(clusterGroupsArray, i, rowWithMinValueY, rowWithMinValueX, branchLength, 4);
+%                     displayResult(clusterGroupsArray, i, rowWithMinValueY, rowWithMinValueX, branchLength, 4);
                     clusterGroupsArray = mergeRows(clusterGroupsArray, rowWithMinValueY, rowWithMinValueX);
                     return
                     
@@ -39,8 +39,8 @@ function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperc
                     
                     for c1 = 1 : length(clusterGroupsArray)
                         if clusterGroupsArray(r3, c1) == 0
-                            displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 3);
-                            clusterGroupsArray(r3, c1) = minValueX
+%                             displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 3);
+                            clusterGroupsArray(r3, c1) = minValueX;
                             return
                         end
                     end
@@ -53,7 +53,7 @@ function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperc
                     
                     for c2 = 1 : length(clusterGroupsArray)
                         if clusterGroupsArray(rowWithMinValueX, c2) == 0   
-                            displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 2);
+%                             displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 2);
                             clusterGroupsArray(rowWithMinValueX, c2) = minValueY;
                             return
                         end
@@ -61,7 +61,7 @@ function [clusterGroupsArray] = makeClasterGroups(i, clusterGroupsArray, helperc
                     
                 else
                     
-                    displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 1);
+%                     displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 1);
                     clusterGroupsArray(minValueY,1) = minValueY;
                     clusterGroupsArray(minValueY,2) = minValueX;
                     return

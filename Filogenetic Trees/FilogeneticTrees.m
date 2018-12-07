@@ -72,7 +72,14 @@ function varargout = FilogeneticTrees_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
-
+global lengthMatrixTable; 
+% global distanceMatrix;
+lengthMatrixTable = uitable('ColumnName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
+set(lengthMatrixTable, 'RowName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
+set(lengthMatrixTable, 'Position', [10 10 486 203])
+set(lengthMatrixTable, 'FontUnits', 'Normalized');
+set(lengthMatrixTable, 'ColumnWidth', {45});
+drawnow;
 
 function sequenceEditText1_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText1 (see GCBO)
@@ -332,6 +339,8 @@ function compareSequencePushButton_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+global lengthMatrixTable;
+global distanceMatrix;
 sequence1 = get(handles.sequenceEditText1,'String');
 sequence2 = get(handles.sequenceEditText2,'String');
 sequence3 = get(handles.sequenceEditText3,'String');
@@ -347,24 +356,12 @@ for i = rows : -1 : 1
     for j = rows : -1 : 1
         if (i ~= j)
             counter = compareSequences(sequences(i, :), sequences(j, :));
-%             fprintf('sequence %d and %d: %d \n', i, j, counter)
             distanceMatrix(j, i) = counter;
         end
     end
      rows = rows - 1;
 end
-distanceMatrix
-% data = get(handles.lengthMatrixTable, 'data')
-% data(4,5) = distanceMatrix(4,5);
-% set(handles.lengthMatrixTable, 'data', data)
-% f = figure;
-lengthMatrixTable = uitable('ColumnName', {'1', '2', '3', '4', '5', '6'});
-set(lengthMatrixTable, 'Position', [20 20 300 200])
-set(lengthMatrixTable, 'FontUnits', 'Normalized');
-drawnow;
-set(lengthMatrixTable, 'Data', distanceMatrix)
-set(lengthMatrixTable, 'ColumnWidth', {30})
-
+set(lengthMatrixTable, 'data', distanceMatrix);
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
 function checkbox1sequenceCheckBox1_Callback(hObject, eventdata, handles)
@@ -455,43 +452,46 @@ function sequenceCheckBox10_Callback(hObject, eventdata, handles)
 
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox10
 
-
-% --- Executes on selection change in popupmenu1.
-function popupmenu1_Callback(hObject, eventdata, handles)
-% hObject    handle to popupmenu1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: contents = cellstr(get(hObject,'String')) returns popupmenu1 contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from popupmenu1
-
-
-% --- Executes during object creation, after setting all properties.
-function popupmenu1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to popupmenu1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
 % --- Executes on button press in nextStepBtn.
 function nextStepBtn_Callback(hObject, eventdata, handles)
 % hObject    handle to nextStepBtn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+%%%%% Application for filogenetic trees construction - UPGMA method
 
-% --- Executes when entered data in editable cell(s) in lengthMatrixTable.
-function lengthMatrixTable_CellEditCallback(hObject, eventdata, handles)
-% hObject    handle to lengthMatrixTable (see GCBO)
-% eventdata  structure with the following fields (see MATLAB.UI.CONTROL.TABLE)
-%	Indices: row and column indices of the cell(s) edited
-%	PreviousData: previous data for the cell(s) edited
-%	EditData: string(s) entered by the user
-%	NewData: EditData or its converted form set on the Data property. Empty if Data was not changed
-%	Error: error string when failed to convert EditData to appropriate value for Data
-% handles    structure with handles and user data (see GUIDATA)
+clc
+
+global lengthMatrixTable;
+global distanceMatrix;
+lengthOfMatrix = getMatrixSize(distanceMatrix);
+clusterGroupsArray = zeros(lengthOfMatrix);
+helperClusterGroupsArray = zeros(2, lengthOfMatrix);
+
+for column = 1 : lengthOfMatrix
+    
+    helperClusterGroupsArray(:, column) = column;
+    
+end
+
+% for i = 1 : lengthOfMatrix - 1
+ 
+     [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
+     [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
+  % to siê tu liczy zle   clusterGroupsArray = makeClasterGroups(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
+  %      minValueX, branchLength);
+     
+  % to tez zle   helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
+     distanceMatrixCopy = distanceMatrix;    % zrób metode która przyjmuje st¹d pocz¹tkow¹
+                                             % distanceMatrix i oblicza clustery :)
+     newDistanceMatrix = zeros(lengthOfMatrix-1);
+     
+     newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
+         distanceMatrixCopy, newDistanceMatrix);       
+     
+     distanceMatrix = newDistanceMatrix
+  %  lengthOfMatrix = lengthOfMatrix - 1;
+set(lengthMatrixTable, 'data', distanceMatrix);
+
+% end
+
