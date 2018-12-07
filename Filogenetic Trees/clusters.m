@@ -1,4 +1,4 @@
-function [] = clusters (distanceMatrix)
+function [clusterGroupsArray] = clusters (distanceMatrix)
 
 lengthOfMatrix = getMatrixSize(distanceMatrix);
 clusterGroupsArray = zeros(lengthOfMatrix);
@@ -15,7 +15,7 @@ for i = 1 : lengthOfMatrix - 1
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
      clusterGroupsArray = makeClasterGroups(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
-         minValueX, branchLength)
+         minValueX, branchLength);
      
      helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
      distanceMatrixCopy = distanceMatrix;

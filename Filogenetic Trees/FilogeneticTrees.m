@@ -366,7 +366,7 @@ for i = rows : -1 : 1
     end
      rows = rows - 1;
 end
-clusters(distanceMatrix)
+clusterGroups = clusters(distanceMatrix)
 set(lengthMatrixTable, 'data', distanceMatrix);
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
@@ -436,31 +436,18 @@ function nextStepBtn_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-%%%%% Application for filogenetic trees construction - UPGMA method
-
-clc
-
 global lengthMatrixTable;
 global distanceMatrix;
-lengthOfMatrix = getMatrixSize(distanceMatrix);
-clusterGroupsArray = zeros(lengthOfMatrix);
-helperClusterGroupsArray = zeros(2, lengthOfMatrix);
 
-for column = 1 : lengthOfMatrix
-    
-    helperClusterGroupsArray(:, column) = column;
-    
-end
- 
+lengthOfMatrix = getMatrixSize(distanceMatrix);
+ if(lengthOfMatrix > 1)
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
-     
-     distanceMatrixCopy = distanceMatrix;
      newDistanceMatrix = zeros(lengthOfMatrix-1);
-     
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
-         distanceMatrixCopy, newDistanceMatrix);       
+         distanceMatrix, newDistanceMatrix);       
      
-     distanceMatrix = newDistanceMatrix
+     distanceMatrix = newDistanceMatrix;
 set(lengthMatrixTable, 'data', distanceMatrix);
+ end
 
