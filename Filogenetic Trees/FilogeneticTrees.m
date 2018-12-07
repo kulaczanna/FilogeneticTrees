@@ -347,8 +347,13 @@ sequence3 = get(handles.sequenceEditText3,'String');
 sequence4 = get(handles.sequenceEditText4,'String');
 sequence5 = get(handles.sequenceEditText5,'String');
 sequence6 = get(handles.sequenceEditText6,'String');
+sequence7 = get(handles.sequenceEditText7,'String');
+sequence8 = get(handles.sequenceEditText8,'String');
+sequence9 = get(handles.sequenceEditText9,'String');
+sequence10 = get(handles.sequenceEditText10,'String');   % b³¹d jak s¹ dwie identyczne sekwencje
 
-sequences = [sequence1; sequence2; sequence3; sequence4; sequence5; sequence6];
+
+sequences = [sequence1; sequence2; sequence3; sequence4; sequence5; sequence6; sequence7; sequence8; sequence9; sequence10];
 [rows, columns] = size(sequences);
 distanceMatrix = zeros(rows);
 
@@ -361,6 +366,7 @@ for i = rows : -1 : 1
     end
      rows = rows - 1;
 end
+clusters(distanceMatrix)
 set(lengthMatrixTable, 'data', distanceMatrix);
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
@@ -368,88 +374,60 @@ function checkbox1sequenceCheckBox1_Callback(hObject, eventdata, handles)
 % hObject    handle to checkbox1sequenceCheckBox1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of checkbox1sequenceCheckBox1
-
-
 % --- Executes on button press in sequenceCheckBox2.
 function sequenceCheckBox2_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceCheckBox2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox2
-
-
 % --- Executes on button press in sequenceCheckBox3.
 function sequenceCheckBox3_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceCheckBox3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox3
-
-
 % --- Executes on button press in sequenceCheckBox4.
 function sequenceCheckBox4_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceCheckBox4 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox4
-
-
 % --- Executes on button press in sequenceCheckBox5.
 function sequenceCheckBox5_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceCheckBox5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox5
-
-
 % --- Executes on button press in sequenceCheckBox6.
 function sequenceCheckBox6_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceCheckBox6 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox6
-
-
 % --- Executes on button press in sequenceCheckBox7.
 function sequenceCheckBox7_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceCheckBox7 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox7
-
-
 % --- Executes on button press in sequenceCheckBox8.
 function sequenceCheckBox8_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceCheckBox8 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox8
-
-
 % --- Executes on button press in sequenceCheckBox9.
 function sequenceCheckBox9_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceCheckBox9 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox9
-
-
 % --- Executes on button press in sequenceCheckBox10.
 function sequenceCheckBox10_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceCheckBox10 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox10
 
 % --- Executes on button press in nextStepBtn.
@@ -473,25 +451,16 @@ for column = 1 : lengthOfMatrix
     helperClusterGroupsArray(:, column) = column;
     
 end
-
-% for i = 1 : lengthOfMatrix - 1
  
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
-  % to siê tu liczy zle   clusterGroupsArray = makeClasterGroups(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
-  %      minValueX, branchLength);
      
-  % to tez zle   helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
-     distanceMatrixCopy = distanceMatrix;    % zrób metode która przyjmuje st¹d pocz¹tkow¹
-                                             % distanceMatrix i oblicza clustery :)
+     distanceMatrixCopy = distanceMatrix;
      newDistanceMatrix = zeros(lengthOfMatrix-1);
      
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
          distanceMatrixCopy, newDistanceMatrix);       
      
      distanceMatrix = newDistanceMatrix
-  %  lengthOfMatrix = lengthOfMatrix - 1;
 set(lengthMatrixTable, 'data', distanceMatrix);
-
-% end
 
