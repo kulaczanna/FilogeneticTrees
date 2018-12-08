@@ -22,7 +22,7 @@ function varargout = FilogeneticTrees(varargin)
 
 % Edit the above text to modify the response to help FilogeneticTrees
 
-% Last Modified by GUIDE v2.5 06-Dec-2018 16:30:54
+% Last Modified by GUIDE v2.5 08-Dec-2018 18:06:03
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -73,7 +73,8 @@ function varargout = FilogeneticTrees_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 global lengthMatrixTable; 
-% global distanceMatrix;
+global subNum;
+subNum = 1;
 lengthMatrixTable = uitable('ColumnName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
 set(lengthMatrixTable, 'RowName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
 set(lengthMatrixTable, 'Position', [10 10 486 203])
@@ -333,9 +334,9 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on button press in compareSequencePushButton.
-function compareSequencePushButton_Callback(hObject, eventdata, handles)
-% hObject    handle to compareSequencePushButton (see GCBO)
+% --- Executes on button press in compareSequenceBtn.
+function compareSequenceBtn_Callback(hObject, eventdata, handles)
+% hObject    handle to compareSequenceBtn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
@@ -353,7 +354,8 @@ sequence9 = get(handles.sequenceEditText9,'String');
 sequence10 = get(handles.sequenceEditText10,'String');   % b³¹d jak s¹ dwie identyczne sekwencje
 
 
-sequences = [sequence1; sequence2; sequence3; sequence4; sequence5; sequence6; sequence7; sequence8; sequence9; sequence10];
+sequences = [sequence1; sequence2; sequence3; sequence4; ...
+    sequence5; sequence6; sequence7; sequence8; sequence9; sequence10];
 [rows, columns] = size(sequences);
 distanceMatrix = zeros(rows);
 
@@ -368,6 +370,7 @@ for i = rows : -1 : 1
 end
 clusterGroups = clusters(distanceMatrix)
 set(lengthMatrixTable, 'data', distanceMatrix);
+set(handles.nextStepBtn, 'enable', 'on');
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
 function checkbox1sequenceCheckBox1_Callback(hObject, eventdata, handles)
@@ -438,16 +441,66 @@ function nextStepBtn_Callback(hObject, eventdata, handles)
 
 global lengthMatrixTable;
 global distanceMatrix;
+global subNum;
 
+if (subNum == 1)
+    set(handles.compareSequenceBtn, 'enable', 'off');
+    set(handles.sequenceEditText1, 'enable', 'off');
+    set(handles.sequenceEditText2, 'enable', 'off');
+    set(handles.sequenceEditText3, 'enable', 'off');
+    set(handles.sequenceEditText4, 'enable', 'off');
+    set(handles.sequenceEditText5, 'enable', 'off');
+    set(handles.sequenceEditText6, 'enable', 'off');
+    set(handles.sequenceEditText7, 'enable', 'off');
+    set(handles.sequenceEditText8, 'enable', 'off');
+    set(handles.sequenceEditText9, 'enable', 'off');
+    set(handles.sequenceEditText10, 'enable', 'off');
+    set(handles.resetBtn, 'enable', 'on');
+
+end
 lengthOfMatrix = getMatrixSize(distanceMatrix);
  if(lengthOfMatrix > 1)
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
      newDistanceMatrix = zeros(lengthOfMatrix-1);
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
-         distanceMatrix, newDistanceMatrix);       
-     
+         distanceMatrix, newDistanceMatrix);    
      distanceMatrix = newDistanceMatrix;
-set(lengthMatrixTable, 'data', distanceMatrix);
+     set(lengthMatrixTable, 'data', distanceMatrix);
+     drawSubTree(subNum)
+     subNum = subNum + 1;
  end
 
+
+% --- Executes on button press in resetBtn.
+function resetBtn_Callback(hObject, eventdata, handles)
+% hObject    handle to resetBtn (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+global subNum;
+global lengthMatrixTable;
+subNum = 1;
+    set(handles.compareSequenceBtn, 'enable', 'on');
+    set(handles.sequenceEditText1, 'enable', 'on');
+    set(handles.sequenceEditText2, 'enable', 'on');
+    set(handles.sequenceEditText3, 'enable', 'on');
+    set(handles.sequenceEditText4, 'enable', 'on');
+    set(handles.sequenceEditText5, 'enable', 'on');
+    set(handles.sequenceEditText6, 'enable', 'on');
+    set(handles.sequenceEditText7, 'enable', 'on');
+    set(handles.sequenceEditText8, 'enable', 'on');
+    set(handles.sequenceEditText9, 'enable', 'on');
+    set(handles.sequenceEditText10, 'enable', 'on');
+    set(handles.nextStepBtn, 'enable', 'off');
+    set(lengthMatrixTable, 'Data', ...
+        cell(size(get(lengthMatrixTable,'Data'))));
+    cla;
+    
+
+
+% --- Executes on mouse press over axes background.
+function filogeneticTreeAxis_ButtonDownFcn(hObject, eventdata, handles)
+% hObject    handle to filogeneticTreeAxis (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
