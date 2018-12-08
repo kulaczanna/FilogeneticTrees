@@ -1,0 +1,60 @@
+clear all
+clc
+
+% dM = loadMatrix(1);
+% clusters(dM)
+ fi
+nodes1 = [2 0 2];
+treeplot(nodes1)
+[x,y] = treelayout(nodes1)
+
+for i = 1 : length(x)
+    text(x(i), y(i), 'a', 'VerticalAlignment','top','HorizontalAlignment','right')
+end
+
+figure
+nodes2 = [4 6 4 0 6 0];
+treeplot(nodes2)
+[x,y] = treelayout(nodes2)
+
+for i = 1 : length(x)
+    text(x(i), y(i), 'a', 'VerticalAlignment','top','HorizontalAlignment','right')
+end
+
+nodes1 = [7 8 7 9 8 11 9 10 10 11 0];
+treeplot(nodes)
+
+count = size(nodes,2)
+[x,y] = treelayout(nodes)
+
+for i = 1 : length(x)
+    text(x(i), y(i), 'a', 'VerticalAlignment','top','HorizontalAlignment','right')
+end
+
+nodes1 = [7 8 7 9 8 11 9 10 10 11 0];
+treeplot(nodes)
+
+count = size(nodes,2)
+[x,y] = treelayout(nodes)
+
+for i = 1 : length(x)
+    text(x(i), y(i), 'a', 'VerticalAlignment','top','HorizontalAlignment','right')
+end
+nodes1 = [7 8 7 9 8 11 9 10 10 11 0];
+treeplot(nodes)
+
+count = size(nodes,2)
+[x,y] = treelayout(nodes)
+
+for i = 1 : length(x)
+    text(x(i), y(i), 'a', 'VerticalAlignment','top','HorizontalAlignment','right')
+end
+
+
+% %% jak ³adnie sformatowac... :) + treelayout
+% x = x'
+% y = y'
+% name1 = cellstr(num2str((1:count)'))
+% name2 = ['1'; '2'; '3'; '4'; '5'; '6'; '7'; '8'; '9'; '10'; '11']
+% text(x(:,1), y(:,1), name1, 'VerticalAlignment','bottom','HorizontalAlignment','right')
+% title({'Level Lines'},'FontSize',12,'FontName','Times New Roman')
