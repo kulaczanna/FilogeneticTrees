@@ -358,17 +358,19 @@ sequences = [sequence1; sequence2; sequence3; sequence4; ...
     sequence5; sequence6; sequence7; sequence8; sequence9; sequence10];
 [rows, columns] = size(sequences);
 distanceMatrix = zeros(rows);
+lengthOfSequence = length(sequence1)
 
 for i = rows : -1 : 1
     for j = rows : -1 : 1
         if (i ~= j)
-            counter = compareSequences(sequences(i, :), sequences(j, :));
+            counter = compareSequences(sequences(i, :), sequences(j, :))
+            counter = jukesCantorModelDistance(counter, lengthOfSequence)
             distanceMatrix(j, i) = counter;
         end
     end
      rows = rows - 1;
 end
-clusterGroups = clusters(distanceMatrix)
+clusterGroups = clusters(distanceMatrix);
 set(lengthMatrixTable, 'data', distanceMatrix);
 set(handles.nextStepBtn, 'enable', 'on');
 
@@ -467,7 +469,7 @@ lengthOfMatrix = getMatrixSize(distanceMatrix);
          distanceMatrix, newDistanceMatrix);    
      distanceMatrix = newDistanceMatrix;
      set(lengthMatrixTable, 'data', distanceMatrix);
-     drawSubTree(subNum)
+     drawTree(subNum)
      subNum = subNum + 1;
  end
 
@@ -496,7 +498,7 @@ subNum = 1;
     set(lengthMatrixTable, 'Data', ...
         cell(size(get(lengthMatrixTable,'Data'))));
     cla;
-    
+    clc   
 
 
 % --- Executes on mouse press over axes background.

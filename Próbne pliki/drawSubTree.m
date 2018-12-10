@@ -1,12 +1,10 @@
-% function[] = drawSubTree(subNum)
-    clear all
-    clc
+function[] = drawSubTree(subNum)
     
 %     dM = loadMatrix(1);
 %     clusters(dM)
   
 C = [1 3 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0]
-    subNum = 1;
+%     subNum = 1;
     counter = 0;
     nrCluster = 2;
     
@@ -46,9 +44,9 @@ C = [1 3 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 
     
     switch subNum
         case 1   
-            nodes1 = [2 0 2];
-            treeplot(nodes1);
-            [x,y] = treelayout(nodes1);
+%             nodes1 = [2 0 2];
+            treeplot(nodes);
+            [x,y] = treelayout(nodes);
 
             for i = 1 : length(x)
                 text(x(i), y(i), num2str(i), 'VerticalAlignment','top','HorizontalAlignment','right');
@@ -96,4 +94,4 @@ C = [1 3 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 0; 0 0 0 0 0 
                 text(x(i), y(i), num2str(i), 'VerticalAlignment','top','HorizontalAlignment','right');
             end
     end
-% end
+ end
