@@ -363,9 +363,9 @@ lengthOfSequence = length(sequence1)
 for i = rows : -1 : 1
     for j = rows : -1 : 1
         if (i ~= j)
-            counter = compareSequences(sequences(i, :), sequences(j, :))
-            counter = jukesCantorModelDistance(counter, lengthOfSequence)
-            distanceMatrix(j, i) = counter;
+            p = compareSequences(sequences(i, :), sequences(j, :))
+            distance = jukesCantorModelDistance(p, lengthOfSequence)
+            distanceMatrix(j, i) = distance;
         end
     end
      rows = rows - 1;
