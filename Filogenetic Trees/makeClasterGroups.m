@@ -1,4 +1,4 @@
-function [clusterGroupsArray, nodesNumber] = makeClasterGroups(i, clusterGroupsArray, helperclusterGroupsArray, ...
+function [clusterGroupsArray, nodesNumber, isMerge] = makeClasterGroups(i, clusterGroupsArray, helperclusterGroupsArray, ...
     minValueY, minValueX, branchLength, nodesNumber)
     
     minValueX = helperclusterGroupsArray(2, minValueX);
@@ -8,8 +8,8 @@ function [clusterGroupsArray, nodesNumber] = makeClasterGroups(i, clusterGroupsA
 %         displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 1);
         clusterGroupsArray(1,1) = minValueY;
         clusterGroupsArray(1,2) = minValueX; 
-        
         nodesNumber = nodesNumber + 3;
+        isMerge = false;
         
     else
 
@@ -36,6 +36,7 @@ function [clusterGroupsArray, nodesNumber] = makeClasterGroups(i, clusterGroupsA
 %                     displayResult(clusterGroupsArray, i, rowWithMinValueY, rowWithMinValueX, branchLength, 4);
                     clusterGroupsArray = mergeRows(clusterGroupsArray, rowWithMinValueY, rowWithMinValueX);
                     nodesNumber = nodesNumber + 1;
+                    isMerge = true;
                     return
                     
                 else
@@ -44,7 +45,8 @@ function [clusterGroupsArray, nodesNumber] = makeClasterGroups(i, clusterGroupsA
                         if clusterGroupsArray(r3, c1) == 0
 %                             displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 3);
                             clusterGroupsArray(r3, c1) = minValueX;
-                            nodesNumber = nodesNumber + 2;
+                            nodesNumber = nodesNumber + 2;      
+                            isMerge = false;
                             return
                         end
                     end
@@ -59,7 +61,8 @@ function [clusterGroupsArray, nodesNumber] = makeClasterGroups(i, clusterGroupsA
                         if clusterGroupsArray(rowWithMinValueX, c2) == 0   
 %                             displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 2);
                             clusterGroupsArray(rowWithMinValueX, c2) = minValueY;     
-                            nodesNumber = nodesNumber + 2;
+                            nodesNumber = nodesNumber + 2;       
+                            isMerge = false;
                             return
                         end
                     end
@@ -69,7 +72,8 @@ function [clusterGroupsArray, nodesNumber] = makeClasterGroups(i, clusterGroupsA
 %                     displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 1);
                     clusterGroupsArray(minValueY,1) = minValueY;
                     clusterGroupsArray(minValueY,2) = minValueX;
-                    nodesNumber = nodesNumber + 3;
+                    nodesNumber = nodesNumber + 3;      
+                    isMerge = false;
                     return
                     
                 end

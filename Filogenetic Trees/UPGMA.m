@@ -8,6 +8,7 @@ clusterGroupsArray = zeros(lengthOfMatrix);
 helperClusterGroupsArray = zeros(2, lengthOfMatrix);
 subNum = 1;
 nodesNumber = 0;
+nodes = [];
 
 for column = 1 : lengthOfMatrix
     
@@ -19,7 +20,7 @@ for i = 1 : lengthOfMatrix - 1
  
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
-     [clusterGroupsArray, nodesNumber] = makeClasterGroups(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
+     [clusterGroupsArray, nodesNumber, isMerge] = makeClasterGroups(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
          minValueX, branchLength, nodesNumber);
      
      helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
@@ -29,7 +30,7 @@ for i = 1 : lengthOfMatrix - 1
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
          distanceMatrixCopy, newDistanceMatrix);       
      
-        drawTree(subNum, clusterGroupsArray, nodesNumber)
+        nodes = drawTree(subNum, clusterGroupsArray, nodesNumber, isMerge, nodes);
         subNum = subNum + 1;
          
      distanceMatrix = newDistanceMatrix;
