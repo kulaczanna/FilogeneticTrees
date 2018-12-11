@@ -20,7 +20,7 @@ for i = 1 : lengthOfMatrix - 1
  
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
-     [clusterGroupsArray, nodesNumber, isMerge] = makeClasterGroups(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
+     [clusterGroupsArray, nodesNumber, isMerge] = makeClasterGroupsTest(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
          minValueX, branchLength, nodesNumber);
      
      helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);

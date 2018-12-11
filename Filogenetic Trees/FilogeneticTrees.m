@@ -342,6 +342,24 @@ function compareSequenceBtn_Callback(hObject, eventdata, handles)
 
 global lengthMatrixTable;
 global distanceMatrix;
+global subNum;
+error = false;
+
+if (subNum == 1)
+    set(handles.compareSequenceBtn, 'enable', 'off');
+    set(handles.sequenceEditText1, 'enable', 'off');
+    set(handles.sequenceEditText2, 'enable', 'off');
+    set(handles.sequenceEditText3, 'enable', 'off');
+    set(handles.sequenceEditText4, 'enable', 'off');
+    set(handles.sequenceEditText5, 'enable', 'off');
+    set(handles.sequenceEditText6, 'enable', 'off');
+    set(handles.sequenceEditText7, 'enable', 'off');
+    set(handles.sequenceEditText8, 'enable', 'off');
+    set(handles.sequenceEditText9, 'enable', 'off');
+    set(handles.sequenceEditText10, 'enable', 'off');
+    set(handles.resetBtn, 'enable', 'on');
+end
+
 sequence1 = get(handles.sequenceEditText1,'String');
 sequence2 = get(handles.sequenceEditText2,'String');
 sequence3 = get(handles.sequenceEditText3,'String');
@@ -351,28 +369,46 @@ sequence6 = get(handles.sequenceEditText6,'String');
 sequence7 = get(handles.sequenceEditText7,'String');
 sequence8 = get(handles.sequenceEditText8,'String');
 sequence9 = get(handles.sequenceEditText9,'String');
-sequence10 = get(handles.sequenceEditText10,'String');   % b³¹d jak s¹ dwie identyczne sekwencje
+sequence10 = get(handles.sequenceEditText10,'String');
 
-
-sequences = [sequence1; sequence2; sequence3; sequence4; ...
-    sequence5; sequence6; sequence7; sequence8; sequence9; sequence10];
-[rows, columns] = size(sequences);
-distanceMatrix = zeros(rows);
-lengthOfSequence = length(sequence1)
+    matrixOfSequences = makeMatrixOfSequences(sequence1, sequence2, ...
+        sequence3, sequence4, sequence5, sequence6, ...
+        sequence7, sequence8, sequence9, sequence10);
+    
+                if(isempty(matrixOfSequences))
+                    return
+                end
+    
+    [rows, columns] = size(matrixOfSequences);
+    lengthOfSequence = length(matrixOfSequences(1, :));
+    distanceMatrix = zeros(rows);
 
 for i = rows : -1 : 1
     for j = rows : -1 : 1
         if (i ~= j)
-            p = compareSequences(sequences(i, :), sequences(j, :))
-            distance = jukesCantorModelDistance(p, lengthOfSequence)
-            distanceMatrix(j, i) = distance;
+            p = sum(matrixOfSequences(i, :) ~= matrixOfSequences(j, :));
+            if (p == 0)
+                 warndlg('The sequences cannot be the same', 'Sequences error');
+                 error = true;
+                 break;
+            else
+                distance = jukesCantorModelDistance(p, lengthOfSequence);
+                distanceMatrix(j, i) = distance;
+            end 
         end
     end
-     rows = rows - 1;
+        if(~error)
+         rows = rows - 1;
+        else
+            break
+        end
 end
-clusterGroups = clusters(distanceMatrix);
-set(lengthMatrixTable, 'data', distanceMatrix);
-set(handles.nextStepBtn, 'enable', 'on');
+
+if (~error)
+%     clusterGroups = clusters(distanceMatrix);
+    set(lengthMatrixTable, 'data', distanceMatrix);
+    set(handles.nextStepBtn, 'enable', 'on');
+end
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
 function checkbox1sequenceCheckBox1_Callback(hObject, eventdata, handles)
@@ -445,21 +481,6 @@ global lengthMatrixTable;
 global distanceMatrix;
 global subNum;
 
-if (subNum == 1)
-    set(handles.compareSequenceBtn, 'enable', 'off');
-    set(handles.sequenceEditText1, 'enable', 'off');
-    set(handles.sequenceEditText2, 'enable', 'off');
-    set(handles.sequenceEditText3, 'enable', 'off');
-    set(handles.sequenceEditText4, 'enable', 'off');
-    set(handles.sequenceEditText5, 'enable', 'off');
-    set(handles.sequenceEditText6, 'enable', 'off');
-    set(handles.sequenceEditText7, 'enable', 'off');
-    set(handles.sequenceEditText8, 'enable', 'off');
-    set(handles.sequenceEditText9, 'enable', 'off');
-    set(handles.sequenceEditText10, 'enable', 'off');
-    set(handles.resetBtn, 'enable', 'on');
-
-end
 lengthOfMatrix = getMatrixSize(distanceMatrix);
  if(lengthOfMatrix > 1)
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
@@ -469,7 +490,7 @@ lengthOfMatrix = getMatrixSize(distanceMatrix);
          distanceMatrix, newDistanceMatrix);    
      distanceMatrix = newDistanceMatrix;
      set(lengthMatrixTable, 'data', distanceMatrix);
-     drawTree(subNum)
+%      drawTree(subNum, clusterGroupsArray, nodesNumber, isMerge, nodes)
      subNum = subNum + 1;
  end
 
