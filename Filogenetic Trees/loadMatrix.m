@@ -35,5 +35,12 @@ function[distanceMatrix] = loadMatrix(numberOfMatrix)
             distanceMatrix =[0, 0.425, 0.575;
                         0, 0, 0.7;
                         0, 0, 0];
+        case 7
+            distanceMatrix = [0, 8, 2, 4, 8, 7;
+                        0, 0, 8, 5, 2, 6;
+                        0, 0, 0, 5, 8, 8;
+                        0, 0, 0, 0, 5, 5;
+                        0, 0, 0, 0, 0, 6;
+                        0, 0, 0, 0, 0, 0];
     end
 end

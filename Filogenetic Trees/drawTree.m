@@ -1,7 +1,8 @@
-function[nodes] = drawTree(subNum, clusterGroupsArray, nodesNumber, isMerge, nodes)
+function[nodes] = drawTree(subNum, oldClusterGroupsArray, clusterGroupsArray, nodesNumber, isMerge, nodes)
   
+a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray))
     if (isMerge)
-        nodes(1, length(nodes) - 1 : length(nodes)) = max(nodes + 1);
+        nodes(nodes == 0) = max(nodes + 1);
     else
         notEmptyRowsNumber = 0;
         notEmptyRows = [];
@@ -102,7 +103,7 @@ function[nodes] = drawTree(subNum, clusterGroupsArray, nodesNumber, isMerge, nod
 
         case 4
 %             nodes4 = [6 7 6 8 7 8 9 9 0];
-            
+%             nodes = [7 8 7 9 8 10 9 0 10 0]
             figure
             treeplot(nodes);
             [x,y] = treelayout(nodes);
@@ -117,7 +118,6 @@ function[nodes] = drawTree(subNum, clusterGroupsArray, nodesNumber, isMerge, nod
 
         case 5
 %             nodes5 = [7 8 7 9 8 11 9 10 10 11 0];
-            
             figure
             treeplot(nodes);
             [x,y] = treelayout(nodes);

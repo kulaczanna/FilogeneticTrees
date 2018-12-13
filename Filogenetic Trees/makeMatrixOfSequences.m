@@ -13,13 +13,13 @@ function[matrixOfSequences] = makematrixOfSequences(s1, s2, s3, s4, s5, s6, s7, 
     
             matrixOfSequences = [];             
             if (~(all(nonEmptysequencesNumber == nonEmptysequencesNumber(1))))
-                warndlg('The length of the sequences must be the same', 'Sequences error');
+                warndlg('The length of the sequences must be the same.', 'Sequences error');
                 return
             else
                 matrix = [s1; s2; s3; s4; s5; s6; s7; s8; s9; s10];
                 for b = 1 : 6
                     if (~all(ismember(matrix(b, :), 'ACTG')))
-                       warndlg('Only these characters are available: "A", "G", "C", "T"', 'Sequences error');
+                       warndlg('There are available only "A", "G", "C", "T" characters.', 'Sequences error');
                        matrixOfSequences = []; 
                        return
                     else

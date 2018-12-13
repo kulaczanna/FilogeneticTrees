@@ -1,9 +1,10 @@
-function[minVdistanceMatrixlueY, minVdistanceMatrixlueX] = findFirstMinimumPosition(distanceMatrix)
+function[minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix)
 
-    minVdistanceMatrixlue = min(distanceMatrix(distanceMatrix > 0));
-    [minY, minX] = find(distanceMatrix == minVdistanceMatrixlue);
-    minVdistanceMatrixlueY = min(minY);
-    [Y, X] = find(minY == minVdistanceMatrixlueY);
-    minVdistanceMatrixlueX = minX(Y,X);
+    minValue = min(distanceMatrix(distanceMatrix > 0));
+    [minY, minX] = find(distanceMatrix == minValue);
+    minValueY = min(minY);
+    minValueX = min(minX);
+%     [Y, X] = find(minY == minValueY);
+%     minValueX = minX(Y,X);
     
 end

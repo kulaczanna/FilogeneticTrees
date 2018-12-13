@@ -1,8 +1,14 @@
-function [clusterGroupsArray] = clusters (distanceMatrix)
+% Application for filogenetic trees construction - UPGMA method
+clc
+clear all;
 
+distanceMatrix = loadMatrix(5)
 lengthOfMatrix = getMatrixSize(distanceMatrix);
 clusterGroupsArray = zeros(lengthOfMatrix);
 helperClusterGroupsArray = zeros(2, lengthOfMatrix);
+subNum = 1;
+nodesNumber = 0;
+nodes = [];
 
 for column = 1 : lengthOfMatrix
     
@@ -14,8 +20,8 @@ for i = 1 : lengthOfMatrix - 1
  
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
-     clusterGroupsArray = makeClasterGroups(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
-         minValueX, branchLength)
+     [clusterGroupsArray, nodesNumber, isMerge] = makeClasterGroupsTest(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
+         minValueX, branchLength, nodesNumber)
      
      helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
      distanceMatrixCopy = distanceMatrix;
@@ -24,6 +30,9 @@ for i = 1 : lengthOfMatrix - 1
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
          distanceMatrixCopy, newDistanceMatrix);       
      
+        nodes = drawTree(subNum, clusterGroupsArray, newClusterGroupsArray, nodesNumber, isMerge, nodes);
+        subNum = subNum + 1;
+         
      distanceMatrix = newDistanceMatrix;
      lengthOfMatrix = lengthOfMatrix - 1;
     

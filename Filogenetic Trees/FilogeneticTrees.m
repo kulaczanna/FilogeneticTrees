@@ -386,14 +386,20 @@ sequence10 = get(handles.sequenceEditText10,'String');
 for i = rows : -1 : 1
     for j = rows : -1 : 1
         if (i ~= j)
-            p = sum(matrixOfSequences(i, :) ~= matrixOfSequences(j, :));
-            if (p == 0)
-                 warndlg('The sequences cannot be the same', 'Sequences error');
+            distance = sum(matrixOfSequences(i, :) ~= matrixOfSequences(j, :));
+            if (distance == 0)
+                 warndlg('The sequences cannot be the same.', 'Sequences error');
                  error = true;
                  break;
             else
-                distance = jukesCantorModelDistance(p, lengthOfSequence);
-                distanceMatrix(j, i) = distance;
+                distance = jukesCantorModelDistance(distance, lengthOfSequence);
+                if (distance == inf)
+                    warndlg('There is too big difference (more than 75%) between some sequences.', 'Sequences error');
+                    error = true;
+                    break;
+                else
+                    distanceMatrix(j, i) = distance;
+                end
             end 
         end
     end
@@ -405,7 +411,7 @@ for i = rows : -1 : 1
 end
 
 if (~error)
-%     clusterGroups = clusters(distanceMatrix);
+    clusterGroups = clusters(distanceMatrix)
     set(lengthMatrixTable, 'data', distanceMatrix);
     set(handles.nextStepBtn, 'enable', 'on');
 end
@@ -490,6 +496,7 @@ lengthOfMatrix = getMatrixSize(distanceMatrix);
          distanceMatrix, newDistanceMatrix);    
      distanceMatrix = newDistanceMatrix;
      set(lengthMatrixTable, 'data', distanceMatrix);
+     set(handles.branchLengthTextBox, 'String', branchLength);
 %      drawTree(subNum, clusterGroupsArray, nodesNumber, isMerge, nodes)
      subNum = subNum + 1;
  end
@@ -518,6 +525,7 @@ subNum = 1;
     set(handles.nextStepBtn, 'enable', 'off');
     set(lengthMatrixTable, 'Data', ...
         cell(size(get(lengthMatrixTable,'Data'))));
+    set(handles.branchLengthTextBox, 'String', '');
     cla;
     clc   
 
