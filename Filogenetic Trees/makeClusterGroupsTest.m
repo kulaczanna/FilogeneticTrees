@@ -1,5 +1,5 @@
-function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber] = makeClusterGroupsTest(i, clusterGroupsArray, helperclusterGroupsArray, ...
-    minValueY, minValueX, branchLength, nodesNumber)
+function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber, ktoraSekwencjePodpisac] = makeClusterGroupsTest(i, clusterGroupsArray, helperclusterGroupsArray, ...
+    minValueY, minValueX, branchLength, nodesNumber, ktoraSekwencjePodpisac)
     
     minValueX = helperclusterGroupsArray(2, minValueX);
     isOneAdded = false;
@@ -13,6 +13,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
         nodesNumber = nodesNumber + 3;
         isMerge = false;
         changedRowNumber = 1;
+        ktoraSekwencjePodpisac = [minValueY, minValueX];
         
     else
 
@@ -40,7 +41,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
                     clusterGroupsArray = mergeRows(clusterGroupsArray, rowWithMinValueY, rowWithMinValueX);
                     nodesNumber = nodesNumber + 1;
                     isMerge = true;
-                    changedRowNumber = r3;
+                    changedRowNumber = [rowWithMinValueY, rowWithMinValueX];
                     return
                     
                 else
@@ -52,7 +53,8 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
                             nodesNumber = nodesNumber + 2;      
                             isMerge = false;
                             isOneAdded = true;
-                            changedRowNumber = r3
+                            changedRowNumber = r3;
+                             ktoraSekwencjePodpisac(1, end + 1) = minValueX;
                             return
                         end
                     end
@@ -70,7 +72,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
                             nodesNumber = nodesNumber + 2;       
                             isMerge = false;
                             isOneAdded = true;
-                            changedRowNumber = rowWithMinValueX
+                            changedRowNumber = rowWithMinValueX;
                             return
                         end
                     end
@@ -83,6 +85,8 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
                     nodesNumber = nodesNumber + 3;      
                     isMerge = false;
                     changedRowNumber = minValueY;
+                    ktoraSekwencjePodpisac(1, end + 1) = minValueY;
+                    ktoraSekwencjePodpisac(1, end + 1) = minValueX;
                     return
                     
                 end
