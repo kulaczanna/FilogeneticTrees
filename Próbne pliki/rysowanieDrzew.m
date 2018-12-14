@@ -4,7 +4,7 @@ clc
 
 subNum = 1
 distanceMatrix = loadMatrix(1)
-lengthOfMatrix = getMatrixSize(distanceMatrix)
+lengthOfMatrix = length(distanceMatrix)
 for a = 1 : lengthOfMatrix - 1
     if(lengthOfMatrix > 1)
          [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);

@@ -411,7 +411,6 @@ for i = rows : -1 : 1
 end
 
 if (~error)
-    clusterGroups = clusters(distanceMatrix)
     set(lengthMatrixTable, 'data', distanceMatrix);
     set(handles.nextStepBtn, 'enable', 'on');
 end
@@ -487,7 +486,7 @@ global lengthMatrixTable;
 global distanceMatrix;
 global subNum;
 
-lengthOfMatrix = getMatrixSize(distanceMatrix);
+lengthOfMatrix = length(distanceMatrix);
  if(lengthOfMatrix > 1)
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
@@ -497,7 +496,7 @@ lengthOfMatrix = getMatrixSize(distanceMatrix);
      distanceMatrix = newDistanceMatrix;
      set(lengthMatrixTable, 'data', distanceMatrix);
      set(handles.branchLengthTextBox, 'String', branchLength);
-%      drawTree(subNum, clusterGroupsArray, nodesNumber, isMerge, nodes)
+%      drawTree(subNum)
      subNum = subNum + 1;
  end
 

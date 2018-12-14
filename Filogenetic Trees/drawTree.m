@@ -19,7 +19,7 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray))
                 if (~(ismember(w, clusterGroupsArray(notEmptyRows, :))))
                     roots(1, end + 1) = w;
 %                     if (length(roots) == notEmptyRowsNumber)
-%                         break;   % potrzebne?
+%                         break;
 %                     end
                 end
             end
