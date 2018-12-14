@@ -1,12 +1,13 @@
 clc
 clear all;
 
-distanceMatrix = loadMatrix(7)
+distanceMatrix = loadMatrix(5)
 lengthOfMatrix = length(distanceMatrix);
 clusterGroupsArray = zeros(lengthOfMatrix);
 helperClusterGroupsArray = zeros(2, lengthOfMatrix);
 nodesNumber = 0;
 nodes = [];
+numeryWezlow = [];
 
 for column = 1 : lengthOfMatrix
     
@@ -29,8 +30,8 @@ for i = 1 : lengthOfMatrix - 1
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
          distanceMatrixCopy, newDistanceMatrix);       
      
-        nodes = drawTreeOther(clusterGroupsArray, newClusterGroupsArray, ...
-            nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber);
+        [nodes, numeryWezlow] = drawTreeOther(clusterGroupsArray, newClusterGroupsArray, ...
+            nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber, numeryWezlow);
          
      distanceMatrix = newDistanceMatrix;
      lengthOfMatrix = lengthOfMatrix - 1;

@@ -1,9 +1,29 @@
-function[nodes] = drawTreeOther(oldClusterGroupsArray, clusterGroupsArray, ...
-    nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber)
+function[nodes, numeryWezlow] = drawTreeOther(oldClusterGroupsArray, clusterGroupsArray, ...
+    nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber, numeryWezlow)
   
 oldClusterGroupsArray;
 clusterGroupsArray;
 a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
+
+        notEmptyRowsNumber = 0;
+        notEmptyRows = [];
+        roots = [];
+%         numeryWezlow = [];
+
+        for j = 1 : length(clusterGroupsArray)   % licze ile poddrzew po tym ile niepustych wierszy
+                if (~(clusterGroupsArray(j, 1) == 0))
+                    notEmptyRowsNumber = notEmptyRowsNumber + 1;
+                    notEmptyRows(1, end + 1) = j;    % i sprawdzam ktore wiersze sa niepuste
+                end
+        end
+        
+        stareNumeryWezlow = numeryWezlow;
+        for x =  length(nodes) + 1 : nodesNumber
+%             if (changedRowNumber ~= 0)
+               numeryWezlow(changedRowNumber, end + 1) = x;
+%             end
+        end
+        
 
     if (isMerge)
         nodes(nodes == 0) = max(nodes + 1);
@@ -11,18 +31,23 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
         
         for c = length(nodes) + 1 : nodesNumber - 1
             nodes(1, c) = nodesNumber;
-        end    
-        
+        end
+         
     elseif (a == 1)
         
-       zeroPos = find(nodes == 0)
-       zeroPos = zeroPos(changedRowNumber)
+        numeryWezlow
+       takiTamWektor = stareNumeryWezlow(changedRowNumber, :)
+       wek = takiTamWektor(takiTamWektor ~= 0)
+       tuSzukaj = nodes(wek)
+       zeroPos = find(tuSzukaj == 0)
+       zeroPos = wek(zeroPos)
+       zeroPos = zeroPos(changedRowNumber);
        newNodeNumber = max(nodes) + 2;
-       nodes(1, zeroPos) = newNodeNumber
-       nodes(1, length(nodes) + 1) = newNodeNumber
+       nodes(1, zeroPos) = newNodeNumber;
+       nodes(1, length(nodes) + 1) = newNodeNumber;
         
     end
-    
+
      for h =  length(nodes) + 1 : nodesNumber
             nodes(1, h) = 0;
      end
@@ -41,19 +66,7 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
 %     end
     
 end
-        
-%         notEmptyRowsNumber = 0;
-%         notEmptyRows = [];
-%         roots = [];
-% 
-%         for j = 1 : length(clusterGroupsArray)   % licze ile poddrzew po tym ile niepustych wierszy
-%                 if (~(clusterGroupsArray(j, 1) == 0))
-%                     notEmptyRowsNumber = notEmptyRowsNumber + 1;
-%                     notEmptyRows(1, end + 1) = j;    % i sprawdzam ktore wiersze sa niepuste
-%                 end
-%         end
-
-        
+               
 %         for c = 1 : length(clusterGroupsArray)
 %             if (ismember(c, notEmptyRows))
 %                 for x = 1 : length(clusterGroupsArray)

@@ -1,7 +1,30 @@
-function[nodes] = drawTreeOther(oldClusterGroupsArray, clusterGroupsArray, ...
-    nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber)
+function[nodes, numeryWezlow] = drawTreeOther(oldClusterGroupsArray, clusterGroupsArray, ...
+    nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber, numeryWezlow)
   
-a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray))
+oldClusterGroupsArray;
+clusterGroupsArray;
+a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
+
+        notEmptyRowsNumber = 0;
+        notEmptyRows = [];
+        roots = [];
+%         numeryWezlow = [];
+
+        for j = 1 : length(clusterGroupsArray)   % licze ile poddrzew po tym ile niepustych wierszy
+                if (~(clusterGroupsArray(j, 1) == 0))
+                    notEmptyRowsNumber = notEmptyRowsNumber + 1;
+                    notEmptyRows(1, end + 1) = j;    % i sprawdzam ktore wiersze sa niepuste
+                end
+        end
+        
+        
+        for x =  length(nodes) + 1 : nodesNumber
+%             if (changedRowNumber ~= 0)
+stareNumeryWezlow = numeryWezlow
+               numeryWezlow(changedRowNumber, end + 1) = x;
+%             end
+        end
+        
 
     if (isMerge)
         nodes(nodes == 0) = max(nodes + 1);
@@ -9,45 +32,42 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray))
         
         for c = length(nodes) + 1 : nodesNumber - 1
             nodes(1, c) = nodesNumber;
-        end    
-        
+        end
+         
     elseif (a == 1)
         
-       nodes
+        numeryWezlow
+       takiTamWektor = numeryWezlow(changedRowNumber, :)
+       wek = takiTamWektor(takiTamWektor ~= 0)
+       tuSzukaj = nodes(wek)
+       zeroPos = find(nodes == 0)
+       zeroPos = zeroPos(changedRowNumber);
+       newNodeNumber = max(nodes) + 2;
+       nodes(1, zeroPos) = newNodeNumber;
+       nodes(1, length(nodes) + 1) = newNodeNumber;
         
     end
-    
+
      for h =  length(nodes) + 1 : nodesNumber
             nodes(1, h) = 0;
      end
     
+    numeryWezlow = noweNumeryWezlow;
     nodes
 
     figure
     treeplot(nodes);
-    [x,y] = treelayout(nodes);
-    for i = 1 : length(x)
-        if (ismember(i, clusterGroupsArray))
-            text(x(i), y(i), num2str(i), ...
-                'VerticalAlignment','top', ...
-                'HorizontalAlignment','right');
-        end
-    end
+%     [x,y] = treelayout(nodes);
+%     for i = 1 : length(x)
+%         if (ismember(i, clusterGroupsArray))
+%             text(x(i), y(i), num2str(i), ...
+%                 'VerticalAlignment','top', ...
+%                 'HorizontalAlignment','right');
+%         end
+%     end
     
 end
-        
-%         notEmptyRowsNumber = 0;
-%         notEmptyRows = [];
-%         roots = [];
-% 
-%         for j = 1 : length(clusterGroupsArray)   % licze ile poddrzew po tym ile niepustych wierszy
-%                 if (~(clusterGroupsArray(j, 1) == 0))
-%                     notEmptyRowsNumber = notEmptyRowsNumber + 1;
-%                     notEmptyRows(1, end + 1) = j;    % i sprawdzam ktore wiersze sa niepuste
-%                 end
-%         end
-
-        
+               
 %         for c = 1 : length(clusterGroupsArray)
 %             if (ismember(c, notEmptyRows))
 %                 for x = 1 : length(clusterGroupsArray)

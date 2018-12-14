@@ -12,6 +12,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
         clusterGroupsArray(1,2) = minValueX; 
         nodesNumber = nodesNumber + 3;
         isMerge = false;
+        changedRowNumber = 1;
         
     else
 
@@ -39,6 +40,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
                     clusterGroupsArray = mergeRows(clusterGroupsArray, rowWithMinValueY, rowWithMinValueX);
                     nodesNumber = nodesNumber + 1;
                     isMerge = true;
+                    changedRowNumber = r3;
                     return
                     
                 else
@@ -80,6 +82,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
                     clusterGroupsArray(minValueY,2) = minValueX;
                     nodesNumber = nodesNumber + 3;      
                     isMerge = false;
+                    changedRowNumber = minValueY;
                     return
                     
                 end
