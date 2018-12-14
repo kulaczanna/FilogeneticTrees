@@ -1,7 +1,9 @@
-function [clusterGroupsArray, nodesNumber, isMerge] = makeClasterGroupsTest(i, clusterGroupsArray, helperclusterGroupsArray, ...
+function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber] = makeClusterGroupsTest(i, clusterGroupsArray, helperclusterGroupsArray, ...
     minValueY, minValueX, branchLength, nodesNumber)
     
     minValueX = helperclusterGroupsArray(2, minValueX);
+    isOneAdded = false;
+    changedRowNumber
 
     if (i == 1)
 
@@ -47,6 +49,8 @@ function [clusterGroupsArray, nodesNumber, isMerge] = makeClasterGroupsTest(i, c
                             clusterGroupsArray(r3, c1) = minValueX;
                             nodesNumber = nodesNumber + 2;      
                             isMerge = false;
+                            isOneAdded = true;
+                            changedRowNumber = r3
                             return
                         end
                     end
@@ -63,6 +67,8 @@ function [clusterGroupsArray, nodesNumber, isMerge] = makeClasterGroupsTest(i, c
                             clusterGroupsArray(rowWithMinValueX, c2) = minValueY;     
                             nodesNumber = nodesNumber + 2;       
                             isMerge = false;
+                            isOneAdded = true;
+                            changedRowNumber = rowWithMinValueX
                             return
                         end
                     end

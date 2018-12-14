@@ -1,11 +1,10 @@
 clc
 clear all;
 
-distanceMatrix = loadMatrix(5)
+distanceMatrix = loadMatrix(7)
 lengthOfMatrix = length(distanceMatrix);
 clusterGroupsArray = zeros(lengthOfMatrix);
 helperClusterGroupsArray = zeros(2, lengthOfMatrix);
-subNum = 1;
 nodesNumber = 0;
 nodes = [];
 
@@ -19,7 +18,7 @@ for i = 1 : lengthOfMatrix - 1
  
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
-     [newClusterGroupsArray, nodesNumber, isMerge] = makeClasterGroupsTest(i, clusterGroupsArray, ...
+     [newClusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber] = makeClusterGroupsTest(i, clusterGroupsArray, ...
          helperClusterGroupsArray, minValueY, ...
          minValueX, branchLength, nodesNumber);
      
@@ -30,8 +29,8 @@ for i = 1 : lengthOfMatrix - 1
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
          distanceMatrixCopy, newDistanceMatrix);       
      
-        nodes = drawTree(subNum, clusterGroupsArray, newClusterGroupsArray, nodesNumber, isMerge, nodes);
-        subNum = subNum + 1;
+        nodes = drawTreeOther(clusterGroupsArray, newClusterGroupsArray, ...
+            nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber);
          
      distanceMatrix = newDistanceMatrix;
      lengthOfMatrix = lengthOfMatrix - 1;
