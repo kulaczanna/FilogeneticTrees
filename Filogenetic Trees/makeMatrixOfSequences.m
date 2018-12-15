@@ -1,4 +1,4 @@
-function[matrixOfSequences] = makematrixOfSequences(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10)
+function[matrixOfSequences] = makeMatrixOfSequences(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10)
 
     lengths = [length(s1), length(s2), length(s3), length(s4), length(s5), ...
         length(s6), length(s7), length(s8), length(s9), length(s10)];
@@ -11,20 +11,22 @@ function[matrixOfSequences] = makematrixOfSequences(s1, s2, s3, s4, s5, s6, s7, 
         end
     end
     
-            matrixOfSequences = [];             
-            if (~(all(nonEmptysequencesNumber == nonEmptysequencesNumber(1))))
-                warndlg('The length of the sequences must be the same.', 'Sequences error');
+    matrixOfSequences = [];
+    if (~(all(nonEmptysequencesNumber == nonEmptysequencesNumber(1))))
+        warndlg('The length of the sequences must be the same.', 'Sequences error');
+        return
+    else
+        
+        matrix = [s1; s2; s3; s4; s5; s6; s7; s8; s9; s10];
+        for b = 1 : 6
+            if (~all(ismember(matrix(b, :), 'ACTG')))
+                warndlg('There are available only "A", "G", "C", "T" characters.', 'Sequences error');
+                matrixOfSequences = [];
                 return
             else
-                matrix = [s1; s2; s3; s4; s5; s6; s7; s8; s9; s10];
-                for b = 1 : 6
-                    if (~all(ismember(matrix(b, :), 'ACTG')))
-                       warndlg('There are available only "A", "G", "C", "T" characters.', 'Sequences error');
-                       matrixOfSequences = []; 
-                       return
-                    else
-                        matrixOfSequences = matrix;
-                    end
-                end
-            end           
+                matrixOfSequences = matrix;
+            end
+        end
+    end
+    
 end

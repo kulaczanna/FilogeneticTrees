@@ -1,84 +1,56 @@
-function[nodes] = drawTree(oldClusterGroupsArray, clusterGroupsArray, nodesNumber, isMerge, nodes, isOneAdded)
+function[nodes, nodesNumbers, leafsToSign, mergeFlag] = drawTree(mergeFlag, ...
+    oldClusterGroupsArray, clusterGroupsArray, nodesNumber, isMerge, nodes, ...
+    changedRowNumber, nodesNumbers, leafsToSign, i)
   
-a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray))
-
-    if (isMerge)
-        nodes(nodes == 0) = max(nodes + 1);
-    else
+    changedPositionsInClustersNumber = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
+    oldNodesNumbers = nodesNumbers;
+    
+    for x = (length(nodes) + 1) : nodesNumber
+        nodesNumbers(changedRowNumber, end + 1) = x;
+    end
         
-        notEmptyRowsNumber = 0;
-        notEmptyRows = [];
-        roots = [];
-
-        for j = 1 : length(clusterGroupsArray)   % licze ile poddrzew po tym ile niepustych wierszy
-                if (~(clusterGroupsArray(j, 1) == 0))
-                    notEmptyRowsNumber = notEmptyRowsNumber + 1;
-                    notEmptyRows(1, end + 1) = j;    % i sprawdzam ktore wiersze sa niepuste
-                end
+    if (isMerge)
+        
+       helperZerosVector = oldNodesNumbers(changedRowNumber, :);
+       helperVectorWithoutZeros = helperZerosVector(helperZerosVector ~= 0);
+       vectorToChangeNode = nodes(helperVectorWithoutZeros);
+       zeroPosition = helperVectorWithoutZeros(find(vectorToChangeNode == 0));
+       nodes(zeroPosition) = max(nodes + 1);
+       mergeFlag = mergeFlag + 1;
+        
+    elseif (changedPositionsInClustersNumber == 2)
+        
+        for c = (length(nodes) + 1) : nodesNumber - 1
+            nodes(1, c) = nodesNumber;
         end
-
-            for n = 1 : nodesNumber
-                if (~(ismember(n, clusterGroupsArray(notEmptyRows, :))))
-                    roots(1, end + 1) = n;
-%                     if (length(roots) == notEmptyRowsNumber)
-%                         break;
-%                     end
-                end
-            end
-
-        for c = 1 : length(clusterGroupsArray)
-            if (ismember(c, notEmptyRows))
-                for x = 1 : length(clusterGroupsArray)
-                    if (clusterGroupsArray(c, x) ~= 0)
-                        if (x <= 2)
-                            if (clusterGroupsArray(c, x) <= nodesNumber)
-                                nodes(1, clusterGroupsArray(c, x)) = roots(1, c);
-                            else
-                                nodes(1, nodesNumber) = roots(1, c);
-                            end
-                        else
-                            nodes(1, clusterGroupsArray(c, x)) = max(roots);
-                            nodes(1, roots(1, c)) = max(roots);
-                        end
-                    end
-                end
-            end
-        end    
-    end
-    
-    for h =  length(nodes) + 1 : nodesNumber
-        nodes(1, h) = 0;
-    end
-    
-    nodes
-
-    figure
-    treeplot(nodes);
-    [x,y] = treelayout(nodes);
-    for i = 1 : length(x)
-        if (ismember(i, clusterGroupsArray))
-            text(x(i), y(i), num2str(i), ...
-                'VerticalAlignment','top', ...
-                'HorizontalAlignment','right');
+        if (i == 1)
+            leafsToSign = [1, 2];
+        else
+                leafsToSign(1, end + 1) = max(leafsToSign) + 2 + mergeFlag;
+                leafsToSign(1, end + 1) = max(leafsToSign) + 1;
+                mergeFlag = 0;
         end
+         
+    elseif (changedPositionsInClustersNumber == 1)
+        
+       helperZerosVector = oldNodesNumbers(changedRowNumber, :);
+       helperVectorWithoutZeros = helperZerosVector(helperZerosVector ~= 0);
+       vectorToChangeNode = nodes(helperVectorWithoutZeros);
+       zeroPosition = helperVectorWithoutZeros(find(vectorToChangeNode == 0));
+       if (length(zeroPosition) > 1)
+           zeroPosition = zeroPosition(changedRowNumber);
+       end
+       newNodeNumber = max(nodes) + 2;
+       nodes(1, zeroPosition) = newNodeNumber;
+       nodes(1, length(nodes) + 1) = newNodeNumber;
+       leafsToSign(1, end + 1) = max(leafsToSign) + 2 + mergeFlag;
+       mergeFlag = 0;        
     end
+
+     for h =  length(nodes) + 1 : nodesNumber
+         nodes(1, h) = 0;
+     end
+    
 end
-                 
-%             figure
-%             treeplot(nodes);
-%             [x,y] = treelayout(nodes);
-% 
-%             for i = 1 : length(x)
-%                 if (i == length(x) && max(max(clusterGroupsArray)) > i)
-%                     text(x(i), y(i), num2str(max(max(clusterGroupsArray))), ...
-%                             'VerticalAlignment','top', ...
-%                             'HorizontalAlignment','right');
-%                 else
-%                     if(ismember(i, clusterGroupsArray))
-%                         text(x(i), y(i), num2str(i), ...
-%                         'VerticalAlignment','top', ...
-%                         'HorizontalAlignment','right');
-%                     end
-%                 end
-%             end
+   
     

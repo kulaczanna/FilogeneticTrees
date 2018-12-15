@@ -349,6 +349,7 @@ global cellKtoreSekwencje;
 error = false;
 
 if (subNum == 1)
+    
     set(handles.compareSequenceBtn, 'enable', 'off');
     set(handles.sequenceEditText1, 'enable', 'off');
     set(handles.sequenceEditText2, 'enable', 'off');
@@ -361,6 +362,7 @@ if (subNum == 1)
     set(handles.sequenceEditText9, 'enable', 'off');
     set(handles.sequenceEditText10, 'enable', 'off');
     set(handles.resetBtn, 'enable', 'on');
+    
 end
 
 sequence1 = get(handles.sequenceEditText1,'String');
@@ -374,28 +376,31 @@ sequence8 = get(handles.sequenceEditText8,'String');
 sequence9 = get(handles.sequenceEditText9,'String');
 sequence10 = get(handles.sequenceEditText10,'String');
 
-    matrixOfSequences = makeMatrixOfSequences(sequence1, sequence2, ...
-        sequence3, sequence4, sequence5, sequence6, ...
-        sequence7, sequence8, sequence9, sequence10);
-    
-                if(isempty(matrixOfSequences))
-                    return
-                end
-    
-    [rows, columns] = size(matrixOfSequences);
-    lengthOfSequence = length(matrixOfSequences(1, :));
-    distanceMatrix = zeros(rows);
+matrixOfSequences = makeMatrixOfSequences(sequence1, sequence2, ...
+    sequence3, sequence4, sequence5, sequence6, sequence7, sequence8, ...
+    sequence9, sequence10);
+
+if(isempty(matrixOfSequences))
+    return
+end
+
+[rows, columns] = size(matrixOfSequences);
+lengthOfSequence = length(matrixOfSequences(1, :));
+distanceMatrix = zeros(rows);
 
 for i = rows : -1 : 1
     for j = rows : -1 : 1
         if (i ~= j)
             distance = sum(matrixOfSequences(i, :) ~= matrixOfSequences(j, :));
             if (distance == 0)
-                 warndlg('The sequences cannot be the same.', 'Sequences error');
+                
+                warndlg('The sequences cannot be the same.', 'Sequences error');
                  error = true;
                  break;
+                 
             else
-%                 distance = jukesCantorModelDistance(distance, lengthOfSequence);
+                
+                distance = jukesCantorSubstituteModel(distance, lengthOfSequence);
                 if (distance == inf)
                     warndlg('There is too big difference (more than 75%) between some sequences.', 'Sequences error');
                     error = true;
@@ -403,20 +408,21 @@ for i = rows : -1 : 1
                 else
                     distanceMatrix(j, i) = distance;
                 end
+                
             end 
         end
     end
-        if(~error)
-         rows = rows - 1;
-        else
-            break
-        end
+    if(~error)
+        rows = rows - 1;
+    else
+        break
+    end
 end
 
 if (~error)
     set(lengthMatrixTable, 'data', distanceMatrix);
     set(handles.nextStepBtn, 'enable', 'on');
-    [cellNodes, cellKtoreLiscie, cellKtoreSekwencje] = upgmaFunction(distanceMatrix);
+    [cellNodes, cellKtoreLiscie, cellKtoreSekwencje] = makeTreesByWPGMA(distanceMatrix);
 end
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
@@ -494,7 +500,9 @@ global cellKtoreLiscie;
 global cellKtoreSekwencje;
 
 lengthOfMatrix = length(distanceMatrix);
+
  if(lengthOfMatrix > 1)
+     
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
      newDistanceMatrix = zeros(lengthOfMatrix-1);
@@ -503,19 +511,16 @@ lengthOfMatrix = length(distanceMatrix);
      distanceMatrix = newDistanceMatrix;
      set(lengthMatrixTable, 'data', distanceMatrix);
      set(handles.branchLengthTextBox, 'String', branchLength);
-     
-         treeplot(cellNodes{1, subNum});
-    [x,y] = treelayout(cellNodes{1, subNum});
-    for p = 1 : length(cellKtoreLiscie{1, subNum})
-        
-            text(x(cellKtoreLiscie{1, subNum}(p)), y(cellKtoreLiscie{1, subNum}(p)), num2str(cellKtoreSekwencje{1, subNum}(p)), ...
-                'VerticalAlignment','top', ...
-                'HorizontalAlignment','right');
-        
-    end
+     treeplot(cellNodes{1, subNum});
+     [x,y] = treelayout(cellNodes{1, subNum});
+     for p = 1 : length(cellKtoreLiscie{1, subNum})
+         text(x(cellKtoreLiscie{1, subNum}(p)), y(cellKtoreLiscie{1, subNum}(p)), ...
+             num2str(cellKtoreSekwencje{1, subNum}(p)), 'VerticalAlignment','top', ...
+             'HorizontalAlignment','right');
+     end
      subNum = subNum + 1;
+     
  end
-
 
 % --- Executes on button press in resetBtn.
 function resetBtn_Callback(hObject, eventdata, handles)
@@ -526,24 +531,22 @@ function resetBtn_Callback(hObject, eventdata, handles)
 global subNum;
 global lengthMatrixTable;
 subNum = 1;
-    set(handles.compareSequenceBtn, 'enable', 'on');
-    set(handles.sequenceEditText1, 'enable', 'on');
-    set(handles.sequenceEditText2, 'enable', 'on');
-    set(handles.sequenceEditText3, 'enable', 'on');
-    set(handles.sequenceEditText4, 'enable', 'on');
-    set(handles.sequenceEditText5, 'enable', 'on');
-    set(handles.sequenceEditText6, 'enable', 'on');
-    set(handles.sequenceEditText7, 'enable', 'on');
-    set(handles.sequenceEditText8, 'enable', 'on');
-    set(handles.sequenceEditText9, 'enable', 'on');
-    set(handles.sequenceEditText10, 'enable', 'on');
-    set(handles.nextStepBtn, 'enable', 'off');
-    set(lengthMatrixTable, 'Data', ...
-        cell(size(get(lengthMatrixTable,'Data'))));
-    set(handles.branchLengthTextBox, 'String', '');
-    cla;
-    clc   
-
+set(handles.compareSequenceBtn, 'enable', 'on');
+set(handles.sequenceEditText1, 'enable', 'on');
+set(handles.sequenceEditText2, 'enable', 'on');
+set(handles.sequenceEditText3, 'enable', 'on');
+set(handles.sequenceEditText4, 'enable', 'on');
+set(handles.sequenceEditText5, 'enable', 'on');
+set(handles.sequenceEditText6, 'enable', 'on');
+set(handles.sequenceEditText7, 'enable', 'on');
+set(handles.sequenceEditText8, 'enable', 'on');
+set(handles.sequenceEditText9, 'enable', 'on');
+set(handles.sequenceEditText10, 'enable', 'on');
+set(handles.nextStepBtn, 'enable', 'off');
+set(lengthMatrixTable, 'Data', cell(size(get(lengthMatrixTable,'Data'))));
+set(handles.branchLengthTextBox, 'String', '');
+cla;
+clc   
 
 % --- Executes on mouse press over axes background.
 function filogeneticTreeAxis_ButtonDownFcn(hObject, eventdata, handles)

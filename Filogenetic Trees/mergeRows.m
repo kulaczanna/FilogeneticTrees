@@ -16,4 +16,5 @@ function [clusterGroupsArray] = mergeRows(clusterGroupsArray, row1, row2)
     end
     
     clusterGroupsArray(row2, :) = 0; 
+    
 end
