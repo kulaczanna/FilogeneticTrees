@@ -1,4 +1,4 @@
-function[subNum, nodes, numeryWezlow, ktoryLiscPodpisac] = drawTreeOther(oldClusterGroupsArray, clusterGroupsArray, ...
+function[nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, flag] = drawTreeOther(flag, oldClusterGroupsArray, clusterGroupsArray, ...
     nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, i)
   
 a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
@@ -27,6 +27,7 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
        zeroPos = find(tuSzukaj == 0);
        zeroPos = wek(zeroPos);
        nodes(zeroPos) = max(nodes + 1);
+       flag = flag + 1;
         
     elseif (a == 2)
         
@@ -37,8 +38,14 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
         if(i == 1)
             ktoryLiscPodpisac = [1, 2];
         else
-            ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2;
-            ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 1;
+            if(flag > 0)
+                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 3;
+                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 1;
+                flag = false;
+            else
+                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2;
+                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 1;
+            end
         end
          
     elseif (a == 1)
@@ -53,7 +60,12 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
        nodes(1, zeroPos) = newNodeNumber;
        nodes(1, length(nodes) + 1) = newNodeNumber;
        
-       ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2;
+       if(flag == true)
+           ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 3;
+           flag = false;
+       else
+           ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2;
+       end
         
     end
 
@@ -61,18 +73,15 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
             nodes(1, h) = 0;
      end
 
-%     f = figure('visible','off');
-
-    treeplot(nodes);
-    [x,y] = treelayout(nodes);
-    for i = 1 : length(ktoryLiscPodpisac)
-        
-            text(x(ktoryLiscPodpisac(i)), y(ktoryLiscPodpisac(i)), num2str(ktoraSekwencjePodpisac(i)), ...
-                'VerticalAlignment','top', ...
-                'HorizontalAlignment','right');
-        
-    end
-%        saveas(f,'newout','fig')
+%     treeplot(nodes);
+%     [x,y] = treelayout(nodes);
+%     for i = 1 : length(ktoryLiscPodpisac)
+%         
+%             text(x(ktoryLiscPodpisac(i)), y(ktoryLiscPodpisac(i)), num2str(ktoraSekwencjePodpisac(i)), ...
+%                 'VerticalAlignment','top', ...
+%                 'HorizontalAlignment','right');
+%         
+%     end
     
 end
    

@@ -1,7 +1,7 @@
 clc
 clear all;
 
-distanceMatrix = loadMatrix(7);
+distanceMatrix = loadMatrix(1);
 lengthOfMatrix = length(distanceMatrix);
 clusterGroupsArray = zeros(lengthOfMatrix);
 helperClusterGroupsArray = zeros(2, lengthOfMatrix);
@@ -31,26 +31,30 @@ for i = 1 : lengthOfMatrix - 1
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
          distanceMatrixCopy, newDistanceMatrix);       
      
-        [nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac] = drawTreeOther(clusterGroupsArray, newClusterGroupsArray, ...
+        [nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, flag] = drawTreeOther(clusterGroupsArray, newClusterGroupsArray, ...
             nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, i);
-         
-     cellNodes{i} = nodes;
-     cellKtoreLiscie{i} = ktoryLiscPodpisac;
-     cellKtoreSekwencje{i} = ktoraSekwencjePodpisac;
-     
-     
-         treeplot(cellNodes{1, i});
-    [x,y] = treelayout(cellNodes{1, i});
-    for i = 1 : length(cellKtoreLiscie{1, i})
+ 
+     figure
+         treeplot(nodes);
+    [x,y] = treelayout(nodes);
+    for p = 1 : length(ktoryLiscPodpisac)
         
-            text(x(cellKtoreLiscie{1, i}), y(cellKtoreLiscie{1, i}), num2str(cellKtoreSekwencje{1, i}), ...
+            text(x(ktoryLiscPodpisac(p)), y(ktoryLiscPodpisac(p)), num2str(ktoraSekwencjePodpisac(p)), ...
                 'VerticalAlignment','top', ...
-                'HorizontalAlignment','right');
-        
+                'HorizontalAlignment','right');   
     end
 
      distanceMatrix = newDistanceMatrix;
      lengthOfMatrix = lengthOfMatrix - 1;
      clusterGroupsArray = newClusterGroupsArray;
+     if(flag == true)
+     [a, b] = find(ktoryLiscPodpisac == max(ktoryLiscPodpisac));
+     ktoryLiscPodpisac(a, b) = ktoryLiscPodpisac(a, b) + 1;
+     end
+     
+     nodes;
+%      ktoryLiscPodpisac
+%      ktoraSekwencjePodpisac
+     clusterGroupsArray;
     
 end

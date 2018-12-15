@@ -1,4 +1,4 @@
-function[nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac] = drawTreeOther(oldClusterGroupsArray, clusterGroupsArray, ...
+function[nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, flag] = drawTreeOther(flag, oldClusterGroupsArray, clusterGroupsArray, ...
     nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, i)
   
 a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
@@ -27,6 +27,7 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
        zeroPos = find(tuSzukaj == 0);
        zeroPos = wek(zeroPos);
        nodes(zeroPos) = max(nodes + 1);
+       flag = flag + 1;
         
     elseif (a == 2)
         
@@ -37,8 +38,9 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
         if(i == 1)
             ktoryLiscPodpisac = [1, 2];
         else
-            ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2;
-            ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 1;
+                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2 + flag;
+                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 1;
+                flag = 0;
         end
          
     elseif (a == 1)
@@ -53,8 +55,8 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
        nodes(1, zeroPos) = newNodeNumber;
        nodes(1, length(nodes) + 1) = newNodeNumber;
        
-       ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2;
-        
+           ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2 + flag;
+           flag = 0;        
     end
 
      for h =  length(nodes) + 1 : nodesNumber

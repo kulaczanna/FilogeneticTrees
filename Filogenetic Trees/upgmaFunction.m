@@ -1,6 +1,6 @@
 function[cellNodes, cellKtoreLiscie, cellKtoreSekwencje] = upgmaFunction(distanceMatrix)
 
-distanceMatrix = loadMatrix(7);
+% distanceMatrix = loadMatrix(7);
 lengthOfMatrix = length(distanceMatrix);
 clusterGroupsArray = zeros(lengthOfMatrix);
 helperClusterGroupsArray = zeros(2, lengthOfMatrix);
@@ -9,6 +9,7 @@ nodes = [];
 numeryWezlow = [];
 ktoryLiscPodpisac = [];
 ktoraSekwencjePodpisac = [];
+flag = 0;
 
 for column = 1 : lengthOfMatrix
     
@@ -31,9 +32,10 @@ for i = 1 : lengthOfMatrix - 1
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
          distanceMatrixCopy, newDistanceMatrix);       
      
-        [nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac] = drawTreeOther(clusterGroupsArray, newClusterGroupsArray, ...
-            nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, i);
-         
+       [nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, flag] = drawTreeOther(flag, ...
+            clusterGroupsArray, newClusterGroupsArray, nodesNumber, isMerge, nodes, isOneAdded, ...
+            changedRowNumber, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, i);
+        
      cellNodes{i} = nodes;
      cellKtoreLiscie{i} = ktoryLiscPodpisac;
      cellKtoreSekwencje{i} = ktoraSekwencjePodpisac;

@@ -1,7 +1,7 @@
 clc
 clear all;
 
-distanceMatrix = loadMatrix(7);
+distanceMatrix = loadMatrix(10);
 lengthOfMatrix = length(distanceMatrix);
 clusterGroupsArray = zeros(lengthOfMatrix);
 helperClusterGroupsArray = zeros(2, lengthOfMatrix);
@@ -10,6 +10,7 @@ numeryWezlow = [];
 ktoryLiscPodpisac = [];
 ktoraSekwencjePodpisac = [];
 nodes = [];
+flag = 0;
 
 for column = 1 : lengthOfMatrix
     
@@ -20,9 +21,10 @@ end
 for i = 1 : lengthOfMatrix - 1
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
-     [newClusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber, ktoraSekwencjePodpisac] = makeClusterGroupsTest(i, clusterGroupsArray, ...
-         helperClusterGroupsArray, minValueY, ...
-         minValueX, branchLength, nodesNumber, ktoraSekwencjePodpisac);
+     [newClusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber, ...
+         ktoraSekwencjePodpisac] = makeClusterGroupsTest(i, clusterGroupsArray, ...
+         helperClusterGroupsArray, minValueY, minValueX, branchLength, ...
+         nodesNumber, ktoraSekwencjePodpisac);
      
      helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
      distanceMatrixCopy = distanceMatrix;
@@ -31,26 +33,27 @@ for i = 1 : lengthOfMatrix - 1
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
          distanceMatrixCopy, newDistanceMatrix);       
      
-        [nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac] = drawTreeOther(clusterGroupsArray, newClusterGroupsArray, ...
-            nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, i);
-         
-     cellNodes{i} = nodes;
-     cellKtoreLiscie{i} = ktoryLiscPodpisac;
-     cellKtoreSekwencje{i} = ktoraSekwencjePodpisac;
-     
+        [nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, flag] = drawTreeOther(flag, ...
+            clusterGroupsArray, newClusterGroupsArray, nodesNumber, isMerge, nodes, isOneAdded, ...
+            changedRowNumber, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, i);
+ 
      figure
-         treeplot(cellNodes{1, i});
-    [x,y] = treelayout(cellNodes{1, i});
-    for p = 1 : length(cellKtoreLiscie{1, i})
+         treeplot(nodes);
+    [x,y] = treelayout(nodes);
+    for p = 1 : length(ktoryLiscPodpisac)
         
-            text(x(cellKtoreLiscie{1, i}(p)), y(cellKtoreLiscie{1, i}(p)), num2str(cellKtoreSekwencje{1, i}(p)), ...
+            text(x(ktoryLiscPodpisac(p)), y(ktoryLiscPodpisac(p)), num2str(ktoraSekwencjePodpisac(p)), ...
                 'VerticalAlignment','top', ...
-                'HorizontalAlignment','right');
-        
+                'HorizontalAlignment','right');   
     end
 
      distanceMatrix = newDistanceMatrix;
      lengthOfMatrix = lengthOfMatrix - 1;
-     clusterGroupsArray = newClusterGroupsArray;
+     clusterGroupsArray = newClusterGroupsArray
+     
+     nodes;
+     ktoryLiscPodpisac
+%      ktoraSekwencjePodpisac
+     clusterGroupsArray;
     
 end

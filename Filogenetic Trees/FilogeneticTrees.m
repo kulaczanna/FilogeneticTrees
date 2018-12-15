@@ -385,7 +385,6 @@ sequence10 = get(handles.sequenceEditText10,'String');
     [rows, columns] = size(matrixOfSequences);
     lengthOfSequence = length(matrixOfSequences(1, :));
     distanceMatrix = zeros(rows);
-    [cellNodes, cellKtoreLiscie, cellKtoreSekwencje] = upgmaFunction(distanceMatrix);
 
 for i = rows : -1 : 1
     for j = rows : -1 : 1
@@ -396,7 +395,7 @@ for i = rows : -1 : 1
                  error = true;
                  break;
             else
-                distance = jukesCantorModelDistance(distance, lengthOfSequence);
+%                 distance = jukesCantorModelDistance(distance, lengthOfSequence);
                 if (distance == inf)
                     warndlg('There is too big difference (more than 75%) between some sequences.', 'Sequences error');
                     error = true;
@@ -417,6 +416,7 @@ end
 if (~error)
     set(lengthMatrixTable, 'data', distanceMatrix);
     set(handles.nextStepBtn, 'enable', 'on');
+    [cellNodes, cellKtoreLiscie, cellKtoreSekwencje] = upgmaFunction(distanceMatrix);
 end
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
