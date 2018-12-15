@@ -50,7 +50,9 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
        tuSzukaj = nodes(wek);
        zeroPos = find(tuSzukaj == 0);
        zeroPos = wek(zeroPos);
-       zeroPos = zeroPos(changedRowNumber);
+       if (length(zeroPos) > 1)
+           zeroPos = zeroPos(changedRowNumber);
+       end
        newNodeNumber = max(nodes) + 2;
        nodes(1, zeroPos) = newNodeNumber;
        nodes(1, length(nodes) + 1) = newNodeNumber;

@@ -385,7 +385,6 @@ sequence10 = get(handles.sequenceEditText10,'String');
     [rows, columns] = size(matrixOfSequences);
     lengthOfSequence = length(matrixOfSequences(1, :));
     distanceMatrix = zeros(rows);
-    upgmaFunction(distanceMatrix);
 
 for i = rows : -1 : 1
     for j = rows : -1 : 1
@@ -396,7 +395,7 @@ for i = rows : -1 : 1
                  error = true;
                  break;
             else
-                distance = jukesCantorModelDistance(distance, lengthOfSequence);
+%                 distance = jukesCantorModelDistance(distance, lengthOfSequence);
                 if (distance == inf)
                     warndlg('There is too big difference (more than 75%) between some sequences.', 'Sequences error');
                     error = true;
@@ -417,6 +416,7 @@ end
 if (~error)
     set(lengthMatrixTable, 'data', distanceMatrix);
     set(handles.nextStepBtn, 'enable', 'on');
+    [cellNodes, cellKtoreLiscie, cellKtoreSekwencje] = upgmaFunction(distanceMatrix);
 end
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
@@ -504,16 +504,16 @@ lengthOfMatrix = length(distanceMatrix);
      set(lengthMatrixTable, 'data', distanceMatrix);
      set(handles.branchLengthTextBox, 'String', branchLength);
      
-%          treeplot(cellNodes{1, subNum});
-%     [x,y] = treelayout(cellNodes{1, subNum});
-%     for p = 1 : length(cellKtoreLiscie{1, subNum})
-%         
-%             text(x(cellKtoreLiscie{1, subNum}(p)), y(cellKtoreLiscie{1, subNum}(p)), num2str(cellKtoreSekwencje{1, subNum}(p)), ...
-%                 'VerticalAlignment','top', ...
-%                 'HorizontalAlignment','right');
-%         
-%     end
-
+         treeplot(cellNodes{1, subNum});
+    [x,y] = treelayout(cellNodes{1, subNum});
+    for p = 1 : length(cellKtoreLiscie{1, subNum})
+        
+            text(x(cellKtoreLiscie{1, subNum}(p)), y(cellKtoreLiscie{1, subNum}(p)), num2str(cellKtoreSekwencje{1, subNum}(p)), ...
+                'VerticalAlignment','top', ...
+                'HorizontalAlignment','right');
+        
+    end
+set(lengthMatrixTable,'ColumnName', {1, , '3', '4', '5', '6', '7', '8', '9', '10'});
      subNum = subNum + 1;
  end
 

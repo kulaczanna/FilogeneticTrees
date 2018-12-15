@@ -38,14 +38,9 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
         if(i == 1)
             ktoryLiscPodpisac = [1, 2];
         else
-            if(flag > 0)
-                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 3;
+                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2 + flag;
                 ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 1;
-                flag = false;
-            else
-                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2;
-                ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 1;
-            end
+                flag = 0;
         end
          
     elseif (a == 1)
@@ -55,18 +50,15 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
        tuSzukaj = nodes(wek);
        zeroPos = find(tuSzukaj == 0);
        zeroPos = wek(zeroPos);
-       zeroPos = zeroPos(changedRowNumber);
+       if (length(zeroPos) > 1)
+           zeroPos = zeroPos(changedRowNumber);
+       end
        newNodeNumber = max(nodes) + 2;
        nodes(1, zeroPos) = newNodeNumber;
        nodes(1, length(nodes) + 1) = newNodeNumber;
        
-       if(flag == true)
-           ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 3;
-           flag = false;
-       else
-           ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2;
-       end
-        
+           ktoryLiscPodpisac(1, end + 1) = max(ktoryLiscPodpisac) + 2 + flag;
+           flag = 0;        
     end
 
      for h =  length(nodes) + 1 : nodesNumber

@@ -8,11 +8,11 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
     if (i == 1)
 
 %         displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 1);
-        clusterGroupsArray(1,1) = minValueY;
-        clusterGroupsArray(1,2) = minValueX; 
+        clusterGroupsArray(minValueY, 1) = minValueY;
+        clusterGroupsArray(minValueY, 2) = minValueX; 
         nodesNumber = nodesNumber + 3;
         isMerge = false;
-        changedRowNumber = 1;
+        changedRowNumber = minValueY;
         ktoraSekwencjePodpisac = [minValueY, minValueX];
         
     else
@@ -47,13 +47,13 @@ function [clusterGroupsArray, nodesNumber, isMerge, isOneAdded, changedRowNumber
                 else
                     
                     for c1 = 1 : length(clusterGroupsArray)
-                        if clusterGroupsArray(r3, c1) == 0
+                        if clusterGroupsArray(rowWithMinValueY, c1) == 0
 %                             displayResult(clusterGroupsArray, i, minValueY, minValueX, branchLength, 3);
-                            clusterGroupsArray(r3, c1) = minValueX;
+                            clusterGroupsArray(rowWithMinValueY, c1) = minValueX;
                             nodesNumber = nodesNumber + 2;      
                             isMerge = false;
                             isOneAdded = true;
-                            changedRowNumber = r3;
+                            changedRowNumber = rowWithMinValueY;
                              ktoraSekwencjePodpisac(1, end + 1) = minValueX;
                             return
                         end

@@ -513,7 +513,6 @@ lengthOfMatrix = length(distanceMatrix);
                 'HorizontalAlignment','right');
         
     end
-
      subNum = subNum + 1;
  end
 
