@@ -1,4 +1,4 @@
-function[nodes, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac] = drawTreeOther(oldClusterGroupsArray, clusterGroupsArray, ...
+function[subNum, nodes, numeryWezlow, ktoryLiscPodpisac] = drawTreeOther(oldClusterGroupsArray, clusterGroupsArray, ...
     nodesNumber, isMerge, nodes, isOneAdded, changedRowNumber, numeryWezlow, ktoryLiscPodpisac, ktoraSekwencjePodpisac, i)
   
 a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
@@ -61,15 +61,18 @@ a = sum(sum(oldClusterGroupsArray ~= clusterGroupsArray));
             nodes(1, h) = 0;
      end
 
-%     treeplot(nodes);
-%     [x,y] = treelayout(nodes);
-%     for i = 1 : length(ktoryLiscPodpisac)
-%         
-%             text(x(ktoryLiscPodpisac(i)), y(ktoryLiscPodpisac(i)), num2str(ktoraSekwencjePodpisac(i)), ...
-%                 'VerticalAlignment','top', ...
-%                 'HorizontalAlignment','right');
-%         
-%     end
+%     f = figure('visible','off');
+
+    treeplot(nodes);
+    [x,y] = treelayout(nodes);
+    for i = 1 : length(ktoryLiscPodpisac)
+        
+            text(x(ktoryLiscPodpisac(i)), y(ktoryLiscPodpisac(i)), num2str(ktoraSekwencjePodpisac(i)), ...
+                'VerticalAlignment','top', ...
+                'HorizontalAlignment','right');
+        
+    end
+%        saveas(f,'newout','fig')
     
 end
    

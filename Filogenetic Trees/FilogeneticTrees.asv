@@ -385,7 +385,7 @@ sequence10 = get(handles.sequenceEditText10,'String');
     [rows, columns] = size(matrixOfSequences);
     lengthOfSequence = length(matrixOfSequences(1, :));
     distanceMatrix = zeros(rows);
-    [cellNodes, cellKtoreLiscie, cellKtoreSekwencje] = upgmaFunction(distanceMatrix);
+    upgmaFunction(distanceMatrix);
 
 for i = rows : -1 : 1
     for j = rows : -1 : 1
@@ -504,15 +504,15 @@ lengthOfMatrix = length(distanceMatrix);
      set(lengthMatrixTable, 'data', distanceMatrix);
      set(handles.branchLengthTextBox, 'String', branchLength);
      
-         treeplot(cellNodes{1, subNum});
-    [x,y] = treelayout(cellNodes{1, subNum});
-    for p = 1 : length(cellKtoreLiscie{1, subNum})
-        
-            text(x(cellKtoreLiscie{1, subNum}(p)), y(cellKtoreLiscie{1, subNum}(p)), num2str(cellKtoreSekwencje{1, subNum}(p)), ...
-                'VerticalAlignment','top', ...
-                'HorizontalAlignment','right');
-        
-    end
+%          treeplot(cellNodes{1, subNum});
+%     [x,y] = treelayout(cellNodes{1, subNum});
+%     for p = 1 : length(cellKtoreLiscie{1, subNum})
+%         
+%             text(x(cellKtoreLiscie{1, subNum}(p)), y(cellKtoreLiscie{1, subNum}(p)), num2str(cellKtoreSekwencje{1, subNum}(p)), ...
+%                 'VerticalAlignment','top', ...
+%                 'HorizontalAlignment','right');
+%         
+%     end
 
      subNum = subNum + 1;
  end
