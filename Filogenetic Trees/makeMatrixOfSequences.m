@@ -5,9 +5,9 @@ function[matrixOfSequences] = makeMatrixOfSequences(s1, s2, s3, s4, s5, s6, s7, 
 
     nonEmptysequencesNumber = [];
 
-    for r = 1 : length(lengths)
-        if(lengths(r) ~= 0)
-            nonEmptysequencesNumber(1, end + 1) = lengths(r);
+    for i = 1 : length(lengths)
+        if(lengths(i) ~= 0)
+            nonEmptysequencesNumber(1, end + 1) = lengths(i);
         end
     end
     
@@ -18,7 +18,7 @@ function[matrixOfSequences] = makeMatrixOfSequences(s1, s2, s3, s4, s5, s6, s7, 
     else
         
         matrix = [s1; s2; s3; s4; s5; s6; s7; s8; s9; s10];
-        for b = 1 : 6
+        for b = 1 : size(matrix, 1)
             if (~all(ismember(matrix(b, :), 'ACTG')))
                 warndlg('There are available only "A", "G", "C", "T" characters.', 'Sequences error');
                 matrixOfSequences = [];
