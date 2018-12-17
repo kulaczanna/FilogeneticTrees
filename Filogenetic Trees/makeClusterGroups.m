@@ -1,8 +1,8 @@
-function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesToSign] ...
-    = makeClusterGroups(i, clusterGroupsArray, helperclusterGroupsArray, ...
-    minValueY, minValueX, nodesNumber, sequencesToSign)
+function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesToSign, branchLengthMatrix] ...
+    = makeClusterGroups(i, clusterGroupsArray, helperClusterGroupsArray, ...
+    minValueY, minValueX, nodesNumber, sequencesToSign, branchLengthMatrix)
     
-    minValueX = helperclusterGroupsArray(2, minValueX);
+    minValueX = helperClusterGroupsArray(2, minValueX);
 
     if (i == 1)
 
@@ -12,6 +12,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
         isMerge = false;
         changedRowNumber = minValueY;
         sequencesToSign = [minValueY, minValueX];
+        branchLengthMatrix(minValueY, minValueX) = 1;
         
     else
 
@@ -35,6 +36,22 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
             if (~(rowWithMinValueY == 0))
                 if (~(rowWithMinValueX == 0))
 
+                    for h = 1 : length(branchLengthMatrix) - 1
+                        for g = 1 : length(branchLengthMatrix) - 1
+                            if (clusterGroupsArray(rowWithMinValueY, h) ~= 0)
+                                if (clusterGroupsArray(rowWithMinValueX, g) ~= 0)
+                                    if (clusterGroupsArray(rowWithMinValueY, h) > clusterGroupsArray(rowWithMinValueX, g))
+                                    branchLengthMatrix(clusterGroupsArray(rowWithMinValueX, g), ...
+                                    clusterGroupsArray(rowWithMinValueY, h)) = 5;
+                                    else
+                                    branchLengthMatrix(clusterGroupsArray(rowWithMinValueY, h), ...
+                                        clusterGroupsArray(rowWithMinValueX, g)) = 5;
+                                    end
+                                end
+                            end
+                        end
+                    end
+
                     clusterGroupsArray = mergeRows(clusterGroupsArray, rowWithMinValueY, rowWithMinValueX);
                     nodesNumber = nodesNumber + 1;
                     isMerge = true;
@@ -50,6 +67,11 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
                             isMerge = false;
                             changedRowNumber = rowWithMinValueY;
                             sequencesToSign(1, end + 1) = minValueX;
+                            for k = 1 : length(branchLengthMatrix) - 1
+                                if (clusterGroupsArray(rowWithMinValueY, k) ~= 0)
+                                    branchLengthMatrix(clusterGroupsArray(rowWithMinValueY, k), minValueX) = 3;
+                                end
+                            end
                             return
                         end
                     end
@@ -66,6 +88,11 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
                             nodesNumber = nodesNumber + 2;       
                             isMerge = false;
                             changedRowNumber = rowWithMinValueX;
+                            for k = 1 : length(branchLengthMatrix) - 1
+                                if (clusterGroupsArray(rowWithMinValueX, k) ~= 0)
+                                    branchLengthMatrix(clusterGroupsArray(rowWithMinValueX, k), minValueY) = 4;
+                                end
+                            end
                             return
                         end
                     end
@@ -79,6 +106,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
                     changedRowNumber = minValueY;
                     sequencesToSign(1, end + 1) = minValueY;
                     sequencesToSign(1, end + 1) = minValueX;
+                    branchLengthMatrix(minValueY, minValueX) = 2;
                     return
                     
                 end

@@ -1,4 +1,5 @@
-function[cellNodes, cellLeafs, cellSequences] = makeTreesByWPGMA(distanceMatrix)
+function[cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] = ...
+    makeTreesByWPGMA(distanceMatrix, branchLengthVector, branchLengthMatrix)
 
     nodes = [];
     nodesNumber = 0;
@@ -17,23 +18,27 @@ function[cellNodes, cellLeafs, cellSequences] = makeTreesByWPGMA(distanceMatrix)
     for i = 1 : lengthOfMatrix - 1
 
          [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
-         [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
-         [newClusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesToSign] ...
+         [branchLength, minimumValue, branchLengthVector] = ...
+             calculateBranchLength(distanceMatrix, minValueY, ...
+             minValueX, branchLengthVector, i);
+         [newClusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesToSign, branchLengthMatrix] ...
              = makeClusterGroups(i, clusterGroupsArray, helperClusterGroupsArray, minValueY, ...
-             minValueX, nodesNumber, sequencesToSign);
+             minValueX, nodesNumber, sequencesToSign, branchLengthMatrix);
 
          helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
          distanceMatrixCopy = distanceMatrix;
          newDistanceMatrix = zeros(lengthOfMatrix-1);
-         newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
-             distanceMatrixCopy, newDistanceMatrix);       
+         [newDistanceMatrix, branchLengthMatrix] = calculateNewDistanceMatrix(lengthOfMatrix, ...
+             minValueY, minValueX, distanceMatrixCopy, newDistanceMatrix, branchLengthMatrix);       
 
          [nodes, nodesNumbers, leafsToSign, mergeFlag] = drawTree(mergeFlag, clusterGroupsArray, ...
-               newClusterGroupsArray, nodesNumber, isMerge, nodes, changedRowNumber, nodesNumbers, leafsToSign, i);
+               newClusterGroupsArray, nodesNumber, isMerge, nodes, changedRowNumber, nodesNumbers, ...
+               leafsToSign, i);
 
          cellNodes{i} = nodes;
          cellLeafs{i} = leafsToSign;
          cellSequences{i} = sequencesToSign;
+
 
          distanceMatrix = newDistanceMatrix;
          lengthOfMatrix = lengthOfMatrix - 1;

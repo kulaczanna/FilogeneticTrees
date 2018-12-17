@@ -346,8 +346,11 @@ global lengthMatrixTable;
 global distanceMatrix;
 global subNum;
 global cellNodes;
-global cellKtoreLiscie;
-global cellKtoreSekwencje;
+global cellLeafs;
+global cellSequences;
+global branchLengthVector;
+global branchLengthMatrix;
+branchLengthMatrix = zeros(length(distanceMatrix))
 error = false;
 
 if (subNum == 1)
@@ -424,7 +427,17 @@ end
 if (~error)
     set(lengthMatrixTable, 'data', distanceMatrix);
     set(handles.nextStepBtn, 'enable', 'on');
-    [cellNodes, cellKtoreLiscie, cellKtoreSekwencje] = makeTreesByWPGMA(distanceMatrix);
+    branchLengthVector = zeros(1, length(distanceMatrix) - 1);
+    [cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] = ...
+        makeTreesByWPGMA(distanceMatrix, branchLengthVector, branchLengthMatrix);
+
+    branchLengthMatrixCopy = branchLengthMatrix;
+    for k = 1 : length(branchLengthMatrix)
+        branchLengthMatrix(k, k) = 0;
+        for j = 1 : length(branchLengthMatrix)
+            
+        end
+    end
 end
 
 % --- Executes on button press in checkbox1sequenceCheckBox1.
@@ -498,26 +511,26 @@ global lengthMatrixTable;
 global distanceMatrix;
 global subNum;
 global cellNodes;
-global cellKtoreLiscie;
-global cellKtoreSekwencje;
+global cellLeafs;
+global cellSequences;
+global branchLengthVector;
 
 lengthOfMatrix = length(distanceMatrix);
  
  if(lengthOfMatrix > 1)
      
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
-     [branchLength, minimumValue] = calculateBranchLength(distanceMatrix, minValueY, minValueX);
      newDistanceMatrix = zeros(lengthOfMatrix-1);
      newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
          distanceMatrix, newDistanceMatrix);    
      distanceMatrix = newDistanceMatrix;
      set(lengthMatrixTable, 'data', distanceMatrix);
-     set(handles.branchLengthTextBox, 'String', branchLength);
+     set(handles.branchLengthTextBox, 'String', branchLengthVector(1, subNum));
      treeplot(cellNodes{1, subNum});
      [x,y] = treelayout(cellNodes{1, subNum});
-     for p = 1 : length(cellKtoreLiscie{1, subNum})
-         text(x(cellKtoreLiscie{1, subNum}(p)), y(cellKtoreLiscie{1, subNum}(p)), ...
-             num2str(cellKtoreSekwencje{1, subNum}(p)), 'VerticalAlignment','top', ...
+     for p = 1 : length(cellLeafs{1, subNum})
+         text(x(cellLeafs{1, subNum}(p)), y(cellLeafs{1, subNum}(p)), ...
+             num2str(cellSequences{1, subNum}(p)), 'VerticalAlignment','top', ...
              'HorizontalAlignment','right');
      end
      subNum = subNum + 1;
@@ -526,6 +539,7 @@ lengthOfMatrix = length(distanceMatrix);
  
  if (lengthOfMatrix == 2)
      set(handles.branchMatrixBtn, 'enable', 'on');
+     set(handles.nextStepBtn, 'enable', 'off');
  end
 
 % --- Executes on button press in resetBtn.
@@ -552,6 +566,8 @@ set(handles.nextStepBtn, 'enable', 'off');
 set(lengthMatrixTable, 'Data', cell(size(get(lengthMatrixTable,'Data'))));
 set(handles.branchLengthTextBox, 'String', '');
 set(handles.branchMatrixBtn, 'enable', 'off');
+set(handles.nextStepBtn, 'enable', 'on');
+
 cla;
 clc   
 
@@ -568,18 +584,13 @@ function branchMatrixBtn_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% branchLengthMatrix = 
+global branchLengthMatrix; 
 f = figure('Name', 'Matrix of branches length');
 set(f,'Position', [330 120 700 300]);
 branchLengthMatrixTable = uitable('Units','normalized','Position', [0.1 0.1 0.750 0.676]);
 
-% dat =  {'        a', 1, '        units';...
-%         '        b', 2, '        units';...   
-%         '        c', 3, '        units';...
-%         '        d',  4, '        units';...
-%         '        e', 5, '        units';...
-%         '        f', 6, '        units';};
 set(branchLengthMatrixTable, 'ColumnName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
 set(branchLengthMatrixTable, 'RowName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
 set(branchLengthMatrixTable, 'ColumnWidth', {49});
+set(branchLengthMatrixTable, 'Data', branchLengthMatrix);
 
