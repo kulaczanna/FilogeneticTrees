@@ -22,7 +22,7 @@ function varargout = FilogeneticTrees(varargin)
 
 % Edit the above text to modify the response to help FilogeneticTrees
 
-% Last Modified by GUIDE v2.5 08-Dec-2018 18:06:03
+% Last Modified by GUIDE v2.5 17-Dec-2018 12:54:41
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -75,12 +75,14 @@ varargout{1} = handles.output;
 global lengthMatrixTable; 
 global subNum;
 subNum = 1;
-lengthMatrixTable = uitable('ColumnName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
+lengthMatrixTable = uitable();
+set(lengthMatrixTable, 'ColumnName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
 set(lengthMatrixTable, 'RowName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
-set(lengthMatrixTable, 'Position', [10 10 486 203])
+set(lengthMatrixTable, 'Position', [10 10 525 203])
 set(lengthMatrixTable, 'FontUnits', 'Normalized');
-set(lengthMatrixTable, 'ColumnWidth', {45});
+set(lengthMatrixTable, 'ColumnWidth', {49});
 drawnow;
+set(handles.branchMatrixBtn, 'enable', 'off');
 
 function sequenceEditText1_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText1 (see GCBO)
@@ -500,7 +502,7 @@ global cellKtoreLiscie;
 global cellKtoreSekwencje;
 
 lengthOfMatrix = length(distanceMatrix);
-
+ 
  if(lengthOfMatrix > 1)
      
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
@@ -520,6 +522,10 @@ lengthOfMatrix = length(distanceMatrix);
      end
      subNum = subNum + 1;
      
+ end
+ 
+ if (lengthOfMatrix == 2)
+     set(handles.branchMatrixBtn, 'enable', 'on');
  end
 
 % --- Executes on button press in resetBtn.
@@ -545,6 +551,7 @@ set(handles.sequenceEditText10, 'enable', 'on');
 set(handles.nextStepBtn, 'enable', 'off');
 set(lengthMatrixTable, 'Data', cell(size(get(lengthMatrixTable,'Data'))));
 set(handles.branchLengthTextBox, 'String', '');
+set(handles.branchMatrixBtn, 'enable', 'off');
 cla;
 clc   
 
@@ -553,3 +560,26 @@ function filogeneticTreeAxis_ButtonDownFcn(hObject, eventdata, handles)
 % hObject    handle to filogeneticTreeAxis (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in branchMatrixBtn.
+function branchMatrixBtn_Callback(hObject, eventdata, handles)
+% hObject    handle to branchMatrixBtn (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% branchLengthMatrix = 
+f = figure('Name', 'Matrix of branches length');
+set(f,'Position', [330 120 700 300]);
+branchLengthMatrixTable = uitable('Units','normalized','Position', [0.1 0.1 0.750 0.676]);
+
+% dat =  {'        a', 1, '        units';...
+%         '        b', 2, '        units';...   
+%         '        c', 3, '        units';...
+%         '        d',  4, '        units';...
+%         '        e', 5, '        units';...
+%         '        f', 6, '        units';};
+set(branchLengthMatrixTable, 'ColumnName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
+set(branchLengthMatrixTable, 'RowName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
+set(branchLengthMatrixTable, 'ColumnWidth', {49});
+
