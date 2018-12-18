@@ -1,6 +1,6 @@
-function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesToSign, branchLengthMatrix] ...
+function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesToSign, branchLengthVector, branchLengthMatrix] ...
     = makeClusterGroups(i, clusterGroupsArray, helperClusterGroupsArray, ...
-    minValueY, minValueX, nodesNumber, sequencesToSign, branchLengthMatrix)
+    minValueY, minValueX, nodesNumber, sequencesToSign, branchLengthVector, branchLengthMatrix)
     
     minValueX = helperClusterGroupsArray(2, minValueX);
 
@@ -12,7 +12,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
         isMerge = false;
         changedRowNumber = minValueY;
         sequencesToSign = [minValueY, minValueX];
-        branchLengthMatrix(minValueY, minValueX) = 1;
+        branchLengthMatrix(minValueY, minValueX) = 2 * branchLengthVector(1, i);
         
     else
 
@@ -42,10 +42,10 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
                                 if (clusterGroupsArray(rowWithMinValueX, g) ~= 0)
                                     if (clusterGroupsArray(rowWithMinValueY, h) > clusterGroupsArray(rowWithMinValueX, g))
                                     branchLengthMatrix(clusterGroupsArray(rowWithMinValueX, g), ...
-                                    clusterGroupsArray(rowWithMinValueY, h)) = 5;
+                                    clusterGroupsArray(rowWithMinValueY, h)) = 2 * branchLengthVector(1, i);
                                     else
                                     branchLengthMatrix(clusterGroupsArray(rowWithMinValueY, h), ...
-                                        clusterGroupsArray(rowWithMinValueX, g)) = 5;
+                                        clusterGroupsArray(rowWithMinValueX, g)) = 2 * branchLengthVector(1, i);
                                     end
                                 end
                             end
@@ -67,9 +67,13 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
                             isMerge = false;
                             changedRowNumber = rowWithMinValueY;
                             sequencesToSign(1, end + 1) = minValueX;
-                            for k = 1 : length(branchLengthMatrix) - 1
+                            for k = 1 : length(branchLengthMatrix)
                                 if (clusterGroupsArray(rowWithMinValueY, k) ~= 0)
-                                    branchLengthMatrix(clusterGroupsArray(rowWithMinValueY, k), minValueX) = 3;
+                                    if (clusterGroupsArray(rowWithMinValueY, k) > minValueX)
+                                        branchLengthMatrix(minValueX, clusterGroupsArray(rowWithMinValueY, k)) = 2 * branchLengthVector(1, i);
+                                    else
+                                        branchLengthMatrix(clusterGroupsArray(rowWithMinValueY, k), minValueX) = 2 * branchLengthVector(1, i);
+                                    end
                                 end
                             end
                             return
@@ -90,7 +94,11 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
                             changedRowNumber = rowWithMinValueX;
                             for k = 1 : length(branchLengthMatrix) - 1
                                 if (clusterGroupsArray(rowWithMinValueX, k) ~= 0)
-                                    branchLengthMatrix(clusterGroupsArray(rowWithMinValueX, k), minValueY) = 4;
+                                    if (clusterGroupsArray(rowWithMinValueY, k) > minValueY)
+                                        branchLengthMatrix(minValueY,clusterGroupsArray(rowWithMinValueX, k)) = 2 * branchLengthVector(1, i);
+                                    else
+                                        branchLengthMatrix(clusterGroupsArray(rowWithMinValueX, k), minValueY) = 2 * branchLengthVector(1, i);
+                                    end
                                 end
                             end
                             return
@@ -106,7 +114,7 @@ function [clusterGroupsArray, nodesNumber, isMerge, changedRowNumber, sequencesT
                     changedRowNumber = minValueY;
                     sequencesToSign(1, end + 1) = minValueY;
                     sequencesToSign(1, end + 1) = minValueX;
-                    branchLengthMatrix(minValueY, minValueX) = 2;
+                    branchLengthMatrix(minValueY, minValueX) = 2 * branchLengthVector(1, i);
                     return
                     
                 end

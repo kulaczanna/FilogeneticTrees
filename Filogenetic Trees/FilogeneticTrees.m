@@ -350,7 +350,7 @@ global cellLeafs;
 global cellSequences;
 global branchLengthVector;
 global branchLengthMatrix;
-branchLengthMatrix = zeros(length(distanceMatrix))
+branchLengthMatrix = zeros(length(distanceMatrix));
 error = false;
 
 if (subNum == 1)
@@ -434,9 +434,6 @@ if (~error)
     branchLengthMatrixCopy = branchLengthMatrix;
     for k = 1 : length(branchLengthMatrix)
         branchLengthMatrix(k, k) = 0;
-        for j = 1 : length(branchLengthMatrix)
-            
-        end
     end
 end
 
