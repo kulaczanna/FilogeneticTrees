@@ -1,40 +1,44 @@
-function [newDistanceMatrix, branchLengthMatrix] = calculateNewDistanceMatrix(lengthOfMatrix, ...
-    minValueY, minValueX, distanceMatrixCopy, newDistanceMatrix, branchLengthMatrix)
+function [newDistanceMatrix] = calculateNewDistanceMatrix(minValueY, minValueX, ...
+    distanceMatrix, newDistanceMatrix)
 
+    lengthOfMatrix = length(distanceMatrix);
+    
     for row = 1 : lengthOfMatrix - 1        
         for column = 1 : lengthOfMatrix - 1
+            
                        if(row < minValueY)
                             if(column < minValueY)
-                                newDistanceMatrix(row, column) = distanceMatrixCopy(row, column);
+                                newDistanceMatrix(row, column) = distanceMatrix(row, column);
                             elseif(column == minValueY)
-                                newDistanceMatrix(row, column) = (distanceMatrixCopy(row, minValueY) + ...
-                                    distanceMatrixCopy(row, minValueX)) / 2;
+                                newDistanceMatrix(row, column) = (distanceMatrix(row, minValueY) + ...
+                                    distanceMatrix(row, minValueX)) / 2;
                             elseif(column > minValueY && column < minValueX)
-                                newDistanceMatrix(row, column) = distanceMatrixCopy(row, column);
+                                newDistanceMatrix(row, column) = distanceMatrix(row, column);
                             else
-                                newDistanceMatrix(row, column) = distanceMatrixCopy(row, column + 1);
+                                newDistanceMatrix(row, column) = distanceMatrix(row, column + 1);
                             end
 
                         elseif(row == minValueY)
                             if(column >= minValueX)
-                                newDistanceMatrix(row, column) = (distanceMatrixCopy(minValueY, column + 1) + ...
-                                    distanceMatrixCopy(minValueX, column + 1)) / 2;
+                                newDistanceMatrix(row, column) = (distanceMatrix(minValueY, column + 1) + ...
+                                    distanceMatrix(minValueX, column + 1)) / 2;
                             elseif(column > minValueY)
-                                newDistanceMatrix(row, column) = (distanceMatrixCopy(minValueY, column) + ...
-                                    distanceMatrixCopy(column, minValueX)) / 2;
+                                newDistanceMatrix(row, column) = (distanceMatrix(minValueY, column) + ...
+                                    distanceMatrix(column, minValueX)) / 2;
                             end
 
                         elseif(row > minValueY)
                             if(column >= minValueX)
                                 if(row < minValueX)
-                                    newDistanceMatrix(row, column) = distanceMatrixCopy(row, column + 1);
+                                    newDistanceMatrix(row, column) = distanceMatrix(row, column + 1);
                                 else
-                                    newDistanceMatrix(row, column) = distanceMatrixCopy(row + 1, column + 1);
+                                    newDistanceMatrix(row, column) = distanceMatrix(row + 1, column + 1);
                                 end
                             else
-                                newDistanceMatrix(row, column) = distanceMatrixCopy(row, column);
+                                newDistanceMatrix(row, column) = distanceMatrix(row, column);
                             end
-                        end
+                       end
+                        
         end
     end
 

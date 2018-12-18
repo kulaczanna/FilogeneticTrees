@@ -518,11 +518,13 @@ lengthOfMatrix = length(distanceMatrix);
      
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
      newDistanceMatrix = zeros(lengthOfMatrix-1);
-     newDistanceMatrix = calculateNewDistanceMatrix(lengthOfMatrix, minValueY, minValueX, ...
+     newDistanceMatrix = calculateNewDistanceMatrix(minValueY, minValueX, ...
          distanceMatrix, newDistanceMatrix);    
      distanceMatrix = newDistanceMatrix;
+     
      set(lengthMatrixTable, 'data', distanceMatrix);
      set(handles.branchLengthTextBox, 'String', branchLengthVector(1, subNum));
+     
      treeplot(cellNodes{1, subNum});
      [x,y] = treelayout(cellNodes{1, subNum});
      for p = 1 : length(cellLeafs{1, subNum})
