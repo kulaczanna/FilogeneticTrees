@@ -381,7 +381,7 @@ sequence8 = get(handles.sequenceEditText8,'String');
 sequence9 = get(handles.sequenceEditText9,'String');
 sequence10 = get(handles.sequenceEditText10,'String');
 
-matrixOfSequences = makeMatrixOfSequences(sequence1, sequence2, ...
+[matrixOfSequences, error] = makeMatrixOfSequences(sequence1, sequence2, ...
     sequence3, sequence4, sequence5, sequence6, sequence7, sequence8, ...
     sequence9, sequence10);
 
@@ -565,6 +565,7 @@ set(handles.nextStepBtn, 'enable', 'off');
 set(lengthMatrixTable, 'Data', cell(size(get(lengthMatrixTable,'Data'))));
 set(handles.branchLengthTextBox, 'String', '');
 set(handles.branchMatrixBtn, 'enable', 'off');
+set(handles.nextStepBtn, 'enable', 'on');
 
 cla;
 clc   

@@ -12,14 +12,18 @@ function[matrixOfSequences] = makeMatrixOfSequences(s1, s2, s3, s4, s5, s6, s7, 
     end
     
     matrixOfSequences = [];
-    error = checkIfLengthIsEqual(nonEmptysequencesNumber);
-    if (error == true)
-        return
-    end
-    
-    matrix = [s1; s2; s3; s4; s5; s6; s7; s8; s9; s10];
-        for j = 1 : size(matrix, 1)
-          matrixOfSequences =  checkIfThereIsNoIllegalSign(matrix, j);
+    checkIfLengthIsEqual(nonEmptysequencesNumber)
+        
+        matrix = [s1; s2; s3; s4; s5; s6; s7; s8; s9; s10];
+        for b = 1 : size(matrix, 1)
+            
+            if (~all(ismember(matrix(b, :), 'ACTG-')))
+                warndlg('There are available only "A", "G", "C", "T", "-" characters.', 'Sequences error');
+                matrixOfSequences = [];
+                return
+            else
+                matrixOfSequences = matrix;
+            end
         end
     end
     
