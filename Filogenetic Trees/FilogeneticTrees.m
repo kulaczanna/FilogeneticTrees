@@ -429,7 +429,7 @@ if (~error)
     set(handles.nextStepBtn, 'enable', 'on');
     branchLengthVector = zeros(1, length(distanceMatrix) - 1);
     [cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] = ...
-        makeTreesByWPGMA(distanceMatrix, branchLengthVector, branchLengthMatrix);
+        createTreeByWpgmaMethod(distanceMatrix, branchLengthVector, branchLengthMatrix);
 
     branchLengthMatrixCopy = branchLengthMatrix;
     for k = 1 : length(branchLengthMatrix)

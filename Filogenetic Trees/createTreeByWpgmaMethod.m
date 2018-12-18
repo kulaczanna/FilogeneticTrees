@@ -1,5 +1,5 @@
 function[cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] = ...
-    makeTreesByWPGMA(distanceMatrix, branchLengthVector, branchLengthMatrix)
+    createTreeByWpgmaMethod(distanceMatrix, branchLengthVector, branchLengthMatrix)
 
     nodes = [];
     nodesNumber = 0;

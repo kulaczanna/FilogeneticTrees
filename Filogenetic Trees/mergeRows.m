@@ -2,11 +2,11 @@ function [clusterGroupsArray] = mergeRows(clusterGroupsArray, row1, row2)
    
     counter = 1;
  
-    for column = 1 : length(clusterGroupsArray)
-        if (clusterGroupsArray(row1, column) == 0)
+    for c = 1 : length(clusterGroupsArray)
+        if (clusterGroupsArray(row1, c) == 0)
             
             if (~(clusterGroupsArray(row2, counter) == 0))
-                clusterGroupsArray(row1, column) = clusterGroupsArray(row2, counter);
+                clusterGroupsArray(row1, c) = clusterGroupsArray(row2, counter);
                 counter = counter + 1;
             else
                 break
