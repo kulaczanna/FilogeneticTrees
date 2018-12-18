@@ -27,7 +27,7 @@ function[cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMa
              helperClusterGroupsArray, minValueY, minValueX, nodesNumber, ...
              sequencesToSign, branchLengthVector, branchLengthMatrix);
 
-         helperClusterGroupsArray = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
+         helperClusterGroupsArray = makeHelperClusterVectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
          distanceMatrixCopy = distanceMatrix;
          newDistanceMatrix = zeros(lengthOfMatrix-1);
          newDistanceMatrix = calculateNewDistanceMatrix(minValueY, ...

@@ -1,4 +1,4 @@
-function [helperClusterGroupsArray] = vectors(helperClusterGroupsArray, lengthOfMatrix, minValueX)
+function [helperClusterGroupsArray] = makeHelperClusterVectors(helperClusterGroupsArray, lengthOfMatrix, minValueX)
 
     for i = 1 : lengthOfMatrix - 1
         
@@ -12,5 +12,6 @@ function [helperClusterGroupsArray] = vectors(helperClusterGroupsArray, lengthOf
     end
     lengthOfMatrix = lengthOfMatrix - 1;
     helperClusterGroupsArray = helperClusterGroupsArray (:, 1 : lengthOfMatrix);
+    
 end
 
