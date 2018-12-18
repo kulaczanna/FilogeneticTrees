@@ -1,5 +1,5 @@
 function [branchLength, minimumValue, branchLengthMatrix] = ...
-    calculateBranchLength(distanceMatrix, minValueY, minValueX, branchLengthMatrix, i)
+    calculateBranchLength(i, distanceMatrix, minValueY, minValueX, branchLengthMatrix)
     
     minimumValue = distanceMatrix(minValueY, minValueX);
     branchLength = minimumValue / 2;
