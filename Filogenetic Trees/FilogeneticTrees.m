@@ -350,16 +350,9 @@ end
 distanceMatrix = compareSequences(matrixOfSequences, lengthOfSequence);
 
 if (~error)
+    [cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] = createTreeByWpgmaMethod(distanceMatrix);
     set(lengthMatrixTable, 'data', distanceMatrix);
     set(handles.nextStepBtn, 'enable', 'on');
-    branchLengthVector = zeros(1, length(distanceMatrix) - 1);
-    branchLengthMatrix = zeros(length(distanceMatrix));
-    [cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] = ...
-        createTreeByWpgmaMethod(distanceMatrix, branchLengthVector, branchLengthMatrix);
-
-    for k = 1 : length(branchLengthMatrix)
-        branchLengthMatrix(k, k) = 0;
-    end
 end
 
 function nextStepBtn_Callback(hObject, eventdata, handles)
@@ -378,25 +371,13 @@ global branchLengthVector;
 lengthOfMatrix = length(distanceMatrix);
  
  if(lengthOfMatrix > 1)
-     
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
-     newDistanceMatrix = zeros(lengthOfMatrix-1);
-     newDistanceMatrix = calculateNewDistanceMatrix(minValueY, minValueX, ...
-         distanceMatrix, newDistanceMatrix);    
+     newDistanceMatrix = calculateNewDistanceMatrix(minValueY, minValueX, distanceMatrix);    
      distanceMatrix = newDistanceMatrix;
-     
+     displayTree(subNum, cellNodes, cellLeafs, cellSequences);
      set(lengthMatrixTable, 'data', distanceMatrix);
      set(handles.branchLengthTextBox, 'String', branchLengthVector(1, subNum));
-     
-     treeplot(cellNodes{1, subNum});
-     [x,y] = treelayout(cellNodes{1, subNum});
-     for p = 1 : length(cellLeafs{1, subNum})
-         text(x(cellLeafs{1, subNum}(p)), y(cellLeafs{1, subNum}(p)), ...
-             num2str(cellSequences{1, subNum}(p)), 'VerticalAlignment','top', ...
-             'HorizontalAlignment','right');
-     end
      subNum = subNum + 1;
-     
  end
  
  if (lengthOfMatrix == 2)
@@ -410,8 +391,9 @@ function resetBtn_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-global subNum;
 global lengthMatrixTable;
+global subNum;
+
 subNum = 1;
 set(handles.compareSequenceBtn, 'enable', 'on');
 set(handles.sequenceEditText1, 'enable', 'on');
@@ -446,10 +428,10 @@ function branchMatrixBtn_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 global branchLengthMatrix; 
+
 f = figure('Name', 'Matrix of branches length');
 set(f,'Position', [330 120 700 300]);
 branchLengthMatrixTable = uitable('Units','normalized','Position', [0.1 0.1 0.750 0.676]);
-
 set(branchLengthMatrixTable, 'ColumnName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
 set(branchLengthMatrixTable, 'RowName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
 set(branchLengthMatrixTable, 'ColumnWidth', {49});

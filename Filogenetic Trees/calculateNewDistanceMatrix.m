@@ -1,7 +1,7 @@
-function [newDistanceMatrix] = calculateNewDistanceMatrix(minValueY, minValueX, ...
-    distanceMatrix, newDistanceMatrix)
+function [newDistanceMatrix] = calculateNewDistanceMatrix(minValueY, minValueX, distanceMatrix)
 
     lengthOfMatrix = length(distanceMatrix);
+    newDistanceMatrix = zeros(lengthOfMatrix-1);
     
     for row = 1 : lengthOfMatrix - 1        
         for column = 1 : lengthOfMatrix - 1

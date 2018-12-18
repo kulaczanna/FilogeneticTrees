@@ -1,5 +1,5 @@
 function[cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] = ...
-    createTreeByWpgmaMethod(distanceMatrix, branchLengthVector, branchLengthMatrix)
+    createTreeByWpgmaMethod(distanceMatrix)
 
     nodes = [];
     nodesNumber = 0;
@@ -10,6 +10,8 @@ function[cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMa
     lengthOfMatrix = length(distanceMatrix);
     clusterGroupsArray = zeros(lengthOfMatrix);
     helperClusterGroupsArray = zeros(2, lengthOfMatrix);
+    branchLengthVector = zeros(1, length(distanceMatrix) - 1);
+    branchLengthMatrix = zeros(length(distanceMatrix));
 
     for c = 1 : lengthOfMatrix
         helperClusterGroupsArray(:, c) = c;
@@ -29,9 +31,7 @@ function[cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMa
 
          helperClusterGroupsArray = makeHelperClusterVectors(helperClusterGroupsArray, lengthOfMatrix, minValueX);
          distanceMatrixCopy = distanceMatrix;
-         newDistanceMatrix = zeros(lengthOfMatrix-1);
-         newDistanceMatrix = calculateNewDistanceMatrix(minValueY, ...
-             minValueX, distanceMatrixCopy, newDistanceMatrix);       
+         newDistanceMatrix = calculateNewDistanceMatrix(minValueY, minValueX, distanceMatrixCopy);       
 
          [nodes, nodesNumbers, leafsToSign, mergeFlag] = calculateParametersToDrawTree(i, ...
              mergeFlag, clusterGroupsArray, newClusterGroupsArray, nodes, nodesNumber, ...
@@ -45,6 +45,10 @@ function[cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMa
          lengthOfMatrix = lengthOfMatrix - 1;
          clusterGroupsArray = newClusterGroupsArray;
 
+    end
+    
+    for j = 1 : length(branchLengthMatrix)
+        branchLengthMatrix(j, j) = 0;
     end
     
 end

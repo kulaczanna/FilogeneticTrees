@@ -8,14 +8,14 @@ distanceMatrix = zeros(rows);
             if (i ~= j)
                 distance = sum(matrixOfSequences(i, :) ~= matrixOfSequences(j, :));
                 [distance, error] = checkTheDifferencesBetweenSequences(distance, lengthOfSequence);
-                if(~error)
+                if (~error)
                     distanceMatrix(j, i) = distance;
                 else
                     return
                 end
             end
         end
-        if(~error)
+        if (~error)
             rows = rows - 1;
         else
             break
