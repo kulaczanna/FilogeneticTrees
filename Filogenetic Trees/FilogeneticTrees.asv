@@ -74,7 +74,7 @@ varargout{1} = handles.output;
 
 global lengthMatrixTable; 
 global subNum;
-subNum = 1;
+
 lengthMatrixTable = uitable();
 set(lengthMatrixTable, 'ColumnName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
 set(lengthMatrixTable, 'RowName', {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10'});
@@ -83,6 +83,7 @@ set(lengthMatrixTable, 'FontUnits', 'Normalized');
 set(lengthMatrixTable, 'ColumnWidth', {49});
 drawnow;
 set(handles.branchMatrixBtn, 'enable', 'off');
+subNum = 1;
 
 function sequenceEditText1_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText1 (see GCBO)
@@ -91,7 +92,6 @@ function sequenceEditText1_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of sequenceEditText1 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText1 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText1_CreateFcn(hObject, eventdata, handles)
@@ -105,16 +105,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function edit2_Callback(hObject, eventdata, handles)
 % hObject    handle to edit2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hints: get(hObject,'String') returns contents of edit2 as text
 %        str2double(get(hObject,'String')) returns contents of edit2 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function edit2_CreateFcn(hObject, eventdata, handles)
@@ -128,16 +124,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function sequenceEditText2_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hints: get(hObject,'String') returns contents of sequenceEditText2 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText2 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText2_CreateFcn(hObject, eventdata, handles)
@@ -151,16 +143,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function sequenceEditText3_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hints: get(hObject,'String') returns contents of sequenceEditText3 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText3 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText3_CreateFcn(hObject, eventdata, handles)
@@ -174,16 +162,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function sequenceEditText4_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText4 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hints: get(hObject,'String') returns contents of sequenceEditText4 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText4 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText4_CreateFcn(hObject, eventdata, handles)
@@ -197,8 +181,6 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function sequenceEditText5_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -206,7 +188,6 @@ function sequenceEditText5_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of sequenceEditText5 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText5 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText5_CreateFcn(hObject, eventdata, handles)
@@ -220,16 +201,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function sequenceEditText6_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText6 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hints: get(hObject,'String') returns contents of sequenceEditText6 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText6 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText6_CreateFcn(hObject, eventdata, handles)
@@ -243,16 +220,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function sequenceEditText7_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText7 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hints: get(hObject,'String') returns contents of sequenceEditText7 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText7 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText7_CreateFcn(hObject, eventdata, handles)
@@ -266,16 +239,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function sequenceEditText8_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText8 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hints: get(hObject,'String') returns contents of sequenceEditText8 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText8 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText8_CreateFcn(hObject, eventdata, handles)
@@ -289,16 +258,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function sequenceEditText9_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText9 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hints: get(hObject,'String') returns contents of sequenceEditText9 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText9 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText9_CreateFcn(hObject, eventdata, handles)
@@ -312,16 +277,12 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
 function sequenceEditText10_Callback(hObject, eventdata, handles)
 % hObject    handle to sequenceEditText10 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Hints: get(hObject,'String') returns contents of sequenceEditText10 as text
 %        str2double(get(hObject,'String')) returns contents of sequenceEditText10 as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function sequenceEditText10_CreateFcn(hObject, eventdata, handles)
@@ -335,21 +296,21 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
 % --- Executes on button press in compareSequenceBtn.
 function compareSequenceBtn_Callback(hObject, eventdata, handles)
 % hObject    handle to compareSequenceBtn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-global lengthMatrixTable;
 global distanceMatrix;
-global subNum;
-global cellNodes;
-global cellLeafs;
-global cellSequences;
-global branchLengthVector;
 global branchLengthMatrix;
+global branchLengthVector;
+global cellLeafs;
+global cellNodes;
+global cellSequences;
+global lengthMatrixTable;
+global subNum;
+
 branchLengthMatrix = zeros(length(distanceMatrix));
 error = false;
 
@@ -381,7 +342,7 @@ sequence8 = get(handles.sequenceEditText8,'String');
 sequence9 = get(handles.sequenceEditText9,'String');
 sequence10 = get(handles.sequenceEditText10,'String');
 
-[matrixOfSequences, error] = makeMatrixOfSequences(sequence1, sequence2, ...
+matrixOfSequences = makeMatrixOfSequences(sequence1, sequence2, ...
     sequence3, sequence4, sequence5, sequence6, sequence7, sequence8, ...
     sequence9, sequence10);
 
@@ -429,76 +390,13 @@ if (~error)
     set(handles.nextStepBtn, 'enable', 'on');
     branchLengthVector = zeros(1, length(distanceMatrix) - 1);
     [cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] = ...
-        makeTreesByWPGMA(distanceMatrix, branchLengthVector, branchLengthMatrix);
+        createTreeByWpgmaMethod(distanceMatrix, branchLengthVector, branchLengthMatrix);
 
-    branchLengthMatrixCopy = branchLengthMatrix;
     for k = 1 : length(branchLengthMatrix)
         branchLengthMatrix(k, k) = 0;
     end
 end
 
-% --- Executes on button press in checkbox1sequenceCheckBox1.
-function checkbox1sequenceCheckBox1_Callback(hObject, eventdata, handles)
-% hObject    handle to checkbox1sequenceCheckBox1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of checkbox1sequenceCheckBox1
-% --- Executes on button press in sequenceCheckBox2.
-function sequenceCheckBox2_Callback(hObject, eventdata, handles)
-% hObject    handle to sequenceCheckBox2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox2
-% --- Executes on button press in sequenceCheckBox3.
-function sequenceCheckBox3_Callback(hObject, eventdata, handles)
-% hObject    handle to sequenceCheckBox3 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox3
-% --- Executes on button press in sequenceCheckBox4.
-function sequenceCheckBox4_Callback(hObject, eventdata, handles)
-% hObject    handle to sequenceCheckBox4 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox4
-% --- Executes on button press in sequenceCheckBox5.
-function sequenceCheckBox5_Callback(hObject, eventdata, handles)
-% hObject    handle to sequenceCheckBox5 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox5
-% --- Executes on button press in sequenceCheckBox6.
-function sequenceCheckBox6_Callback(hObject, eventdata, handles)
-% hObject    handle to sequenceCheckBox6 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox6
-% --- Executes on button press in sequenceCheckBox7.
-function sequenceCheckBox7_Callback(hObject, eventdata, handles)
-% hObject    handle to sequenceCheckBox7 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox7
-% --- Executes on button press in sequenceCheckBox8.
-function sequenceCheckBox8_Callback(hObject, eventdata, handles)
-% hObject    handle to sequenceCheckBox8 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox8
-% --- Executes on button press in sequenceCheckBox9.
-function sequenceCheckBox9_Callback(hObject, eventdata, handles)
-% hObject    handle to sequenceCheckBox9 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox9
-% --- Executes on button press in sequenceCheckBox10.
-function sequenceCheckBox10_Callback(hObject, eventdata, handles)
-% hObject    handle to sequenceCheckBox10 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of sequenceCheckBox10
-
-% --- Executes on button press in nextStepBtn.
 function nextStepBtn_Callback(hObject, eventdata, handles)
 % hObject    handle to nextStepBtn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -565,7 +463,6 @@ set(handles.nextStepBtn, 'enable', 'off');
 set(lengthMatrixTable, 'Data', cell(size(get(lengthMatrixTable,'Data'))));
 set(handles.branchLengthTextBox, 'String', '');
 set(handles.branchMatrixBtn, 'enable', 'off');
-set(handles.nextStepBtn, 'enable', 'on');
 
 cla;
 clc   
