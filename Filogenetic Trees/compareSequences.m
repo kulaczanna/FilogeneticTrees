@@ -1,6 +1,12 @@
-function[distanceMatrix] = compareSequences(matrixOfSequences, lengthOfSequence)
+function[distanceMatrix, error] = compareSequences(matrixOfSequences, lengthOfSequence)
 
+error = false;
 rows = size(matrixOfSequences, 1);
+if (rows <= 1)
+    error = true;
+    distanceMatrix = [];
+    return
+end
 distanceMatrix = zeros(rows);
 
     for i = rows : -1 : 1

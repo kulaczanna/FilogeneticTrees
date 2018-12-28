@@ -339,7 +339,7 @@ sequence8 = get(handles.sequenceEditText8,'String');
 sequence9 = get(handles.sequenceEditText9,'String');
 sequence10 = get(handles.sequenceEditText10,'String');
 
-[matrixOfSequences, lengthOfSequence] = makeMatrixOfSequences(sequence1, sequence2, ...
+[matrixOfSequences, lengthOfSequence, error] = makeMatrixOfSequences(sequence1, sequence2, ...
     sequence3, sequence4, sequence5, sequence6, sequence7, sequence8, ...
     sequence9, sequence10);
 
@@ -347,10 +347,11 @@ if(isempty(matrixOfSequences))
     return
 end
 
-distanceMatrix = compareSequences(matrixOfSequences, lengthOfSequence);
+[distanceMatrix, error] = compareSequences(matrixOfSequences, lengthOfSequence);
 
 if (~error)
-    [cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] = createTreeByWpgmaMethod(distanceMatrix);
+    [cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] ...
+        = createTreeByWpgmaMethod(distanceMatrix);
     set(lengthMatrixTable, 'data', distanceMatrix);
     set(handles.nextStepBtn, 'enable', 'on');
 end

@@ -1,0 +1,26 @@
+\contentsline {chapter}{\numberline {1.}Wst\k ep}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Cel pracy}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Rozwi\k azania alternatywne}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Czym jest ewolucja?}{1}{section.1.3}
+\contentsline {section}{\numberline {1.4}Zadania filogenetyki}{1}{section.1.4}
+\contentsline {section}{\numberline {1.5}Drzewa filogenetyczne}{2}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Podstawowe za\IeC {\l }o\.zenia}{2}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Podstawowe poj\k ecia}{2}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Formy reprezentacji drzew}{4}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.4}Problemy w\nobreakspace {}szukaniu poprawnego drzewa}{5}{subsection.1.5.4}
+\contentsline {section}{\numberline {1.6}Etapy konstrukcji drzew filogenetycznych}{5}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Mutacje i luki w\nobreakspace {}sekwencjach}{6}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Przyr\'ownanie wielu sekwencji}{6}{subsection.1.6.2}
+\contentsline {subsection}{\numberline {1.6.3}Modele substytucji}{6}{subsection.1.6.3}
+\contentsline {subsection}{\numberline {1.6.4}Metody budowy drzew filogenetycznych}{7}{subsection.1.6.4}
+\contentsline {subsection}{\numberline {1.6.5}Por\'ownanie metod UPGMA i WPGMA}{7}{subsection.1.6.5}
+\contentsline {section}{\numberline {1.7}Metodologia}{8}{section.1.7}
+\contentsline {chapter}{\numberline {2.}Specyfikacja wewn\k etrzna}{9}{chapter.2}
+\contentsline {chapter}{\numberline {3.}Specyfikacja zewn\k etrzna}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Symulacja dzia\IeC {\l }ania programu}{16}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Wprowadzenie danych}{16}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Wyznaczanie kolejnych ga\IeC {\l }\k ezi drzewa}{17}{subsection.3.1.2}
+\contentsline {subsubsection}{Krok drugi}{18}{section*.22}
+\contentsline {subsubsection}{Krok trzeci}{19}{section*.26}
+\contentsline {subsubsection}{Krok czwarty}{20}{section*.30}
+\contentsline {subsubsection}{Krok pi\k aty}{21}{section*.34}
