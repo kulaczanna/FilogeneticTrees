@@ -9,7 +9,7 @@
 \BOOKMARK [2][-]{subsection.1.5.3}{Formy reprezentacji drzew}{section.1.5}% 9
 \BOOKMARK [2][-]{subsection.1.5.4}{Problemy w szukaniu poprawnego drzewa}{section.1.5}% 10
 \BOOKMARK [1][-]{section.1.6}{Etapy konstrukcji drzew filogenetycznych}{chapter.1}% 11
-\BOOKMARK [2][-]{subsection.1.6.1}{Mutacje i luki w sekwencjach}{section.1.6}% 12
+\BOOKMARK [2][-]{subsection.1.6.1}{Mutacje i przerwy w sekwencjach}{section.1.6}% 12
 \BOOKMARK [2][-]{subsection.1.6.2}{Przyr\363wnanie wielu sekwencji}{section.1.6}% 13
 \BOOKMARK [2][-]{subsection.1.6.3}{Modele substytucji}{section.1.6}% 14
 \BOOKMARK [2][-]{subsection.1.6.4}{Metody budowy drzew filogenetycznych}{section.1.6}% 15
@@ -17,6 +17,11 @@
 \BOOKMARK [1][-]{section.1.7}{Metodologia}{chapter.1}% 17
 \BOOKMARK [0][-]{chapter.2}{Specyfikacja wewnetrzna}{}% 18
 \BOOKMARK [0][-]{chapter.3}{Specyfikacja zewnetrzna}{}% 19
-\BOOKMARK [1][-]{section.3.1}{Symulacja dzia\233ania programu}{chapter.3}% 20
-\BOOKMARK [2][-]{subsection.3.1.1}{Wprowadzenie danych}{section.3.1}% 21
-\BOOKMARK [2][-]{subsection.3.1.2}{Wyznaczanie kolejnych ga\233ezi drzewa}{section.3.1}% 22
+\BOOKMARK [0][-]{chapter.4}{Symulacja dzia\233ania programu}{}% 20
+\BOOKMARK [1][-]{section.4.1}{Wprowadzenie danych}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.2}{Wyznaczanie kolejnych ga\233ezi drzewa}{chapter.4}% 22
+\BOOKMARK [2][-]{subsection.4.2.1}{Krok pierwszy}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.2}{Krok drugi}{section.4.2}% 24
+\BOOKMARK [2][-]{subsection.4.2.3}{Krok trzeci}{section.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.2.4}{Krok czwarty}{section.4.2}% 26
+\BOOKMARK [2][-]{subsection.4.2.5}{Krok piaty}{section.4.2}% 27

@@ -1,11 +1,11 @@
-function [newDistanceMatrix] = calculateNewDistanceMatrix(minValueY, minValueX, distanceMatrix)
+function [newDistanceMatrix, newDistanceMatrixCopy] = calculateNewDistanceMatrix(minValueY, minValueX, distanceMatrix)
 
     lengthOfMatrix = length(distanceMatrix);
-    newDistanceMatrix = zeros(lengthOfMatrix-1);
+    newDistanceMatrix = zeros(lengthOfMatrix - 1);
+%     newDistanceMatrixCopy = zeros(lengthOfMatrix - 1);
     
     for row = 1 : lengthOfMatrix - 1        
         for column = 1 : lengthOfMatrix - 1
-            
                        if(row < minValueY)
                             if(column < minValueY)
                                 newDistanceMatrix(row, column) = distanceMatrix(row, column);
@@ -38,8 +38,9 @@ function [newDistanceMatrix] = calculateNewDistanceMatrix(minValueY, minValueX, 
                                 newDistanceMatrix(row, column) = distanceMatrix(row, column);
                             end
                        end
-                        
         end
     end
 
+     newDistanceMatrixCopy = newDistanceMatrix' + newDistanceMatrix;
+    
 end

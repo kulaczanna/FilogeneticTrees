@@ -1,10 +1,11 @@
-function[distanceMatrix, error] = compareSequences(matrixOfSequences, lengthOfSequence)
+function[distanceMatrix, distanceMatrixCopy, error] = compareSequences(matrixOfSequences, lengthOfSequence)
 
 error = false;
 rows = size(matrixOfSequences, 1);
 if (rows <= 1)
     error = true;
     distanceMatrix = [];
+    distanceMatrixCopy = [];
     return
 end
 distanceMatrix = zeros(rows);
@@ -16,6 +17,8 @@ distanceMatrix = zeros(rows);
                 [distance, error] = checkTheDifferencesBetweenSequences(distance, lengthOfSequence);
                 if (~error)
                     distanceMatrix(j, i) = distance;
+                    distanceMatrixCopy(j, i) = distance;
+                    distanceMatrixCopy(i, j) = distance;
                 else
                     return
                 end
@@ -27,4 +30,5 @@ distanceMatrix = zeros(rows);
             break
         end
     end
+    
 end

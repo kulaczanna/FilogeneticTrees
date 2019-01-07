@@ -347,12 +347,12 @@ if(isempty(matrixOfSequences))
     return
 end
 
-[distanceMatrix, error] = compareSequences(matrixOfSequences, lengthOfSequence);
+[distanceMatrix, distanceMatrixCopy, error] = compareSequences(matrixOfSequences, lengthOfSequence);
 
 if (~error)
     [cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMatrix] ...
         = createTreeByWpgmaMethod(distanceMatrix);
-    set(lengthMatrixTable, 'data', distanceMatrix);
+    set(lengthMatrixTable, 'data', distanceMatrixCopy);
     set(handles.nextStepBtn, 'enable', 'on');
 end
 
@@ -373,10 +373,10 @@ lengthOfMatrix = length(distanceMatrix);
  
  if(lengthOfMatrix > 1)
      [minValueY, minValueX] = findFirstMinimumPosition(distanceMatrix);
-     newDistanceMatrix = calculateNewDistanceMatrix(minValueY, minValueX, distanceMatrix);    
+     [newDistanceMatrix, newDistanceMatrixCopy] = calculateNewDistanceMatrix(minValueY, minValueX, distanceMatrix);    
      distanceMatrix = newDistanceMatrix;
      displayTree(subNum, cellNodes, cellLeafs, cellSequences);
-     set(lengthMatrixTable, 'data', distanceMatrix);
+     set(lengthMatrixTable, 'data', newDistanceMatrixCopy);
      set(handles.branchLengthTextBox, 'String', branchLengthVector(1, subNum));
      subNum = subNum + 1;
  end

@@ -15,7 +15,7 @@ function[matrixOfSequences, lengthOfSequence, error] = makeMatrixOfSequences(s1,
     
     if (size(nonEmptysequencesNumber, 2) <= 1)
         error = true;
-        warndlg('There must be at least twosequences.', 'Sequences error');
+        warndlg('There must be at least two sequences.', 'Sequences error');
         return
     end
     

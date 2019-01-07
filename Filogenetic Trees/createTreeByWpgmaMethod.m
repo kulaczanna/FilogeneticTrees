@@ -51,4 +51,6 @@ function[cellNodes, cellLeafs, cellSequences, branchLengthVector, branchLengthMa
         branchLengthMatrix(j, j) = 0;
     end
     
+    branchLengthMatrix = branchLengthMatrix + branchLengthMatrix';
+    
 end

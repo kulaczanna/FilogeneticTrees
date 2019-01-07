@@ -5,7 +5,7 @@
  \item wprowadzenie w~obszar filogenetyki,
  \item zapoznanie z~podstawowymi pojêciami dotycz¹cymi budowy drzew filogenetycznych,
  \item wyjaœnienie sposobu tworzenia drzew przy~pomocy metod UPGMA i WPGMA,
- \item implementacja aplikacji do konstrukcji drzew filogenetycznych,
+ \item implementacja aplikacji do konstrukcji drzew filogenetycznych na podstawie analizy sekwencji nukleotydowych,
  \item graficzne przedstawienie wybranych drzew filogenetycznych.
 \end{itemize}
 
@@ -16,7 +16,7 @@ Obecnie istniej¹ ró¿ne programy filogenetycznych o~wielu mo¿liwoœciach, ale te¿ 
 Z biologicznego punktu widzenia, ewolucja to rozwój formy biologicznej z~innych wczeœniej istniej¹cych form lub jej powstanie w~postaci obecnie istniej¹cej na~skutek dzia³ania doboru naturalnego i wystêpowania modyfikacji. Przyczyn¹ jej wystêpowania s¹ zmiany warunków œrodowiskowych, skutkiem których formy musz¹ zostaæ do~nich odpowiednio dostosowane. W~ka¿dej populacji istnieje wiêc pewna ró¿norodnoœæ biologiczna, zapewniana przez zmiany materia³u genetycznego \cite{1}.
 
 \section{Zadania filogenetyki}
-Filogenetyka zajmuje siê badaniem historii ewolucyjnej ¿yj¹cych organizmów i przedstawia ich ewolucyjn¹ dywergencjê przy~pomocy ,,drzew'' - diagramów. Drzewa te mog¹ rozga³êziaæ siê wed³ug ró¿nych schematów. Proces ich powstawania nazywa siê filogenez¹. W~ jednym ze~`sposobów jej badania wykorzystywane s¹ materia³y kopalne, w~których zawarte s¹ informacje o~przodkach obecnych form oraz czasie wyst¹pienia dywergencji. S¹ one jednak trudno dostêpne, a opis cech morfologicznych czêsto nie~jest jednoznaczny.
+Filogenetyka zajmuje siê badaniem historii ewolucyjnej ¿yj¹cych organizmów i przedstawia ich ewolucyjn¹ dywergencjê przy~pomocy ,,drzew'' - diagramów. Drzewa te mog¹ rozga³êziaæ siê wed³ug ró¿nych schematów. Proces ich powstawania nazywa siê filogenez¹. W~ jednym ze~sposobów jej badania wykorzystywane s¹ materia³y kopalne, w~których zawarte s¹ informacje o~przodkach obecnych form oraz czasie wyst¹pienia dywergencji. S¹ one jednak trudno dostêpne, a opis cech morfologicznych czêsto nie~jest jednoznaczny.
 Inn¹ metod¹ zdobycia danych molekularnych jest ich zapis w~sekwencji DNA lub bia³ek, gdzie noœnikami informacji o~ewolucji i mutacjach s¹ geny. W~przeciwieñstwie do poprzedniej metody, nie~istnieje tu problem b³êdu systematycznego, dane ³atwiej jest uzyskaæ oraz wystêpuj¹ one w~wiêkszej iloœci. Ponadto, drzewa filogenetyczne skonstruowane na~ich podstawie s¹ bardziej wiarygodne i jednoznaczne. Dane molekularne s¹ z~tego powodu preferowanym, a czasem jedynym Ÿród³em informacji, natomiast filogenetyka molekularna - podstaw¹ badañ powi¹zañ ewolucyjnych pomiêdzy genami (sekwencjami), a co za tym idzie - równie¿ miêdzy gatunkami. Jej podstawowym celem jest prawid³owa rekonstrukcja historii ewolucji organizmów na~podstawie zmian miêdzy sekwencjami \cite{1}.
 
 \section{Drzewa filogenetyczne}
@@ -38,7 +38,7 @@ Grupa monofiletyczna lub inaczej klad to grupa taksonów pochodz¹cych od wspólneg
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.55\textwidth]{typoweDrzewo}
+	\includegraphics[width=0.5\textwidth]{typoweDrzewo}
 	\caption{Typowe drzewo filogenetyczne \cite{1}}\label{Rysunek_typoweDrzewoFilogenetyczne}
 \end{figure}
 
@@ -46,7 +46,7 @@ Ga³êzie drzewa s¹ u³o¿one wed³ug jego topologii. Ich podzia³ na~dwie ga³êzie pot
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.65\textwidth]{dychotomiaIPolitomia2}
+	\includegraphics[width=0.5\textwidth]{dychotomiaIPolitomia2}
 	\caption{Przyk³ad wyst¹pienia dychotomii i politomii \cite{1}}\label{Rysunek_dychotomiaIPolitomia}
 \end{figure}
 
@@ -55,16 +55,18 @@ Istnieje mo¿liwoœæ konstruowania drzew ukorzenionych (rys. \ref{Rysunek_ukorzeni
 W celu ustalenia kierunku drogi ewolucyjnej, konieczne jest ukorzenienie drzewa \cite{1}.
 
 \begin{figure}[H]
- \subfloat[Drzewo ukorzenione\label{Rysunek_ukorzenienieDrzewa:c1}]{\includegraphics[width=0.4\textwidth]{drzewoUkorzenione2}} \; % <--- to daje odstêp w poziomie; \\ daje now¹ linijkê
+\centering
+ \subfloat[Drzewo ukorzenione\label{Rysunek_ukorzenienieDrzewa:c1}]{\includegraphics[width=0.4\textwidth]{drzewoUkorzenione2}} \;\;\;\;\;\;\;\;\;\;\;\;% <--- to daje odstêp w poziomie; \\ daje now¹ linijkê
  \subfloat[Drzewo nieukorzenione\label{Rysunek_ukorzenienieDrzewa:c2}]{\includegraphics[width=0.4\textwidth]{drzewoNieukorzenione2}} 
   \caption{Porównanie drzewa ukorzenionego i nieukorzenionego \cite{1}\label{Rysunek_ukorzenienieDrzewa}} % wykorzystanie subref mo¿e wymagaæ dodania \protect !!!
 \end{figure}
 
 \subsection{Formy reprezentacji drzew} \label{formy_reprezentacji_drzew}
-Jednym ze~sposobów reprezentacji graficznej drzewa s¹ filogramy (\ref{filogram:c2}), gdzie d³ugoœæ ga³êzi zale¿na jest od stopnia dywergencji ewolucyjnej. S¹ to drzewa wyskalowane. Prezentuj¹ one informacje, nie~tylko na~temat wystêpuj¹cych zale¿noœci, ale te¿ o~ wzglêdnym czasie dywergencji poszczególnych ga³êzi. W~przypadku drzew niewyskalowanych, wszystkie ga³êzie s¹ jednakowej d³ugoœci, co powoduje utratê czêœci informacji. Takie drzewa nazywa siê kladogramami \cite{1,2} (rys. \ref{kladogram:c1}).
+Jednym ze~sposobów reprezentacji graficznej drzewa s¹ filogramy (\ref{filogram:c2}), gdzie d³ugoœæ ga³êzi zale¿na jest od stopnia dywergencji ewolucyjnej. S¹ to drzewa wyskalowane. Prezentuj¹ one informacje nie~tylko na~temat wystêpuj¹cych zale¿noœci, ale te¿ o~ wzglêdnym czasie dywergencji poszczególnych ga³êzi. W~przypadku drzew niewyskalowanych, wszystkie ga³êzie s¹ jednakowej d³ugoœci, co powoduje utratê czêœci informacji. Takie drzewa nazywa siê kladogramami \cite{1,2} (rys. \ref{kladogram:c1}).
 
 \begin{figure}[H]
- \subfloat[Kladogram\label{kladogram:c1}]{\includegraphics[width=0.4\textwidth]{kladogram}} \; % <--- to daje odstêp w poziomie; \\ daje now¹ linijkê
+\centering
+ \subfloat[Kladogram\label{kladogram:c1}]{\includegraphics[width=0.4\textwidth]{kladogram}} \;\;\;\;\;\;\;\;\;\;\;\; % <--- to daje odstêp w poziomie; \\ daje now¹ linijkê
  \subfloat[Filogram\label{filogram:c2}]{\includegraphics[width=0.4\textwidth]{filogram}} 
   \caption{Przyk³adowy kladogram i filogram \cite{1}\label{Rysunek_kladogram_i_filogram}} % wykorzystanie subref mo¿e wymagaæ dodania \protect !!!
 \end{figure}
@@ -93,9 +95,10 @@ Do poprawnej konstrukcji drzewa filogenetycznego niezbêdne jest znalezienie jego
  \end{equation}
  \item drzewa nieukorzenione:
  \begin{equation}
- N_{U} = \dfrac{(2n-5)!}{2^{n-3}(n-3)!}.
+ N_{U} = \dfrac{(2n-5)!}{2^{n-3}(n-3)!},
  \end{equation}
 \end{itemize}
+gdzie $N_{R}$ oznacza liczbê topologii drzew ukorzenionych, $N_{U}$ liczbê topologii drzew nieukorzenionych, a $n$ liczbê taksonów.
 			
 \section{Etapy konstrukcji drzew filogenetycznych}
 Podczas konstruowania drzew odwzorowuj¹cych historiê ewolucji gatunków,
@@ -109,29 +112,30 @@ nale¿y	uwzglêdniæ nastêpuj¹ce etapy:
 \end{itemize}
 G³ównym za³o¿eniem niniejszej pracy jest przeprowadzenie etapu czwartego - wyboru metody konstrukcji drzewa oraz zaprezentowanie jej przy~pomocy aplikacji.
 
-\subsection{Mutacje i luki w~sekwencjach} \label{mutacje_i_luki}
+\subsection{Mutacje i przerwy w~sekwencjach} \label{mutacje_i_przerwy}
 Dobrym sposobem identyfikacji mutacji, które wyst¹pi³y podczas ewolucji i spowodowa³y rozbie¿noœæ sekwencji dwóch badanych bia³ek jest dopasowanie sekwencji parami.
-Najczêœciej wystêpuj¹ce mutacje to substytucje, insercje i delecje. W~sekwencjach bia³kowych substytucje wystêpuj¹, gdy mutacja skutkuje zamian¹ kodonu dla jednego aminokwasu na~inny. Powoduje to dopasowanie dwóch nieidentycznych aminokwasów. Insercje i delecje wystêpuj¹, gdy reszty s¹ dodawane lub usuwane. Zwykle s¹ one reprezentowane przez znak ,,-'' dodawany do jednej lub drugiej sekwencji.
- Insercje lub delecje (nawet te o~d³ugoœci tylko jednego znaku) s¹ nazywane lukami w~wyrównaniu. Luki te mog¹ wyst¹piæ na~koñcu bia³ka lub w~œrodku. Jednym ze~skutków dodawania przerw jest spowodowanie, ¿e ca³kowita d³ugoœæ ka¿dego wyrównania jest taka sama. Dodanie luk mo¿e pomóc w~stworzeniu dopasowania odwzorowuj¹cego ewolucyjne zmiany, które mia³y miejsce \cite{2}.
+Najczêœciej wystêpuj¹ce mutacje to substytucje, insercje i delecje. Substytucje wystêpuj¹, gdy mutacja skutkuje zamian¹ jednego nukleotydu lub aminokwasu na inny. Powoduje to dopasowanie dwóch nieidentycznych aminokwasów. Insercje i delecje wystêpuj¹, gdy reszty s¹ dodawane lub usuwane. Zwykle s¹ one reprezentowane przez znak ,,-'' dodawany do jednej lub drugiej sekwencji.
+ Insercje lub delecje (nawet te o~d³ugoœci tylko jednego znaku) s¹ nazywane przerwami w~przyrównaniu. Przerwy te mog¹ wyst¹piæ na~koñcu sekwencji lub w~œrodku. Jednym ze~skutków dodawania przerw jest spowodowanie, ¿e ca³kowita d³ugoœæ ka¿dego dopasowania jest taka sama. Dodanie przerw mo¿e pomóc w~stworzeniu dopasowania odwzorowuj¹cego ewolucyjne zmiany, które mia³y miejsce \cite{2}.
 
 \subsection{Przyrównanie wielu sekwencji} \label{przyrownanie_wielu_sekwencji}
-Przyrównanie wielu sekwencji jest zbiorem trzech lub wiêkszej liczby sekwencji bia³ka (lub kwasu nukleinowego), które s¹ czêœciowo lub ca³kowicie wyrównane. Homologiczne reszty s¹ wyrównane w~kolumnach na~ca³ej d³ugoœci sekwencji. S¹ one homologiczne w~sensie ewolucyjnym - prawdopodobnie pochodz¹ od wspólnego przodka - oraz strukturalnym - wyrównane reszty maj¹ tendencjê do zajmowania odpowiednich pozycji w~trójwymiarowej strukturze ka¿dego wyrównanego bia³ka. \cite{2}
-Dopasowania wielu sekwencji nie~s¹ trudne do wygenerowania dla grupy bardzo blisko spokrewnionych sekwencji bia³kowych (lub DNA). Gdy tylko sekwencje wykazuj¹ pewn¹ rozbie¿noœæ, problem wielokrotnego wyrównania staje siê niezwykle trudny do rozwi¹zania. W~szczególnoœci trudno jest oceniæ liczbê i lokalizacjê luk. \cite{2}
+Przyrównanie wielu sekwencji jest zbiorem trzech lub wiêkszej liczby sekwencji bia³ka (lub kwasu nukleinowego), które s¹ czêœciowo lub ca³kowicie dopasowane. Homologiczne reszty aminokwasowe lub nukleotydy s¹ przyrównane w~kolumnach na~ca³ej d³ugoœci sekwencji. S¹ one homologiczne w~sensie ewolucyjnym - prawdopodobnie pochodz¹ od wspólnego przodka - oraz strukturalnym - w przypadku sekwencji bia³kowych, dopasowane reszty maj¹ tendencjê do zajmowania odpowiednich pozycji w~trójwymiarowej strukturze ka¿dego przyrównanego bia³ka.
+Dopasowania wielu sekwencji nie~s¹ trudne do wygenerowania dla grupy bardzo blisko spokrewnionych sekwencji bia³kowych (lub DNA). Gdy tylko sekwencje wykazuj¹ pewn¹ rozbie¿noœæ, problem wielokrotnego przyrównania staje siê niezwykle trudny do rozwi¹zania. W~szczególnoœci trudno jest oceniæ liczbê i lokalizacjê przerw \cite{2}.
 
 \subsection{Modele substytucji} \label{model_Jukesa_Cantora}
-Modele ewolucji kwasów nukleinowych i bia³ek s¹ wykorzystywane w~metodach filogenetycznych jako podstawa do okreœlenia odleg³oœci ewolucyjnych \cite{3}. Istnieje kilka modeli substytucji, które s¹ ograniczone pod tym wzglêdem, ¿e w~sytuacji, gdy na~danej pozycji wyst¹pi zbyt wiele substytucji, dana pozycja zostaje wysycona. Oznacza to, ¿e dywergencja ewolucyjna przekracza mo¿liwoœci modeli do korekty homoplazji, a rzeczywiste odleg³oœci ewolucyjne nie~s¹ mo¿liwe do ustalenia \cite{1}.
-Najprostszym modelem substytucji jest model Jukesa-Cantora (JC). Model opisuje jedno miejsce w~dopasowaniu sekwencji DNA. Podstaw¹ w~tym miejscu mo¿e byæ A, C, G lub T. Model zak³ada, ¿e wszystkie cztery zasady maj¹ jednakow¹ czêstotliwoœæ i ¿e istnieje szybkoœæ podstawienia $\alpha$ z~dowolnej z~czterech zasad DNA do dowolnej innej zasady. Liczba miejsc, które ró¿ni¹ siê miêdzy dwiema sekwencjami D jest bezpoœrednio obserwowalna przez porównanie dwóch sekwencji, ale nie~uwzglêdnia ona wszystkich zmian, które zasz³y, poniewa¿ mog³o byæ wiêcej ni¿ jedno podstawienie na~miejsce. Dlatego nale¿y obliczyæ ewolucyjn¹ odleg³oœæ d, zdefiniowan¹ jako szacowana liczba substytucji, które wyst¹pi³y na~miejscu. \cite{3}
-Zgodnie z~modelem Jukesa-Cantora odleg³oœæ t¹ okreœla wzór:
+Modele ewolucji kwasów nukleinowych i bia³ek s¹ wykorzystywane w~metodach filogenetycznych jako podstawa do okreœlenia odleg³oœci ewolucyjnych \cite{3}. Istnieje kilka modeli substytucji, które s¹ ograniczone pod tym wzglêdem, ¿e w~sytuacji, gdy na~danej pozycji wyst¹pi zbyt wiele substytucji, dana pozycja zostaje wysycona. Oznacza to, ¿e dywergencja ewolucyjna przekracza mo¿liwoœci modeli do korekty, a rzeczywiste odleg³oœci ewolucyjne nie~s¹ mo¿liwe do ustalenia \cite{1}.
+Najprostszym modelem substytucji jest model Jukesa-Cantora (JC). Model opisuje jedn¹ pozycjê w~dopasowaniu sekwencji DNA. Zak³ada on, ¿e wszystkie cztery nukleotydy maj¹ jednakow¹ czêstotliwoœæ i ¿e istnieje szybkoœæ podstawienia $\alpha$ z~dowolnej z~czterech zasad DNA do dowolnej innej zasady. Liczba miejsc, które ró¿ni¹ siê miêdzy dwiema sekwencjami jest bezpoœrednio obserwowalna przez porównanie dwóch sekwencji, ale nie~uwzglêdnia ona wszystkich zmian, które zasz³y, poniewa¿ mog³o byæ wiêcej ni¿ jedno podstawienie w~danym miejscu. Dlatego nale¿y obliczyæ ewolucyjn¹ odleg³oœæ d, zdefiniowan¹ jako szacowana liczba substytucji, które wyst¹pi³y na~danej pozycji \cite{3}.
+Zgodnie z~modelem Jukesa-Cantora odleg³oœæ tê okreœla wzór:
  \begin{equation}
- d_{AB} = -\frac{3}{4}ln[1 - \frac{4}{3}p_{AB}].
+ d_{AB} = -\frac{3}{4}ln[1 - \frac{4}{3}p_{AB}],
  \end{equation}
+ gdzie $d_{AB}$ to odleg³oœæ ewolucyjna pomiêdzy sekwencjami A i B, a $p_{AB}$ to obserwowana odleg³oœæ pomiêdzy tymi sekwencjami okreœlona na podstawie odsetka substytucji na~ca³ej d³ugoœci przyrównania \cite{1}.
 
 \subsection{Metody budowy drzew filogenetycznych}
 Drzewa mo¿na tworzyæ przy~pomocy metod nale¿¹cych do dwóch kategorii:
 \begin{itemize}
  \item metody oparte na~odleg³oœciach:
  \begin{itemize}
-  \item [-] klasteryzacja, np. metoda grupowania niewa¿onych par z~arytmetycznymi œrednimi (UPGMA), metoda ³¹czenia s¹siadów (metoda najbli¿szego s¹siedztwa - NJ), uogólniona metoda NJ,
+  \item [-] klasteryzacja, np. metoda grupowania niewa¿onych par z~arytmetycznymi œrednimi (UPGMA), metoda grupowania wa¿onych par z~arytmetycznymi œrednimi (WPGMA), metoda ³¹czenia s¹siadów (metoda najbli¿szego s¹siedztwa - NJ), uogólniona metoda NJ,
   \item [-] kryterium optymalnoœci, np. metoda Fitcha-Margoliasha (FM), metoda minimalnej ewolucji (ME);
  \end{itemize}
  \item metody oparte na~znakach sekwencji taksonów:
@@ -141,10 +145,10 @@ Drzewa mo¿na tworzyæ przy~pomocy metod nale¿¹cych do dwóch kategorii:
 \end{itemize}
 
 \subsection{Porównanie metod UPGMA i WPGMA} \label{UPGMA_WPGMA}
-Zarówno metoda UPGMA, jak i WPGMA to metody klastrowania.W metodzie UPGMA odleg³oœæ miêdzy dwoma klastrami jest œredni¹ odleg³oœci¹ miêdzy wszystkimi obiektami ka¿dego klastra, natomiast w~metodzie WPGMA odleg³oœæ miêdzy dwoma klastrami jest œredni¹ arytmetyczn¹ odleg³oœci miêdzy obiektami ka¿dego klastra wa¿on¹ przez liczbê obiektów w~ka¿dym klastrze \cite{4}.
+Zarówno metoda UPGMA, jak i WPGMA to metody klastrowania. W metodzie UPGMA odleg³oœæ miêdzy dwoma klastrami jest œredni¹ odleg³oœci¹ miêdzy wszystkimi obiektami ka¿dego klastra, natomiast w~metodzie WPGMA odleg³oœæ miêdzy dwoma klastrami jest œredni¹ arytmetyczn¹ odleg³oœci miêdzy obiektami ka¿dego klastra wa¿on¹ przez liczbê obiektów w~ka¿dym klastrze \cite{4}.
 Algorytm obydwu metod:
 \begin{itemize}
-\item znajdŸ wartoœæ minimaln¹ (dwie najmniej ró¿ni¹ce siê/najbli¿sze sekwencje) macierzy odleg³oœci ewolucyjnych,
+\item znajdŸ wartoœæ minimaln¹ (dwie najmniej ró¿ni¹ce siê/najbli¿sze sekwencje) macierzy odleg³oœci ewolucyjnych (utworzonej na podstawie modelu substytucji, np. Jukesa-Cantora (\ref{model_Jukesa_Cantora})),
 \item po³¹cz najbli¿sze sekwencje tworz¹c klaster,
 \item oblicz now¹ macierz odleg³oœci ewolucyjnych:
 \begin{itemize}
@@ -157,18 +161,19 @@ Algorytm obydwu metod:
 Na rysunku \ref{Rysunek_UPGMA_vs_WPGMA} porównano wygl¹d przyk³adowej macierzy odleg³oœci ewolucyjnych w~kolejnych krokach dla metody UPGMA i WPGMA \cite{5, 6}.
 
 \begin{figure}[H]
- \subfloat[Metoda UPGMA etap I\label{Rysunek_UPGMA_etap1:c1}]{\includegraphics[width=0.4\textwidth]{macierz1}} \; 
- \subfloat[Metoda WPGMA etap I\label{Rysunek_WPGMA_etap1:c2}]{\includegraphics[width=0.4\textwidth]{macierz1}} \;
- \subfloat[Metoda UPGMA etap II\label{Rysunek_UPGMA_etap2:c2}]{\includegraphics[width=0.5\textwidth]{macierz2}} \;
- \subfloat[Metoda WPGMA etap II\label{Rysunek_WPGMA_etap2:c2}]{\includegraphics[width=0.5\textwidth]{macierz2}} \;
- \subfloat[Metoda WPGMA etap III\label{Rysunek_UPGMA_etap3:c2}]{\includegraphics[width=0.5\textwidth]{macierz3U}} \;
-\subfloat[Metoda WPGMA etap III\label{Rysunek_UPGMA_etap3:c2}]{\includegraphics[width=0.5\textwidth]{macierz3W}}  
+\centering
+ \subfloat[Metoda UPGMA etap I\label{Rysunek_UPGMA_etap1:c1}]{\includegraphics[width=0.35\textwidth]{macierz1}}  
+ \subfloat[Metoda WPGMA etap I\label{Rysunek_WPGMA_etap1:c2}]{\includegraphics[width=0.35\textwidth]{macierz1}} \;
+ \subfloat[Metoda UPGMA etap II\label{Rysunek_UPGMA_etap2:c2}]{\includegraphics[width=0.45\textwidth]{macierz2}} \;
+ \subfloat[Metoda WPGMA etap II\label{Rysunek_WPGMA_etap2:c2}]{\includegraphics[width=0.45\textwidth]{macierz2}} \;
+ \subfloat[Metoda WPGMA etap III\label{Rysunek_UPGMA_etap3:c2}]{\includegraphics[width=0.45\textwidth]{macierz3U}} \;
+\subfloat[Metoda WPGMA etap III\label{Rysunek_UPGMA_etap3:c2}]{\includegraphics[width=0.45\textwidth]{macierz3W}}  
   \caption{Porównanie kolejnych etapów w~metodzie UPGMA i WPGMA\label{Rysunek_UPGMA_vs_WPGMA}}
 \end{figure}
 
 
 \section{Metodologia} \label{mteodologia}
-Problem przedstawiony w~projekcie to konstrukcja drzew filogenetycznych. Jako jego rozwi¹zanie zaproponowano program, przyjmuj¹cy na~wejœciu fragmenty sekwencji nukleotydowych, które zostaj¹ przyrównane (\ref{przyrownanie_wielu_sekwencji}). Efektem jest macierz odleg³oœci ewolucyjnych zawieraj¹ca wyniki (odleg³oœci ewolucyjne) dla ka¿dej pary sekwencji. Uzyskuje siê je przy~pomocy modelu substytucji Jukesa - Cantora (\ref{model_Jukesa_Cantora}). Nastêpnie, na~podstawie wy¿ej wymienionej macierzy i zgodnie z~metod¹ WPGMA (\ref {UPGMA_WPGMA}) tworzone s¹ drzewa filogenetyczne dla danych sekwencji. Graficznie przedstawiane s¹ jako kladogramy (\ref{formy_reprezentacji_drzew}), jednak informacja o~d³ugoœci poszczególnych ga³êzi drzewa nie~jest zatracana, lecz przedstawiona w~formie kolejnej macierzy.
+Problem przedstawiony w~projekcie to konstrukcja drzew filogenetycznych. Jako jego rozwi¹zanie zaproponowano program, przyjmuj¹cy na~wejœciu fragmenty sekwencji nukleotydowych, które zosta³y przyrównane (\ref{przyrownanie_wielu_sekwencji}). Efektem jest macierz odleg³oœci ewolucyjnych zawieraj¹ca wyniki (odleg³oœci ewolucyjne) dla ka¿dej pary sekwencji. Uzyskuje siê je przy~pomocy modelu substytucji Jukesa - Cantora (\ref{model_Jukesa_Cantora}). Nastêpnie, na~podstawie wy¿ej wymienionej macierzy i zgodnie z~metod¹ WPGMA (\ref {UPGMA_WPGMA}) tworzone s¹ drzewa filogenetyczne dla danych sekwencji. Graficznie przedstawiane s¹ jako kladogramy (\ref{formy_reprezentacji_drzew}), jednak informacja o~d³ugoœci poszczególnych ga³êzi drzewa nie~jest zatracana, lecz przedstawiona w~formie kolejnej macierzy.
 
 %schemat blokowy?
 
@@ -176,18 +181,18 @@ Problem przedstawiony w~projekcie to konstrukcja drzew filogenetycznych. Jako je
 Aplikacjê zaimplementowano w~œrodowisku Matlab, z~powodu wzglêdnie prostego sposobu operowania na macierzach i~graficznej prezentacji drzew binarnych.
 Nazwa programu, podobnie jak~jej~g³ównej funkcji to~\textit{FilogeneticTrees}. W~celu u³atwienia korzystania z~aplikacji, utworzono graficzny interfejs u¿ytkownika, równie¿ o~tej~samej nazwie.
 \newline
-Jak~wspomniano (\ref{mteodologia}), parametrem przyjmowanym na~wejœciu s¹~fragmenty sekwencji nukleotydowych jako~³añcuchy znaków. Mo¿liwe jest~zatem wpisanie liter: ,,A'', ,,G", ,,C'', ,,T'' oraz oznaczaj¹cego lukê w~sekwencji, ,,-''. Program nie~przyjmuje innych znaków, co~zosta³o zapewnione funkcj¹ \textit{checkIfThereIsNoIllegalSign}.
+Jak~wspomniano (\ref{mteodologia}), parametrem przyjmowanym na~wejœciu s¹~fragmenty sekwencji nukleotydowych jako~³añcuchy znaków. Mo¿liwe jest~zatem wpisanie liter: ,,A'', ,,G", ,,C'', ,,T'' oraz oznaczaj¹cego przerwê w~sekwencji, ,,-''. Program nie~przyjmuje innych znaków, co~zosta³o zapewnione funkcj¹ \textit{checkIfThereIsNoIllegalSign}.
 \newline
-Kolejnym krokiem jest~przyrównanie wielu sekwencji (\ref{przyrownanie_wielu_sekwencji}). Odpowiada za~nie~funkcja \textit{compareSequences}. Porównywane sekwencje powinny byæ~takiej samej d³ugoœci, nie~powinny byæ~identyczne, ani~ró¿niæ siê~bardziej ni¿~w~75\%. Aby~zabezpieczyæ program przed~przerwaniem jego~dzia³ania w~wymienionych przypadkach, utworzono funkcje, odpowiednio \textit{checkIfLengthIsEqual} i~\textit{checkTheDifferencesBetweenSequences}. Jeœli~wszystkie warunki zosta³y spe³nione, przy~pomocy funkcji \textit{makeMatrixOfSequences} tworzona jest~macierz, w~której znajduj¹ siê~wszystkie podane sekwencje (pominiête zostaj¹ pola tekstowe, które u¿ytkownik pozostawi³ puste). Funkcja zwraca tak¿e d³ugoœæ sekwencji potrzebn¹ w~dalszych obliczeniach. Nastêpuje te¿~w³aœciwe porównywanie sekwencji, którego efektem jest~powstanie macierzy odleg³oœci ewolucyjnych. Umieszczone w~niej wartoœci to~odleg³oœci (iloœci znaków ró¿ni¹cych siê) pomiêdzy sekwencjami po~zastosowaniu modelu substytucji Jukesa-Cantora (\ref{model_Jukesa_Cantora}) przy~u¿yciu funkcji \textit{jukesCantorSubstituteModel}.
+Kolejnym krokiem jest~przyrównanie wielu sekwencji (\ref{przyrownanie_wielu_sekwencji}). Odpowiada za~nie~funkcja \textit{compareSequences}. Porównywane sekwencje powinny byæ~takiej samej d³ugoœci, nie~powinny byæ~identyczne, ani~ró¿niæ siê~bardziej ni¿~w~75\%. Aby~zabezpieczyæ program przed~przerwaniem jego~dzia³ania w~wymienionych przypadkach, utworzono funkcje, odpowiednio \textit{checkIfLengthIsEqual} i~\textit{checkTheDifferencesBetweenSequences}. Jeœli~wszystkie warunki zosta³y spe³nione, przy~pomocy funkcji \textit{makeMatrixOfSequences} tworzona jest~macierz, w~której znajduj¹ siê~wszystkie podane sekwencje (pominiête zostaj¹ pola tekstowe, które u¿ytkownik pozostawi³ puste). Funkcja zwraca tak¿e d³ugoœæ sekwencji potrzebn¹ w~dalszych obliczeniach. Nastêpuje te¿~wyznaczenie macierzy odleg³oœci ewolucyjnych. Umieszczone w~niej wartoœci to~odleg³oœci (wyznaczone na podstawie iloœci znaków ró¿ni¹cych siê) pomiêdzy sekwencjami po~zastosowaniu modelu substytucji Jukesa-Cantora (\ref{model_Jukesa_Cantora}) przy~u¿yciu funkcji \textit{jukesCantorSubstituteModel}.
 \newline
-Podczas przyrównywania sekwencji, w~programie g³ównym zostaje wywo³ana funkcja \textit{createTreeByWpgmaMethod} jako~argument przyjmuj¹ca utworzon¹ wczeœniej macierz odleg³oœci ewolucyjnych. Wewn¹trz niej zosta³ zawarty kod umo¿liwiaj¹cy otrzymanie koñcowej postaci drzewa filogenetycznego metod¹ WPGMA, a~tak¿e parametrów koniecznych do~jego graficznego zaprezentowania. U¿yto tu~takich funkcji, jak:
+Podczas konstrukcji drzewa filogenetycznego, w~programie g³ównym zostaje wywo³ana funkcja \textit{createTreeByWpgmaMethod} jako~argument przyjmuj¹ca utworzon¹ wczeœniej macierz odleg³oœci ewolucyjnych. Wewn¹trz niej zosta³ zawarty kod umo¿liwiaj¹cy otrzymanie koñcowej postaci drzewa filogenetycznego metod¹ WPGMA, a~tak¿e parametrów koniecznych do~jego graficznego zaprezentowania. U¿yto tu~takich funkcji, jak:
 \begin{itemize}
 \item \textit{findFirstMinimumPosition} - odpowiedzialn¹ za~wyszukanie minimalnej wartoœci macierzy odleg³oœci ewolucyjnych, czyli zdefiniowanie, które sekwencje lub~klastery s¹~sobie najbli¿sze (ewolucyjnie), a~co~za~tym~idzie - nale¿y po³¹czyæ w~danej iteracji,
 \item \textit{calculateBranchLength} - zwracaj¹c¹ d³ugoœæ ga³êzi drzewa w~danej iteracji (jest~to po³owa odnalezionej minimalnej wartoœci odleg³oœci); zwracana wartoœæ zostaje dopisana do~wektora d³ugoœci ga³êzi \textit{branchLengthVector}, by~pos³u¿yæ do~obliczenia ostatecznych odleg³oœci pomiêdzy sekwencjami,
 \item \textit{makeClusterGroups} - przy~jej pomocy tworzone s¹~odpowiednie klastery lub do~ju¿~istniej¹cych do³¹czane s¹~nowe sekwencje; jest~to~mo¿liwe, miêdzy innymi dziêki funkcji \textit{mergeRows}, która s³u¿y do~³¹czenia dwóch istniej¹cych klasterów, czyli kiedy nie~jest~do³¹czana ¿adna nowa sekwencja; w~programie zrealizowano to~jako~po³¹czenie dwóch wierszy macierzy klastrów \textit{clusterGroupsArray},
 \item \textit{makeHelperClusterVectors} - za~pomoc¹ dwóch wektorów okreœlaj¹c¹, które sekwencje nie~zosta³y jeszcze do³¹czone do~tworzonego drzewa,
 \item \textit{calculateNewDistanceMatrix} - tworz¹c¹, na~podstawie obecnych danych i~pozycji wartoœci minimalnej, now¹ postaæ macierzy odleg³oœci ewolucyjnych, zgodnie z~metod¹ WPGMA dla~kolejnych iteracji,
-\item \textit{calculateParametersToDrawTree} - definiuj¹c¹ takie parametry, jak~liczba wêz³ów drzewa \textit{nodesNumber}, wektor wêz³ów okreœlaj¹cy ich~po³o¿enie wzglêdem siebie \textit{nodes} czy~wskazuj¹c¹, które z~wêz³ów powinny zostaæ oznaczone jako~,,liœcie'' drzewa, czyli sekwencje.
+\item \textit{calculateParametersToDrawTree} - definiuj¹c¹ takie parametry, jak~liczba wêz³ów drzewa \textit{nodesNumber}, wektor wêz³ów  \textit{nodes} okreœlaj¹cy ich~po³o¿enie wzglêdem siebie czy~wskazuj¹c¹, które z~wêz³ów powinny zostaæ oznaczone jako~,,liœcie'' drzewa, czyli sekwencje.
 \end{itemize}
 Aplikacja umo¿liwia u¿ytkownikowi wgl¹d w~wartoœci macierzy odleg³oœci ewolucyjnych oraz~przedstawia aktualny wygl¹d tworzonego drzewa filogenetycznego dla~ka¿dej iteracji. Zrealizowano to~za~pomoc¹ wy¿ej wymienionego rozwi¹zania (kolejne postaci macierzy) oraz~funkcji \textit{displayTree} przyjmuj¹cej obliczone parametry i~wyœwietlaj¹cej obecn¹ czêœæ drzewa. 
 \newline
@@ -202,7 +207,7 @@ Program zosta³ zaimplementowany w~wersji Matlab R2015a. W~celu korzystania z~apl
 	\caption{Uruchamianie aplikacji}\label{Rysunek_run}
 \end{figure}
 
-Spowoduje to pojawienie siê g³ównego okna aplikacji (rys. \ref{Rysunek_appMainWin}), gdzie nastêpnie nale¿y wpisaæ w odpowiednie pola fragmenty kolejnych, przyrównywanych sekwencji nukleotydowych (nr 1 na rys. \ref{Rysunek_appMainWin}), np. \textbf{AGCTGTGA}.
+Spowoduje to~pojawienie siê g³ównego okna aplikacji (rys. \ref{Rysunek_appMainWin}), gdzie nastêpnie nale¿y wpisaæ w~odpowiednie pola fragmenty kolejnych, przyrównywanych sekwencji nukleotydowych (nr 1 na rys. \ref{Rysunek_appMainWin}), np.~\textit{,,AGCTGTGA''}. Dopuszczalne s¹ znaki ,,A'', ,,G'', ,,C'' i ,,T'' oraz przerwy (oznaczane symbolem ,,-''), np~\textit{,,AGCTG-GA''}. 
 
 \begin{figure}[!htb]
 	\centering
@@ -210,70 +215,84 @@ Spowoduje to pojawienie siê g³ównego okna aplikacji (rys. \ref{Rysunek_appMainWi
 	\caption{G³ówne okno aplikacji}\label{Rysunek_appMainWin}
 \end{figure}
 
-Sekwencje nie mog¹ siê powtarzaæ, ani ró¿niæ od siebie w ponad 75\% (jest to zwi¹zane z wykorzystaniem modelu substytucji Jukesa-Cantora i wiarygodnoœci¹ wykonywanych obliczeñ). Jeœli te warunki nie bêd¹ spe³nione, aplikacja wyœwietli komunikat o b³êdzie (rys. \ref{Rysunek_differenceErrors}). Konieczne jest wpisanie co najmniej dwóch sekwencji, w przeciwnym razie program nie wykona ¿adnych obliczeñ i wyœwietli ostrze¿enie (rys. \ref{Rysunek_atLeastTwoError:c2}).
+Pozosta³e elementy g³ównego widoku aplikacji to:
+\begin{itemize}
+\item macierz odleg³oœci ewolucyjnych (nr 2 na rys. \ref{Rysunek_appMainWin}) - wiersze (oraz kolumny) odpowiadaj¹ przyrównywanym sekwencjom (np. wartoœæ macierzy w punkcie (2,5) to odleg³oœæ ewolucyjna miêdzy sekwencj¹ drug¹ i pi¹t¹),
+\item przyciski \textbf{,,Compare sequences''}, \textbf{,,Reset''} oraz \textbf{,,Next step''} (nr 3 na~rys.~\ref{Rysunek_appMainWin}) opisane w dalszej czêœci pracy,
+\item okno s³u¿¹ce wyœwietlaniu d³ugoœci aktualnie obliczanej ga³êzi drzewa i przycisk \textbf{,,Display branch matrix''} (nr 4 na~rys. \ref{Rysunek_appMainWin}),
+\item miejsce na~wyœwietlenie dotychczas utworzonych ga³êzi drzewa (nr 5 na rys. \ref{Rysunek_appMainWin}).
+\end{itemize}
+
+Sekwencje nie~mog¹ siê powtarzaæ, ani~ró¿niæ od~siebie w~ponad 75\% (jest to~zwi¹zane z~wykorzystaniem modelu substytucji Jukesa-Cantora i~wiarygodnoœci¹ wykonywanych obliczeñ). Jeœli te~warunki nie~bêd¹ spe³nione, aplikacja wyœwietli komunikat o~b³êdzie (rys. \ref{Rysunek_theSameError:c1} i~\ref{Rysunek_differenceError:c2}). Konieczne jest wpisanie co~najmniej dwóch sekwencji, w~przeciwnym razie program nie~wykona ¿adnych obliczeñ i~wyœwietli ostrze¿enie (rys.~\ref{Rysunek_atLeastTwoError:c2}).
 
 \begin{figure}[H]
- \subfloat[B³¹d powtórzonej sekwencji\label{Rysunek_theSameError:c1}]{\includegraphics[width=0.4\textwidth]{theSameError}} \;
- \subfloat[B³¹d zbyt du¿ej ró¿nicy miêdzy sekwencjami\label{Rysunek_differenceError:c2}]{\includegraphics[width=0.6\textwidth]{differenceError}}  \;
-  \subfloat[Ostrze¿enie o zbyt ma³ej liczbie wpisanych sekwencji\label{Rysunek_atLeastTwoError:c2}]{\includegraphics[width=0.5\textwidth]{atLeastTwoError}} 
+\centering
+ \subfloat[B³¹d powtórzonej sekwencji\label{Rysunek_theSameError:c1}]{\includegraphics[width=0.4\textwidth]{theSameError}} \;\;\;
+  \subfloat[Ostrze¿enie o zbyt ma³ej liczbie wpisanych sekwencji\label{Rysunek_atLeastTwoError:c2}]{\includegraphics[width=0.4\textwidth]{atLeastTwoError}} \; \; \; 
+\subfloat[B³¹d zbyt du¿ej ró¿nicy miêdzy sekwencjami\label{Rysunek_differenceError:c2}]{\includegraphics[width=0.6\textwidth]{differenceError}}
   \caption{Komunikaty o b³êdach dotycz¹cych zawartoœci wpisanych sekwencji \label{Rysunek_differenceErrors}}
 \end{figure}
 
- Równie¿ w przypadku ró¿nych d³ugoœci sekwencji lub wpisania niedozwolonego znaku (innego ni¿ ,,A'', ,,G'', ,,C'', ,,T'' lub ,,-'') u¿ytkownik zostaje o tym poinformowany (rys. \ref{Rysunek_lengthIllegalErrors}).
+\newpage
+ Równie¿ w~przypadku ró¿nych d³ugoœci sekwencji lub~wpisania niedozwolonego znaku (innego ni¿ ,,A'', ,,G'', ,,C'', ,,T'' lub ,,-'') u¿ytkownik zostaje o~tym~poinformowany (rys. \ref{Rysunek_lengthIllegalErrors}).
  
 \begin{figure}[H]
- \subfloat[B³¹d ró¿nych d³ugoœci sekwencji\label{Rysunek_lengthError:c1}]{\includegraphics[width=0.45\textwidth]{lengthError}} \;
- \subfloat[B³¹d niedozwolonych znaków w sekwencji \label{Rysunek_illegalSignError:c2}]{\includegraphics[width=0.55\textwidth]{illegalSignError}} 
+\centering
+ \subfloat[B³¹d ró¿nych d³ugoœci sekwencji\label{Rysunek_lengthError:c1}]{\includegraphics[width=0.4\textwidth]{lengthError}} \;
+ \subfloat[B³¹d niedozwolonych znaków w sekwencji \label{Rysunek_illegalSignError:c2}]{\includegraphics[width=0.5\textwidth]{illegalSignError}} 
   \caption{Komunikaty o b³êdach dotycz¹cych d³ugoœci i znaków w sekwencjach \label{Rysunek_lengthIllegalErrors}}
 \end{figure}
  
- Po upewnieniu siê, ¿e podane sekwencje maj¹ w³aœciwy format nale¿y wcisn¹æ przycisk \textbf{,,Compare sequences''} (nr 3 na rys. \ref{Rysunek_appMainWin}). Skutkuje to:
+ Po~upewnieniu siê, ¿e~podane sekwencje maj¹ w³aœciwy format nale¿y wcisn¹æ przycisk \textbf{,,Compare sequences''}. Skutkuje to:
  \begin{itemize}
  \item zablokowaniem wy¿ej wymienionego przycisku,
- \item zablokowaniem pól tekstowych,
- \item odblokowaniem przycisku \textbf{,,Next step''} oraz wyœwietleniem obliczonych wartoœci pocz¹tkowej macierzy odleg³oœci ewolucyjnych (nr 2 na rys. \ref{Rysunek_appMainWin}) lub - w przypadku wyst¹pienia b³êdu - pojawieniem siê komunikatu (rys. \ref{Rysunek_afterCompareBtns}).
- \end{itemize} 
+ \item dezaktywacj¹ pól tekstowych,
  
-\begin{figure}[H]
+ \begin{figure}[H]
  \subfloat[Efekt wciœniêcia przycisku \textbf{,,Compare sequenses''} w przypadku prawid³owego dzia³ania \label{Rysunek_afterCompareBtn:c1}]{\includegraphics[width=0.55\textwidth]{afterCompareBtn}} \;
  \subfloat[Efekt wciœniêcia przycisku \textbf{,,Compare sequenses''} w przypadku wyst¹pienia b³êdu \label{Rysunek_afterCompareBtnError:c2}]{\includegraphics[width=0.55\textwidth]{afterCompareBtnError}} 
   \caption{Widok aplikacji po wciœniêciu przycisku \textbf{,,Compare sequences''} \label{Rysunek_afterCompareBtns}}
 \end{figure}
 
-Kolejn¹ czynnoœci¹ jest wywo³anie nastêpnego kroku w tworzeniu drzewa filogenetycznego przy u¿yciu przycisku \textbf{,,Next step''}. W efekcie obliczona zostaje nowa macierz odleg³oœci ewolucyjnych (o rozmiarze o 1 mniejszym w stosunku do poprzedniego kroku) i wpisana na miejsce starej. Wyœwietlone zostaje tak¿e poddrzewo koñcowego drzewa filogenetycznego, w specjalnie wyznaczonym oknie (nr 5 na rys. \ref{Rysunek_appMainWin}), które tworzone jest zgodnie z bie¿¹cymi obliczeniami. 
-\newpage
-Dziêki temu u¿ytkownik mo¿e obserwowaæ rozrost drzewa krok po kroku a¿ do uzyskania koñcowego efektu (rys. \ref{Rysunek_afterNextStepBtn}). Dodatkowo, w polu tekstowym (nr 4 na rys. \ref{Rysunek_appMainWin}) wyœwietlana jest d³ugoœæ bie¿¹cej ga³êzi drzewa.
+ \item odblokowaniem przycisku \textbf{,,Next step''} oraz wyœwietleniem obliczonych wartoœci pocz¹tkowej macierzy odleg³oœci ewolucyjnych lub - w przypadku wyst¹pienia b³êdu - pojawieniem siê komunikatu (rys. \ref{Rysunek_afterCompareBtns}).
+ \end{itemize} 
+ 
+
+
+Kolejn¹ czynnoœci¹ jest~wywo³anie nastêpnych kroków w~tworzeniu drzewa filogenetycznego przy~u¿yciu przycisku \textbf{,,Next step''}. W~efekcie obliczona zostaje nowa macierz odleg³oœci ewolucyjnych (o~rozmiarze o 1 mniejszym w stosunku do poprzedniej iteracji) i~wpisana na miejsce starej. Wyœwietlone zostaje tak¿e poddrzewo koñcowego drzewa filogenetycznego, które tworzone jest zgodnie z~bie¿¹cymi obliczeniami. 
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=1\textwidth]{afterNextStepBtn}
+	\includegraphics[width=0.9\textwidth]{afterNextStepBtn}
 	\caption{Przyk³ad efektu dzia³ania przycisku \textbf{,,Next step''}}\label{Rysunek_afterNextStepBtn}
 \end{figure}
 
-Po przejœciu do ostatniego kroku, zablokowany zostaje przycisk \textbf{,,Next step''}, natomiast mo¿liwe jest u¿ycie przycisku \textbf{,,Display branch matrix''} (rys. \ref{Rysunek_lastSteps}). 
+Dziêki temu u¿ytkownik mo¿e obserwowaæ rozrost drzewa krok po~kroku (rys. \ref{Rysunek_afterNextStepBtn}) a¿~do~uzyskania koñcowego efektu. Dodatkowo, w~polu tekstowym (nr 4 na rys. \ref{Rysunek_appMainWin}) wyœwietlana jest d³ugoœæ bie¿¹cej ga³êzi drzewa.
+
+\newpage
+Po~przejœciu do~ostatniego kroku, zablokowany zostaje przycisk \textbf{,,Next step''}, natomiast mo¿liwe jest u¿ycie przycisku \textbf{,,Display branch matrix''} (rys. \ref{Rysunek_lastSteps}). 
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=1\textwidth]{lastStepss1}
+	\includegraphics[width=0.9\textwidth]{lastStepss}
 	\caption{Wygl¹d aplikacji po przejœciu wszystkich kroków tworzenia drzewa \label{Rysunek_lastSteps}}
 \end{figure}
 
-\newpage
-Pozwala on na wyœwietlenie w osobnym oknie (rys. \ref{Rysunek_branchMatrix}) macierzy zawieraj¹cej odleg³oœci pomiêdzy wszystkimi sekwencjami. Wartoœci te obliczane s¹ na podstawie wczeœniej uzyskanych d³ugoœci poszczególnych ga³êzi.
+Pozwala on~na~wyœwietlenie w~osobnym oknie (rys. \ref{Rysunek_branchMatrix}) macierzy zawieraj¹cej odleg³oœci pomiêdzy wszystkimi sekwencjami. Wartoœci te~obliczane s¹~na~podstawie wczeœniej uzyskanych d³ugoœci poszczególnych ga³êzi.
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{branchMatrix}
-	\caption{Przyk³adowa macierz odleg³oœci pomiêdzy sekwencjami obliczonymi na podstawie d³ugoœci ga³êzi drzewa}\label{Rysunek_branchMatrix}
+	\caption{Przyk³adowa macierz odleg³oœci pomiêdzy sekwencjami obliczona na podstawie d³ugoœci ga³êzi drzewa}\label{Rysunek_branchMatrix}
 \end{figure}
 
-W aplikacji uwzglêdniono tak¿e jej przywrócenie do momentu wpisywania sekwencji. Aby to uczyniæ, nale¿y u¿yæ przycisku \textbf{,,Reset''} (zaznaczony na czerwono na rys. \ref{Rysunek_lastSteps}) dostêpnego przez ca³y czas dzia³ania programu.
+W~aplikacji uwzglêdniono tak¿e jej~przywrócenie do~momentu wpisywania sekwencji. Aby~to~uczyniæ, nale¿y u¿yæ przycisku \textbf{,,Reset''} dostêpnego przez ca³y czas dzia³ania programu.
 
 \newpage
-\section{Symulacja dzia³ania programu}
-\subsection{Wprowadzenie danych}
+\chapter{Symulacja dzia³ania programu}
+\section{Wprowadzenie danych}
 
-Do symulacji u¿yto fragmentów szeœciu losowych sekwencji nukleotydowych (rys. \ref{Rysunek_samples1}).
+Do~symulacji u¿yto fragmentów szeœciu losowych sekwencji nukleotydowych (rys.~\ref{Rysunek_samples1}).
 
 \begin{figure}[!htb]
 	\centering
@@ -281,7 +300,7 @@ Do symulacji u¿yto fragmentów szeœciu losowych sekwencji nukleotydowych (rys. \r
 	\caption{Przyk³adowe sekwencje nukleotydowe}\label{Rysunek_samples1}
 \end{figure}
 
-Po u¿yciu przycisku \textbf{,,Compare sequences''} zostaje obliczona pierwotna postaæ macierzy odleg³oœci ewolucyjnych (rys. \ref{Rysunek_matrix1}).
+Po~u¿yciu przycisku \textbf{,,Compare sequences''} zostaje obliczona pierwotna postaæ macierzy odleg³oœci ewolucyjnych (rys. \ref{Rysunek_matrix1}).
 
 \begin{figure}[!htb]
 	\centering
@@ -289,11 +308,12 @@ Po u¿yciu przycisku \textbf{,,Compare sequences''} zostaje obliczona pierwotna p
 	\caption{Pierwotna postaæ macierzy odleg³oœci ewolucyjnych}\label{Rysunek_matrix1}
 \end{figure}
 
-\subsection{Wyznaczanie kolejnych ga³êzi drzewa}
+\section{Wyznaczanie kolejnych ga³êzi drzewa}
 
-Wykorzystuj¹c przycisk \textbf{,,Next step''} uzyskano nowe wartoœci w macierzy odleg³oœci ewolucyjnych, d³ugoœæ ga³êzi oraz grafikê przedstawiaj¹c¹ drzewo w kolejnych etapach (rys. \ref{Rysunek_matrix2} - \ref{Rysunek_treePlace5}).
+Wykorzystuj¹c przycisk \textbf{,,Next step''} uzyskano now¹ macierz odleg³oœci ewolucyjnych, d³ugoœæ ga³êzi oraz~graficzn¹ prezentacjê powstaj¹cego drzewa (rys. \ref{Rysunek_matrix2}~-~\ref{Rysunek_treePlace5}).
 
-%\subsubsection{Krok pierwszy}
+\newpage
+\subsection{Krok pierwszy}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{matrix2}
@@ -313,7 +333,7 @@ Wykorzystuj¹c przycisk \textbf{,,Next step''} uzyskano nowe wartoœci w macierzy 
 \end{figure}
 
 \newpage
-\subsubsection{Krok drugi}
+\subsection{Krok drugi}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{matrix3}
@@ -333,7 +353,7 @@ Wykorzystuj¹c przycisk \textbf{,,Next step''} uzyskano nowe wartoœci w macierzy 
 \end{figure}
 
 \newpage
-\subsubsection{Krok trzeci}
+\subsection{Krok trzeci}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{matrix4}
@@ -353,7 +373,7 @@ Wykorzystuj¹c przycisk \textbf{,,Next step''} uzyskano nowe wartoœci w macierzy 
 \end{figure}
 
 \newpage
-\subsubsection{Krok czwarty}
+\subsection{Krok czwarty}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{matrix5}
@@ -373,7 +393,7 @@ Wykorzystuj¹c przycisk \textbf{,,Next step''} uzyskano nowe wartoœci w macierzy 
 \end{figure}
 
 \newpage
-\subsubsection{Krok pi¹ty}
+\subsection{Krok pi¹ty}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{matrix6}
@@ -393,8 +413,13 @@ Wykorzystuj¹c przycisk \textbf{,,Next step''} uzyskano nowe wartoœci w macierzy 
 \end{figure}
 
 \newpage
-Po zakoñczeniu obliczeñ, przycisk \textbf{,,Next step''} zostaje zablokowany, natomiast mo¿liwe staje siê u¿ycie przycisku \textbf{,,Display branch matrix''}. Jego naciœniêcie powoduje pojawienie siê nowego okna, w którym przedstawiono macierz odleg³oœci pomiêdzy sekwencjami obliczanych na podstawie wczeœniej uzyskanych d³ugoœci poszczególnych ga³êzi.
+Po~zakoñczeniu obliczeñ, przycisk \textbf{,,Next step''} zostaje zablokowany, natomiast mo¿liwe staje siê u¿ycie przycisku \textbf{,,Display branch matrix''}. Jego naciœniêcie powoduje pojawienie siê nowego okna (rys. \ref{Rysunek_branchMatrixSample}), w~którym przedstawiono macierz odleg³oœci pomiêdzy sekwencjami, obliczan¹ na~podstawie wczeœniej uzyskanych d³ugoœci poszczególnych ga³êzi.
 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{branchMatrixSample}
+	\caption{Macierz odleg³oœci pomiêdzy sekwencjami utworzona na podstawie d³ugoœci obliczonych ga³êzi}\label{Rysunek_branchMatrixSample}
+\end{figure}
 
 %\chapter{Rezultaty}
 %Zobrazowanie i omówienie wyników otrzymywanych wskutek zastosowania danego urz¹dzenia b¹dŸ aplikacji. Badanie ewentualnych parametrów (takich jak dok³adnoœæ, czu³oœæ...), czy te¿ zachowania w szczególnych sytuacjach. O ile to mo¿liwe tabelaryzacja rezultatów oraz ich statystyczna interpretacja. Ocena zachowania zaproponowanego rozwi¹zania. Analiza mo¿liwych przyczyn wyst¹pienia b³êdów. 
