@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500) (preloaded format=pdflatex 2017.12.11)  7 JAN 2019 13:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500) (preloaded format=pdflatex 2017.12.11)  10 JAN 2019 12:22
 entering extended mode
 **./Praca.tex
 (Praca.tex
@@ -561,76 +561,81 @@ Overfull \hbox (3.41939pt too wide) in paragraph at lines 34--34
 en-cja-mi ob-li-czo-na na pod- 
  []
 
-)
+[3])
 \tf@lof=\write5
 \openout5 = `Praca.lof'.
 
- [3] [4
-
-] (Rozdzialy.tex
+ [4] (Rozdzialy.tex
 Rozdzia\PlPrIeC {\l } 1.
-
-Overfull \hbox (3.15822pt too wide) in paragraph at lines 19--21
-[]\OT4/cmr/m/n/12 Filogenetyka zaj-mu-je si¦ ba-da-niem hi-sto-rii ewo-lu-cyj-n
-ej »y-j¡-cych or-ga-ni-zmów i przed-
- []
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.21 
-      [1
+l.21 \section
+             {Zadania filogenetyki} [1
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
- been already used, duplicate ignored
+
+]
+Overfull \hbox (3.15822pt too wide) in paragraph at lines 22--24
+[]\OT4/cmr/m/n/12 Filogenetyka zaj-mu-je si¦ ba-da-niem hi-sto-rii ewo-lu-cyj-n
+ej »y-j¡-cych or-ga-ni-zmów i przed-
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.36 \newpage
-              [2]
-<./rysunki/typoweDrzewo.jpg, id=255, 313.9228pt x 209.28188pt>
+l.40 
+      [2]
+<./rysunki/typoweDrzewo.jpg, id=276, 313.9228pt x 209.28188pt>
 File: ./rysunki/typoweDrzewo.jpg Graphic file (type jpg)
 <use ./rysunki/typoweDrzewo.jpg>
-Package pdftex.def Info: ./rysunki/typoweDrzewo.jpg  used on input line 41.
+Package pdftex.def Info: ./rysunki/typoweDrzewo.jpg  used on input line 43.
 (pdftex.def)             Requested size: 220.50887pt x 147.00404pt.
-<./rysunki/dychotomiaIPolitomia2.jpg, id=259, 258.9675pt x 149.05687pt>
+<./rysunki/dychotomiaIPolitomia2.jpg, id=280, 258.9675pt x 149.05687pt>
 File: ./rysunki/dychotomiaIPolitomia2.jpg Graphic file (type jpg)
 <use ./rysunki/dychotomiaIPolitomia2.jpg>
 Package pdftex.def Info: ./rysunki/dychotomiaIPolitomia2.jpg  used on input lin
-e 49.
+e 51.
 (pdftex.def)             Requested size: 220.50887pt x 126.92638pt.
- [3 <./rysunki/typoweDrzewo.jpg> <./rysunki/dychotomiaIPolitomia2.jpg>]
-<./rysunki/drzewoUkorzenione2.jpg, id=269, 183.68625pt x 158.84344pt>
+<./rysunki/drzewoUkorzenione2.jpg, id=286, 183.68625pt x 158.84344pt>
 File: ./rysunki/drzewoUkorzenione2.jpg Graphic file (type jpg)
 <use ./rysunki/drzewoUkorzenione2.jpg>
-Package pdftex.def Info: ./rysunki/drzewoUkorzenione2.jpg  used on input line 5
-9.
+Package pdftex.def Info: ./rysunki/drzewoUkorzenione2.jpg  used on input line 6
+0.
 (pdftex.def)             Requested size: 176.40439pt x 152.55583pt.
-<./rysunki/drzewoNieukorzenione2.jpg, id=270, 191.9672pt x 164.11313pt>
+<./rysunki/drzewoNieukorzenione2.jpg, id=287, 191.9672pt x 164.11313pt>
 File: ./rysunki/drzewoNieukorzenione2.jpg Graphic file (type jpg)
 <use ./rysunki/drzewoNieukorzenione2.jpg>
 Package pdftex.def Info: ./rysunki/drzewoNieukorzenione2.jpg  used on input lin
-e 60.
+e 61.
 (pdftex.def)             Requested size: 176.40439pt x 150.81812pt.
-<./rysunki/kladogram.jpg, id=277, 204.765pt x 155.83218pt>
+ [3 <./rysunki/typoweDrzewo.jpg> <./rysunki/dychotomiaIPolitomia2.jpg>]
+<./rysunki/kladogram.jpg, id=300, 204.765pt x 155.83218pt>
 File: ./rysunki/kladogram.jpg Graphic file (type jpg)
 <use ./rysunki/kladogram.jpg>
-Package pdftex.def Info: ./rysunki/kladogram.jpg  used on input line 69.
+Package pdftex.def Info: ./rysunki/kladogram.jpg  used on input line 70.
 (pdftex.def)             Requested size: 176.40439pt x 134.25798pt.
-<./rysunki/filogram.jpg, id=278, 197.23688pt x 158.09062pt>
+<./rysunki/filogram.jpg, id=301, 197.23688pt x 158.09062pt>
 File: ./rysunki/filogram.jpg Graphic file (type jpg)
 <use ./rysunki/filogram.jpg>
-Package pdftex.def Info: ./rysunki/filogram.jpg  used on input line 70.
+Package pdftex.def Info: ./rysunki/filogram.jpg  used on input line 71.
 (pdftex.def)             Requested size: 176.40439pt x 141.39252pt.
  [4 <./rysunki/drzewoUkorzenione2.jpg> <./rysunki/drzewoNieukorzenione2.jpg> <.
 /rysunki/kladogram.jpg> <./rysunki/filogram.jpg>]
-<./rysunki/formatNewick2.jpg, id=292, 487.8225pt x 230.36063pt>
+<./rysunki/formatNewick2.jpg, id=313, 487.8225pt x 230.36063pt>
 File: ./rysunki/formatNewick2.jpg Graphic file (type jpg)
 <use ./rysunki/formatNewick2.jpg>
-Package pdftex.def Info: ./rysunki/formatNewick2.jpg  used on input line 85.
+Package pdftex.def Info: ./rysunki/formatNewick2.jpg  used on input line 86.
 (pdftex.def)             Requested size: 330.76329pt x 156.19322pt.
- [5 <./rysunki/formatNewick2.jpg>] [6] [7]
-<./rysunki/macierz1.jpg, id=327, 166.37157pt x 101.62968pt>
+ [5 <./rysunki/formatNewick2.jpg>] [6]
+Overfull \hbox (10.99355pt too wide) in paragraph at lines 151--152
+\OT4/cmr/m/n/12 cie-rzy od-le-gªo-±ci ewo-lu-cyj-nych (utwo-rzo-nej na pod-sta-
+wie mo-de-lu sub-sty-tu-cji ([][]1.7.3[][]),
+ []
+
+[7]
+<./rysunki/macierz1.jpg, id=348, 166.37157pt x 101.62968pt>
 File: ./rysunki/macierz1.jpg Graphic file (type jpg)
 <use ./rysunki/macierz1.jpg>
 Package pdftex.def Info: ./rysunki/macierz1.jpg  used on input line 165.
@@ -639,7 +644,7 @@ File: ./rysunki/macierz1.jpg Graphic file (type jpg)
 <use ./rysunki/macierz1.jpg>
 Package pdftex.def Info: ./rysunki/macierz1.jpg  used on input line 166.
 (pdftex.def)             Requested size: 154.35889pt x 94.29752pt.
-<./rysunki/macierz2.jpg, id=328, 247.67531pt x 97.11281pt>
+<./rysunki/macierz2.jpg, id=349, 247.67531pt x 97.11281pt>
 File: ./rysunki/macierz2.jpg Graphic file (type jpg)
 <use ./rysunki/macierz2.jpg>
 Package pdftex.def Info: ./rysunki/macierz2.jpg  used on input line 167.
@@ -648,247 +653,261 @@ File: ./rysunki/macierz2.jpg Graphic file (type jpg)
 <use ./rysunki/macierz2.jpg>
 Package pdftex.def Info: ./rysunki/macierz2.jpg  used on input line 168.
 (pdftex.def)             Requested size: 198.45662pt x 77.81482pt.
-<./rysunki/macierz3U.jpg, id=329, 246.9225pt x 76.03406pt>
+<./rysunki/macierz3U.jpg, id=350, 246.9225pt x 76.03406pt>
 File: ./rysunki/macierz3U.jpg Graphic file (type jpg)
 <use ./rysunki/macierz3U.jpg>
 Package pdftex.def Info: ./rysunki/macierz3U.jpg  used on input line 169.
 (pdftex.def)             Requested size: 198.45662pt x 61.10924pt.
-<./rysunki/macierz3W.jpg, id=330, 246.1697pt x 75.28125pt>
+<./rysunki/macierz3W.jpg, id=351, 246.1697pt x 75.28125pt>
 File: ./rysunki/macierz3W.jpg Graphic file (type jpg)
 <use ./rysunki/macierz3W.jpg>
 Package pdftex.def Info: ./rysunki/macierz3W.jpg  used on input line 170.
 (pdftex.def)             Requested size: 198.45662pt x 60.69258pt.
  [8 <./rysunki/macierz1.jpg> <./rysunki/macierz2.jpg> <./rysunki/macierz3U.jpg>
- <./rysunki/macierz3W.jpg>] [9] [10
-
-]
+ <./rysunki/macierz3W.jpg>]
 Rozdzia\PlPrIeC {\l } 2.
-[11] [12]
+[9
+
+] [10]
 Rozdzia\PlPrIeC {\l } 3.
-<./rysunki/runForrestRun.jpg, id=368, 240.14719pt x 98.61844pt>
+<./rysunki/runForrestRun.jpg, id=380, 240.14719pt x 98.61844pt>
 File: ./rysunki/runForrestRun.jpg Graphic file (type jpg)
 <use ./rysunki/runForrestRun.jpg>
-Package pdftex.def Info: ./rysunki/runForrestRun.jpg  used on input line 206.
+Package pdftex.def Info: ./rysunki/runForrestRun.jpg  used on input line 201.
 (pdftex.def)             Requested size: 242.5611pt x 99.61133pt.
-<./rysunki/appMainWinNum.jpg, id=371, 966.61125pt x 508.14844pt>
+<./rysunki/appMainWinNum.jpg, id=383, 966.61125pt x 508.14844pt>
 File: ./rysunki/appMainWinNum.jpg Graphic file (type jpg)
 <use ./rysunki/appMainWinNum.jpg>
-Package pdftex.def Info: ./rysunki/appMainWinNum.jpg  used on input line 214.
+Package pdftex.def Info: ./rysunki/appMainWinNum.jpg  used on input line 209.
 (pdftex.def)             Requested size: 441.01773pt x 231.8437pt.
-[13
+[11
 
  <./rysunki/runForrestRun.jpg> <./rysunki/appMainWinNum.jpg>]
-Overfull \hbox (1.07884pt too wide) in paragraph at lines 221--222
+Overfull \hbox (1.07884pt too wide) in paragraph at lines 216--217
 []\OT4/cmr/m/n/12 przyciski \OT4/cmr/bx/n/12 ,,Com-pa-re se-qu-en-ces''\OT4/cmr
 /m/n/12 , \OT4/cmr/bx/n/12 ,,Re-set'' \OT4/cmr/m/n/12 oraz \OT4/cmr/bx/n/12 ,,N
 ext step'' \OT4/cmr/m/n/12 (nr 3 na rys. [][]3.2[][])
  []
 
-<./rysunki/theSameError.jpg, id=384, 216.05719pt x 112.16907pt>
+<./rysunki/theSameError.jpg, id=395, 216.05719pt x 112.16907pt>
 File: ./rysunki/theSameError.jpg Graphic file (type jpg)
 <use ./rysunki/theSameError.jpg>
-Package pdftex.def Info: ./rysunki/theSameError.jpg  used on input line 230.
+Package pdftex.def Info: ./rysunki/theSameError.jpg  used on input line 225.
 (pdftex.def)             Requested size: 176.40439pt x 91.58556pt.
-<./rysunki/atLeastTwoError.jpg, id=385, 222.8325pt x 112.16907pt>
+<./rysunki/atLeastTwoError.jpg, id=396, 222.8325pt x 112.16907pt>
 File: ./rysunki/atLeastTwoError.jpg Graphic file (type jpg)
 <use ./rysunki/atLeastTwoError.jpg>
-Package pdftex.def Info: ./rysunki/atLeastTwoError.jpg  used on input line 231.
+Package pdftex.def Info: ./rysunki/atLeastTwoError.jpg  used on input line 226.
 
 (pdftex.def)             Requested size: 176.40439pt x 88.79913pt.
-<./rysunki/differenceError.jpg, id=386, 342.5297pt x 111.41624pt>
+<./rysunki/differenceError.jpg, id=397, 342.5297pt x 111.41624pt>
 File: ./rysunki/differenceError.jpg Graphic file (type jpg)
 <use ./rysunki/differenceError.jpg>
-Package pdftex.def Info: ./rysunki/differenceError.jpg  used on input line 232.
+Package pdftex.def Info: ./rysunki/differenceError.jpg  used on input line 227.
 
 (pdftex.def)             Requested size: 264.61333pt x 86.07808pt.
-[14 <./rysunki/theSameError.jpg> <./rysunki/atLeastTwoError.jpg> <./rysunki/dif
+[12 <./rysunki/theSameError.jpg> <./rysunki/atLeastTwoError.jpg> <./rysunki/dif
 ferenceError.jpg>]
-<./rysunki/lengthError.jpg, id=395, 259.7203pt x 120.45pt>
+<./rysunki/lengthError.jpg, id=406, 259.7203pt x 120.45pt>
 File: ./rysunki/lengthError.jpg Graphic file (type jpg)
 <use ./rysunki/lengthError.jpg>
-Package pdftex.def Info: ./rysunki/lengthError.jpg  used on input line 241.
+Package pdftex.def Info: ./rysunki/lengthError.jpg  used on input line 236.
 (pdftex.def)             Requested size: 176.40439pt x 81.80933pt.
-<./rysunki/illegalSignError.jpg, id=396, 312.41719pt x 115.93312pt>
+<./rysunki/illegalSignError.jpg, id=407, 312.41719pt x 115.93312pt>
 File: ./rysunki/illegalSignError.jpg Graphic file (type jpg)
 <use ./rysunki/illegalSignError.jpg>
-Package pdftex.def Info: ./rysunki/illegalSignError.jpg  used on input line 242
+Package pdftex.def Info: ./rysunki/illegalSignError.jpg  used on input line 237
 .
 (pdftex.def)             Requested size: 220.50887pt x 81.82837pt.
-<./rysunki/afterCompareBtn.jpg, id=397, 405.01312pt x 479.54156pt>
+<./rysunki/afterCompareBtn.jpg, id=408, 405.01312pt x 479.54156pt>
 File: ./rysunki/afterCompareBtn.jpg Graphic file (type jpg)
 <use ./rysunki/afterCompareBtn.jpg>
-Package pdftex.def Info: ./rysunki/afterCompareBtn.jpg  used on input line 252.
+Package pdftex.def Info: ./rysunki/afterCompareBtn.jpg  used on input line 247.
 
-(pdftex.def)             Requested size: 242.5611pt x 287.20032pt.
-<./rysunki/afterCompareBtnError.jpg, id=398, 411.03563pt x 479.54156pt>
+(pdftex.def)             Requested size: 211.68661pt x 250.64355pt.
+<./rysunki/afterCompareBtnError.jpg, id=409, 411.03563pt x 479.54156pt>
 File: ./rysunki/afterCompareBtnError.jpg Graphic file (type jpg)
 <use ./rysunki/afterCompareBtnError.jpg>
 Package pdftex.def Info: ./rysunki/afterCompareBtnError.jpg  used on input line
- 253.
-(pdftex.def)             Requested size: 242.5611pt x 282.98561pt.
-
-Overfull \hbox (49.97842pt too wide) in paragraph at lines 252--254
-[][] [][] 
- []
-
-[15 <./rysunki/lengthError.jpg> <./rysunki/illegalSignError.jpg> <./rysunki/aft
-erCompareBtn.jpg> <./rysunki/afterCompareBtnError.jpg>]
-<./rysunki/afterNextStepBtn.jpg, id=408, 955.31906pt x 478.78876pt>
+ 248.
+(pdftex.def)             Requested size: 211.68661pt x 246.963pt.
+ [13 <./rysunki/lengthError.jpg> <./rysunki/illegalSignError.jpg> <./rysunki/af
+terCompareBtn.jpg> <./rysunki/afterCompareBtnError.jpg>]
+<./rysunki/afterNextStepBtn.jpg, id=420, 955.31906pt x 478.78876pt>
 File: ./rysunki/afterNextStepBtn.jpg Graphic file (type jpg)
 <use ./rysunki/afterNextStepBtn.jpg>
-Package pdftex.def Info: ./rysunki/afterNextStepBtn.jpg  used on input line 266
+Package pdftex.def Info: ./rysunki/afterNextStepBtn.jpg  used on input line 259
 .
 (pdftex.def)             Requested size: 396.91325pt x 198.9201pt.
- [16 <./rysunki/afterNextStepBtn.jpg>]
-<./rysunki/lastStepss.jpg, id=416, 956.07187pt x 478.03593pt>
+
+[14 <./rysunki/afterNextStepBtn.jpg>]
+<./rysunki/lastStepss.jpg, id=428, 956.07187pt x 478.03593pt>
 File: ./rysunki/lastStepss.jpg Graphic file (type jpg)
 <use ./rysunki/lastStepss.jpg>
-Package pdftex.def Info: ./rysunki/lastStepss.jpg  used on input line 277.
+Package pdftex.def Info: ./rysunki/lastStepss.jpg  used on input line 270.
 (pdftex.def)             Requested size: 396.91325pt x 198.45415pt.
-<./rysunki/branchMatrix.jpg, id=418, 542.025pt x 301.125pt>
+<./rysunki/branchMatrix.jpg, id=430, 542.025pt x 301.125pt>
 File: ./rysunki/branchMatrix.jpg Graphic file (type jpg)
 <use ./rysunki/branchMatrix.jpg>
-Package pdftex.def Info: ./rysunki/branchMatrix.jpg  used on input line 285.
+Package pdftex.def Info: ./rysunki/branchMatrix.jpg  used on input line 278.
 (pdftex.def)             Requested size: 352.81552pt x 196.0138pt.
- [17 <./rysunki/lastStepss.jpg> <./rysunki/branchMatrix.jpg>]
-[18
+ [15 <./rysunki/lastStepss.jpg> <./rysunki/branchMatrix.jpg>] [16
 
 ]
 Rozdzia\PlPrIeC {\l } 4.
 
-Overfull \hbox (7.33595pt too wide) in paragraph at lines 295--296
+Overfull \hbox (7.33595pt too wide) in paragraph at lines 287--288
 []\OT4/cmr/m/n/12 Do sy-mu-la-cji u»y-to frag-men-tów sze-±ciu lo-so-wych se-kw
 en-cji nu-kle-oty-do-wych (rys. [][]4.1[][]). 
  []
 
-<./rysunki/samples1.jpg, id=428, 263.48438pt x 289.83281pt>
+<./rysunki/samples1.jpg, id=440, 263.48438pt x 289.83281pt>
 File: ./rysunki/samples1.jpg Graphic file (type jpg)
 <use ./rysunki/samples1.jpg>
-Package pdftex.def Info: ./rysunki/samples1.jpg  used on input line 299.
-(pdftex.def)             Requested size: 220.50887pt x 242.5734pt.
-<./rysunki/matrix1.jpg, id=430, 403.5075pt x 183.68625pt>
+Package pdftex.def Info: ./rysunki/samples1.jpg  used on input line 291.
+(pdftex.def)             Requested size: 176.40439pt x 194.05429pt.
+<./rysunki/matrix1.jpg, id=442, 403.5075pt x 183.68625pt>
 File: ./rysunki/matrix1.jpg Graphic file (type jpg)
 <use ./rysunki/matrix1.jpg>
-Package pdftex.def Info: ./rysunki/matrix1.jpg  used on input line 307.
-(pdftex.def)             Requested size: 308.71106pt x 140.53351pt.
-[19 <./rysunki/samples1.jpg>]
-<./rysunki/matrix2.jpg, id=438, 402.75468pt x 183.68625pt>
+Package pdftex.def Info: ./rysunki/matrix1.jpg  used on input line 299.
+(pdftex.def)             Requested size: 286.65883pt x 130.4938pt.
+[17 <./rysunki/samples1.jpg> <./rysunki/matrix1.jpg>]
+<./rysunki/matrix2.jpg, id=449, 402.75468pt x 183.68625pt>
 File: ./rysunki/matrix2.jpg Graphic file (type jpg)
 <use ./rysunki/matrix2.jpg>
-Package pdftex.def Info: ./rysunki/matrix2.jpg  used on input line 319.
+Package pdftex.def Info: ./rysunki/matrix2.jpg  used on input line 310.
 (pdftex.def)             Requested size: 308.71106pt x 140.79417pt.
-<./rysunki/branchLength1.jpg, id=439, 127.22531pt x 61.73062pt>
+<./rysunki/branchLength1.jpg, id=450, 127.22531pt x 61.73062pt>
 File: ./rysunki/branchLength1.jpg Graphic file (type jpg)
 <use ./rysunki/branchLength1.jpg>
-Package pdftex.def Info: ./rysunki/branchLength1.jpg  used on input line 325.
+Package pdftex.def Info: ./rysunki/branchLength1.jpg  used on input line 316.
 (pdftex.def)             Requested size: 88.2022pt x 42.7976pt.
-<./rysunki/treePlace1.jpg, id=440, 548.0475pt x 462.22687pt>
+<./rysunki/treePlace1.jpg, id=451, 548.0475pt x 462.22687pt>
 File: ./rysunki/treePlace1.jpg Graphic file (type jpg)
 <use ./rysunki/treePlace1.jpg>
-Package pdftex.def Info: ./rysunki/treePlace1.jpg  used on input line 331.
-(pdftex.def)             Requested size: 286.65883pt x 241.76996pt.
- [20 <./rysunki/matrix1.jpg> <./rysunki/matrix2.jpg> <./rysunki/branchLength1.j
-pg>]
-<./rysunki/matrix3.jpg, id=445, 404.26031pt x 183.68625pt>
+Package pdftex.def Info: ./rysunki/treePlace1.jpg  used on input line 322.
+(pdftex.def)             Requested size: 220.50887pt x 185.98068pt.
+ [18 <./rysunki/matrix2.jpg> <./rysunki/branchLength1.jpg> <./rysunki/treePlace
+1.jpg>]
+<./rysunki/matrix3.jpg, id=456, 404.26031pt x 183.68625pt>
 File: ./rysunki/matrix3.jpg Graphic file (type jpg)
 <use ./rysunki/matrix3.jpg>
-Package pdftex.def Info: ./rysunki/matrix3.jpg  used on input line 339.
+Package pdftex.def Info: ./rysunki/matrix3.jpg  used on input line 330.
 (pdftex.def)             Requested size: 308.71106pt x 140.27286pt.
-<./rysunki/branchLength2.jpg, id=446, 121.95563pt x 63.98906pt>
+<./rysunki/branchLength2.jpg, id=457, 121.95563pt x 63.98906pt>
 File: ./rysunki/branchLength2.jpg Graphic file (type jpg)
 <use ./rysunki/branchLength2.jpg>
-Package pdftex.def Info: ./rysunki/branchLength2.jpg  used on input line 345.
+Package pdftex.def Info: ./rysunki/branchLength2.jpg  used on input line 336.
 (pdftex.def)             Requested size: 88.2022pt x 46.27907pt.
-<./rysunki/treePlace2.jpg, id=447, 544.28343pt x 462.22687pt>
+<./rysunki/treePlace2.jpg, id=458, 544.28343pt x 462.22687pt>
 File: ./rysunki/treePlace2.jpg Graphic file (type jpg)
 <use ./rysunki/treePlace2.jpg>
-Package pdftex.def Info: ./rysunki/treePlace2.jpg  used on input line 351.
-(pdftex.def)             Requested size: 286.65883pt x 243.44151pt.
- [21 <./rysunki/treePlace1.jpg> <./rysunki/matrix3.jpg> <./rysunki/branchLength
+Package pdftex.def Info: ./rysunki/treePlace2.jpg  used on input line 342.
+(pdftex.def)             Requested size: 220.50887pt x 187.26433pt.
+ [19 <./rysunki/matrix3.jpg> <./rysunki/branchLength2.jpg> <./rysunki/treePlace
 2.jpg>]
-<./rysunki/matrix4.jpg, id=452, 405.76593pt x 185.19188pt>
+<./rysunki/matrix4.jpg, id=464, 405.76593pt x 185.19188pt>
 File: ./rysunki/matrix4.jpg Graphic file (type jpg)
 <use ./rysunki/matrix4.jpg>
-Package pdftex.def Info: ./rysunki/matrix4.jpg  used on input line 359.
+Package pdftex.def Info: ./rysunki/matrix4.jpg  used on input line 350.
 (pdftex.def)             Requested size: 308.71106pt x 140.89986pt.
-<./rysunki/branchLength3.jpg, id=453, 121.95563pt x 59.47218pt>
+<./rysunki/branchLength3.jpg, id=465, 121.95563pt x 59.47218pt>
 File: ./rysunki/branchLength3.jpg Graphic file (type jpg)
 <use ./rysunki/branchLength3.jpg>
-Package pdftex.def Info: ./rysunki/branchLength3.jpg  used on input line 365.
+Package pdftex.def Info: ./rysunki/branchLength3.jpg  used on input line 356.
 (pdftex.def)             Requested size: 88.2022pt x 43.01231pt.
-<./rysunki/treePlace3.jpg, id=454, 545.03625pt x 467.49657pt>
+<./rysunki/treePlace3.jpg, id=466, 545.03625pt x 467.49657pt>
 File: ./rysunki/treePlace3.jpg Graphic file (type jpg)
 <use ./rysunki/treePlace3.jpg>
-Package pdftex.def Info: ./rysunki/treePlace3.jpg  used on input line 371.
-(pdftex.def)             Requested size: 286.65883pt x 245.87451pt.
- [22 <./rysunki/treePlace2.jpg> <./rysunki/matrix4.jpg> <./rysunki/branchLength
+Package pdftex.def Info: ./rysunki/treePlace3.jpg  used on input line 362.
+(pdftex.def)             Requested size: 220.50887pt x 189.13533pt.
+ [20 <./rysunki/matrix4.jpg> <./rysunki/branchLength3.jpg> <./rysunki/treePlace
 3.jpg>]
-<./rysunki/matrix5.jpg, id=459, 406.51875pt x 186.6975pt>
+<./rysunki/matrix5.jpg, id=471, 406.51875pt x 186.6975pt>
 File: ./rysunki/matrix5.jpg Graphic file (type jpg)
 <use ./rysunki/matrix5.jpg>
-Package pdftex.def Info: ./rysunki/matrix5.jpg  used on input line 379.
+Package pdftex.def Info: ./rysunki/matrix5.jpg  used on input line 370.
 (pdftex.def)             Requested size: 308.71106pt x 141.78331pt.
-<./rysunki/branchLength4.jpg, id=460, 125.71968pt x 66.2475pt>
+<./rysunki/branchLength4.jpg, id=472, 125.71968pt x 66.2475pt>
 File: ./rysunki/branchLength4.jpg Graphic file (type jpg)
 <use ./rysunki/branchLength4.jpg>
-Package pdftex.def Info: ./rysunki/branchLength4.jpg  used on input line 385.
+Package pdftex.def Info: ./rysunki/branchLength4.jpg  used on input line 376.
 (pdftex.def)             Requested size: 88.2022pt x 46.47704pt.
-<./rysunki/treePlace4.jpg, id=461, 553.31718pt x 461.47406pt>
+<./rysunki/treePlace4.jpg, id=473, 553.31718pt x 461.47406pt>
 File: ./rysunki/treePlace4.jpg Graphic file (type jpg)
 <use ./rysunki/treePlace4.jpg>
-Package pdftex.def Info: ./rysunki/treePlace4.jpg  used on input line 391.
-(pdftex.def)             Requested size: 286.65883pt x 239.07361pt.
- [23 <./rysunki/treePlace3.jpg> <./rysunki/matrix5.jpg> <./rysunki/branchLength
-4.jpg>]
-<./rysunki/matrix6.jpg, id=466, 403.5075pt x 189.70876pt>
+Package pdftex.def Info: ./rysunki/treePlace4.jpg  used on input line 382.
+(pdftex.def)             Requested size: 220.50887pt x 183.90332pt.
+
+[21 <./rysunki/matrix5.jpg> <./rysunki/branchLength4.jpg> <./rysunki/treePlace4
+.jpg>]
+<./rysunki/matrix6.jpg, id=478, 403.5075pt x 189.70876pt>
 File: ./rysunki/matrix6.jpg Graphic file (type jpg)
 <use ./rysunki/matrix6.jpg>
-Package pdftex.def Info: ./rysunki/matrix6.jpg  used on input line 399.
+Package pdftex.def Info: ./rysunki/matrix6.jpg  used on input line 390.
 (pdftex.def)             Requested size: 308.71106pt x 145.14119pt.
-<./rysunki/branchLength5.jpg, id=467, 121.95563pt x 57.96657pt>
+<./rysunki/branchLength5.jpg, id=479, 121.95563pt x 57.96657pt>
 File: ./rysunki/branchLength5.jpg Graphic file (type jpg)
 <use ./rysunki/branchLength5.jpg>
-Package pdftex.def Info: ./rysunki/branchLength5.jpg  used on input line 405.
+Package pdftex.def Info: ./rysunki/branchLength5.jpg  used on input line 396.
 (pdftex.def)             Requested size: 88.2022pt x 41.9234pt.
-<./rysunki/treePlace5.jpg, id=468, 551.05875pt x 457.71pt>
+<./rysunki/treePlace5.jpg, id=480, 551.05875pt x 457.71pt>
 File: ./rysunki/treePlace5.jpg Graphic file (type jpg)
 <use ./rysunki/treePlace5.jpg>
-Package pdftex.def Info: ./rysunki/treePlace5.jpg  used on input line 411.
-(pdftex.def)             Requested size: 286.65883pt x 238.10835pt.
- [24 <./rysunki/treePlace4.jpg> <./rysunki/matrix6.jpg> <./rysunki/branchLength
+Package pdftex.def Info: ./rysunki/treePlace5.jpg  used on input line 402.
+(pdftex.def)             Requested size: 220.50887pt x 183.15758pt.
+ [22 <./rysunki/matrix6.jpg> <./rysunki/branchLength5.jpg> <./rysunki/treePlace
 5.jpg>]
-<./rysunki/branchMatrixSample.jpg, id=474, 537.50812pt x 295.1025pt>
+<./rysunki/branchMatrixSample.jpg, id=486, 537.50812pt x 295.1025pt>
 File: ./rysunki/branchMatrixSample.jpg Graphic file (type jpg)
 <use ./rysunki/branchMatrixSample.jpg>
 Package pdftex.def Info: ./rysunki/branchMatrixSample.jpg  used on input line 4
-20.
+11.
 (pdftex.def)             Requested size: 396.91325pt x 217.91312pt.
- [25 <./rysunki/treePlace5.jpg> <./rysunki/branchMatrixSample.jpg>] [26
+ [23 <./rysunki/branchMatrixSample.jpg>] [24
 
-])
+]
+Rozdzia\PlPrIeC {\l } 5.
+File: ./rysunki/treePlace5.jpg Graphic file (type jpg)
+<use ./rysunki/treePlace5.jpg>
+Package pdftex.def Info: ./rysunki/treePlace5.jpg  used on input line 422.
+(pdftex.def)             Requested size: 396.91325pt x 329.69063pt.
+[25]
+File: ./rysunki/branchMatrixSample.jpg Graphic file (type jpg)
+<use ./rysunki/branchMatrixSample.jpg>
+Package pdftex.def Info: ./rysunki/branchMatrixSample.jpg  used on input line 4
+31.
+(pdftex.def)             Requested size: 396.91325pt x 217.91312pt.
+File: ./rysunki/matrix1.jpg Graphic file (type jpg)
+<use ./rysunki/matrix1.jpg>
+Package pdftex.def Info: ./rysunki/matrix1.jpg  used on input line 439.
+(pdftex.def)             Requested size: 396.91325pt x 180.68675pt.
+ [26])
 No file Praca.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 41.
-[27]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 40.
+[27
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 40.
  (Praca.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 41.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 41.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 40.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 40.
 Package rerunfilecheck Info: File `Praca.out' has not changed.
-(rerunfilecheck)             Checksum: 99C070A3AD0ED97BED9AA4B770C7B4E2;1932.
+(rerunfilecheck)             Checksum: 7224C661C342569D110524BEB13BFBBB;2042.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 40.
  ) 
 Here is how much of TeX's memory you used:
- 9546 strings out of 493312
- 146881 string characters out of 3136354
+ 9558 strings out of 493312
+ 147052 string characters out of 3136354
  251703 words of memory out of 3000000
- 12780 multiletter control sequences out of 15000+200000
+ 12786 multiletter control sequences out of 15000+200000
  15778 words of font info for 44 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,10n,49p,1143b,521s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,10n,49p,1119b,520s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Ania/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/pl/plit.enc}{C:/Use
 rs/Ania/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/pl/plrm.enc}{C:/Users/Ania/A
 ppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/pl/plms.enc}{C:/Users/Ania/AppData/Ro
@@ -904,9 +923,9 @@ l10.pfb><C:/Users/Ania/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pl/plsl12.
 pfb><C:/Users/Ania/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pl/plsy10.pfb>
 <C:/Users/Ania/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pl/plsy8.pfb><C:/U
 sers/Ania/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/pl/plti12.pfb>
-Output written on Praca.pdf (33 pages, 1282427 bytes).
+Output written on Praca.pdf (33 pages, 1290141 bytes).
 PDF statistics:
- 558 PDF objects out of 1000 (max. 8388607)
- 120 named destinations out of 1000 (max. 500000)
- 422 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 582 PDF objects out of 1000 (max. 8388607)
+ 126 named destinations out of 1000 (max. 500000)
+ 438 words of extra memory for PDF output out of 10000 (max. 10000000)
 

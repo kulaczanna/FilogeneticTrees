@@ -17,37 +17,41 @@
 \contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Metoda WPGMA etap III}}}{8}{subfigure.6.6}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Uruchamianie aplikacji\relax }}{13}{figure.caption.9}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces G\IeC {\l }\'owne okno aplikacji\relax }}{13}{figure.caption.10}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Komunikaty o b\IeC {\l }\k edach dotycz\k acych zawarto\'sci wpisanych sekwencji \relax }}{14}{figure.caption.11}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {B\IeC {\l }\k ad powt\'orzonej sekwencji}}}{14}{subfigure.3.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ostrze\.zenie o zbyt ma\IeC {\l }ej liczbie wpisanych sekwencji}}}{14}{subfigure.3.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {B\IeC {\l }\k ad zbyt du\.zej r\'o\.znicy mi\k edzy sekwencjami}}}{14}{subfigure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Komunikaty o b\IeC {\l }\k edach dotycz\k acych d\IeC {\l }ugo\'sci i znak\'ow w sekwencjach \relax }}{15}{figure.caption.12}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {B\IeC {\l }\k ad r\'o\.znych d\IeC {\l }ugo\'sci sekwencji}}}{15}{subfigure.4.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {B\IeC {\l }\k ad niedozwolonych znak\'ow w sekwencji }}}{15}{subfigure.4.2}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Widok aplikacji po wci\'sni\k eciu przycisku \textbf {,,Compare sequences''} \relax }}{15}{figure.caption.13}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Efekt wci\'sni\k ecia przycisku \textbf {,,Compare sequenses''} w przypadku prawid\IeC {\l }owego dzia\IeC {\l }ania }}}{15}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Efekt wci\'sni\k ecia przycisku \textbf {,,Compare sequenses''} w przypadku wyst\k apienia b\IeC {\l }\k edu }}}{15}{subfigure.5.2}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Przyk\IeC {\l }ad efektu dzia\IeC {\l }ania przycisku \textbf {,,Next step''}\relax }}{16}{figure.caption.14}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Wygl\k ad aplikacji po przej\'sciu wszystkich krok\'ow tworzenia drzewa \relax }}{17}{figure.caption.15}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Przyk\IeC {\l }adowa macierz odleg\IeC {\l }o\'sci pomi\k edzy sekwencjami obliczona na podstawie d\IeC {\l }ugo\'sci ga\IeC {\l }\k ezi drzewa\relax }}{17}{figure.caption.16}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Uruchamianie aplikacji\relax }}{11}{figure.caption.9}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces G\IeC {\l }\'owne okno aplikacji\relax }}{11}{figure.caption.10}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Komunikaty o b\IeC {\l }\k edach dotycz\k acych zawarto\'sci wpisanych sekwencji \relax }}{12}{figure.caption.11}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {B\IeC {\l }\k ad powt\'orzonej sekwencji}}}{12}{subfigure.3.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Ostrze\.zenie o zbyt ma\IeC {\l }ej liczbie wpisanych sekwencji}}}{12}{subfigure.3.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {B\IeC {\l }\k ad zbyt du\.zej r\'o\.znicy mi\k edzy sekwencjami}}}{12}{subfigure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Komunikaty o b\IeC {\l }\k edach dotycz\k acych d\IeC {\l }ugo\'sci i znak\'ow w sekwencjach \relax }}{13}{figure.caption.12}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {B\IeC {\l }\k ad r\'o\.znych d\IeC {\l }ugo\'sci sekwencji}}}{13}{subfigure.4.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {B\IeC {\l }\k ad niedozwolonych znak\'ow w sekwencji }}}{13}{subfigure.4.2}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Widok aplikacji po wci\'sni\k eciu przycisku \textbf {,,Compare sequences''} \relax }}{13}{figure.caption.13}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Efekt wci\'sni\k ecia przycisku \textbf {,,Compare sequenses''} w przypadku prawid\IeC {\l }owego dzia\IeC {\l }ania }}}{13}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Efekt wci\'sni\k ecia przycisku \textbf {,,Compare sequenses''} w przypadku wyst\k apienia b\IeC {\l }\k edu }}}{13}{subfigure.5.2}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Przyk\IeC {\l }ad efektu dzia\IeC {\l }ania przycisku \textbf {,,Next step''}\relax }}{14}{figure.caption.14}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Wygl\k ad aplikacji po przej\'sciu wszystkich krok\'ow tworzenia drzewa \relax }}{15}{figure.caption.15}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Przyk\IeC {\l }adowa macierz odleg\IeC {\l }o\'sci pomi\k edzy sekwencjami obliczona na podstawie d\IeC {\l }ugo\'sci ga\IeC {\l }\k ezi drzewa\relax }}{15}{figure.caption.16}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Przyk\IeC {\l }adowe sekwencje nukleotydowe\relax }}{19}{figure.caption.17}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Pierwotna posta\'c macierzy odleg\IeC {\l }o\'sci ewolucyjnych\relax }}{20}{figure.caption.18}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Pierwotna posta\'c macierzy odleg\IeC {\l }o\'sci ewolucyjnych\relax }}{20}{figure.caption.19}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces D\IeC {\l }ugo\'s\'c dw\'och pierwszych ga\IeC {\l }\k ezi drzewa\relax }}{20}{figure.caption.20}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Graficzne przedstawienie dw\'och pierwszych ga\IeC {\l }\k ezi drzewa\relax }}{21}{figure.caption.21}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Macierz odleg\IeC {\l }o\'sci ewolucyjnych - krok drugi\relax }}{21}{figure.caption.22}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces D\IeC {\l }ugo\'s\'c kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok drugi\relax }}{21}{figure.caption.23}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Graficzne przedstawienie kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok drugi\relax }}{22}{figure.caption.24}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Macierz odleg\IeC {\l }o\'sci ewolucyjnych - krok trzeci\relax }}{22}{figure.caption.25}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces D\IeC {\l }ugo\'s\'c kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok trzeci\relax }}{22}{figure.caption.26}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Graficzne przedstawienie kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok trzeci\relax }}{23}{figure.caption.27}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Macierz odleg\IeC {\l }o\'sci ewolucyjnych - krok czwarty\relax }}{23}{figure.caption.28}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces D\IeC {\l }ugo\'s\'c kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok czwarty\relax }}{23}{figure.caption.29}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Graficzne przedstawienie kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok czwarty\relax }}{24}{figure.caption.30}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Macierz odleg\IeC {\l }o\'sci ewolucyjnych - krok pi\k aty\relax }}{24}{figure.caption.31}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces D\IeC {\l }ugo\'s\'c kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok pi\k aty\relax }}{24}{figure.caption.32}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Graficzne przedstawienie kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok pi\k aty\relax }}{25}{figure.caption.33}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Macierz odleg\IeC {\l }o\'sci pomi\k edzy sekwencjami utworzona na podstawie d\IeC {\l }ugo\'sci obliczonych ga\IeC {\l }\k ezi\relax }}{25}{figure.caption.34}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Przyk\IeC {\l }adowe sekwencje nukleotydowe\relax }}{17}{figure.caption.17}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Pierwotna posta\'c macierzy odleg\IeC {\l }o\'sci ewolucyjnych\relax }}{17}{figure.caption.18}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Macierz odleg\IeC {\l }o\'sci ewolucyjnych - krok pierwszy\relax }}{18}{figure.caption.19}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces D\IeC {\l }ugo\'s\'c dw\'och pierwszych ga\IeC {\l }\k ezi drzewa\relax }}{18}{figure.caption.20}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Graficzne przedstawienie dw\'och pierwszych ga\IeC {\l }\k ezi drzewa\relax }}{18}{figure.caption.21}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Macierz odleg\IeC {\l }o\'sci ewolucyjnych - krok drugi\relax }}{19}{figure.caption.22}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces D\IeC {\l }ugo\'s\'c kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok drugi\relax }}{19}{figure.caption.23}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Graficzne przedstawienie kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok drugi\relax }}{19}{figure.caption.24}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Macierz odleg\IeC {\l }o\'sci ewolucyjnych - krok trzeci\relax }}{20}{figure.caption.25}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces D\IeC {\l }ugo\'s\'c kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok trzeci\relax }}{20}{figure.caption.26}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Graficzne przedstawienie kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok trzeci\relax }}{20}{figure.caption.27}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Macierz odleg\IeC {\l }o\'sci ewolucyjnych - krok czwarty\relax }}{21}{figure.caption.28}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces D\IeC {\l }ugo\'s\'c kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok czwarty\relax }}{21}{figure.caption.29}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Graficzne przedstawienie kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok czwarty\relax }}{21}{figure.caption.30}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Macierz odleg\IeC {\l }o\'sci ewolucyjnych - krok pi\k aty\relax }}{22}{figure.caption.31}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces D\IeC {\l }ugo\'s\'c kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok pi\k aty\relax }}{22}{figure.caption.32}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Graficzne przedstawienie kolejnych dw\'och ga\IeC {\l }\k ezi drzewa - krok pi\k aty\relax }}{22}{figure.caption.33}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Macierz odleg\IeC {\l }o\'sci pomi\k edzy sekwencjami utworzona na podstawie d\IeC {\l }ugo\'sci obliczonych ga\IeC {\l }\k ezi\relax }}{23}{figure.caption.34}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Przyk\IeC {\l }adowe drzewo filogenetyczne skonstruowane przy pomocy aplikacji utworzonej w projekcie\relax }}{25}{figure.caption.35}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Przyk\IeC {\l }adowa macierz odleg\IeC {\l }o\'sci ewolucyjnych wyznaczona na podstawie d\IeC {\l }ugo\'sci ga\IeC {\l }\k ezi drzewa\relax }}{26}{figure.caption.36}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Przyk\IeC {\l }adowa macierz odleg\IeC {\l }o\'sci ewolucyjnych wyznaczona na podstawie r\'o\.znicy znak\'ow pomi\k edzy sekwencjami\relax }}{26}{figure.caption.37}

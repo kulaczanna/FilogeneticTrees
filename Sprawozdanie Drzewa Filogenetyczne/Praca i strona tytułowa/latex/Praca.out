@@ -1,27 +1,29 @@
 \BOOKMARK [0][-]{chapter.1}{Wstep}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Cel pracy}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{Rozwiazania alternatywne}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{Czym jest ewolucja?}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.4}{Zadania filogenetyki}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.5}{Drzewa filogenetyczne}{chapter.1}% 6
-\BOOKMARK [2][-]{subsection.1.5.1}{Podstawowe za\233ozenia}{section.1.5}% 7
-\BOOKMARK [2][-]{subsection.1.5.2}{Podstawowe pojecia}{section.1.5}% 8
-\BOOKMARK [2][-]{subsection.1.5.3}{Formy reprezentacji drzew}{section.1.5}% 9
-\BOOKMARK [2][-]{subsection.1.5.4}{Problemy w szukaniu poprawnego drzewa}{section.1.5}% 10
-\BOOKMARK [1][-]{section.1.6}{Etapy konstrukcji drzew filogenetycznych}{chapter.1}% 11
-\BOOKMARK [2][-]{subsection.1.6.1}{Mutacje i przerwy w sekwencjach}{section.1.6}% 12
-\BOOKMARK [2][-]{subsection.1.6.2}{Przyr\363wnanie wielu sekwencji}{section.1.6}% 13
-\BOOKMARK [2][-]{subsection.1.6.3}{Modele substytucji}{section.1.6}% 14
-\BOOKMARK [2][-]{subsection.1.6.4}{Metody budowy drzew filogenetycznych}{section.1.6}% 15
-\BOOKMARK [2][-]{subsection.1.6.5}{Por\363wnanie metod UPGMA i WPGMA}{section.1.6}% 16
-\BOOKMARK [1][-]{section.1.7}{Metodologia}{chapter.1}% 17
-\BOOKMARK [0][-]{chapter.2}{Specyfikacja wewnetrzna}{}% 18
-\BOOKMARK [0][-]{chapter.3}{Specyfikacja zewnetrzna}{}% 19
-\BOOKMARK [0][-]{chapter.4}{Symulacja dzia\233ania programu}{}% 20
-\BOOKMARK [1][-]{section.4.1}{Wprowadzenie danych}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.2}{Wyznaczanie kolejnych ga\233ezi drzewa}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.2.1}{Krok pierwszy}{section.4.2}% 23
-\BOOKMARK [2][-]{subsection.4.2.2}{Krok drugi}{section.4.2}% 24
-\BOOKMARK [2][-]{subsection.4.2.3}{Krok trzeci}{section.4.2}% 25
-\BOOKMARK [2][-]{subsection.4.2.4}{Krok czwarty}{section.4.2}% 26
-\BOOKMARK [2][-]{subsection.4.2.5}{Krok piaty}{section.4.2}% 27
+\BOOKMARK [1][-]{section.1.3}{Struktura DNA}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Czym jest ewolucja?}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{Zadania filogenetyki}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.6}{Drzewa filogenetyczne}{chapter.1}% 7
+\BOOKMARK [2][-]{subsection.1.6.1}{Podstawowe za\233ozenia}{section.1.6}% 8
+\BOOKMARK [2][-]{subsection.1.6.2}{Podstawowe pojecia}{section.1.6}% 9
+\BOOKMARK [2][-]{subsection.1.6.3}{Formy reprezentacji drzew}{section.1.6}% 10
+\BOOKMARK [2][-]{subsection.1.6.4}{Problemy w szukaniu poprawnego drzewa}{section.1.6}% 11
+\BOOKMARK [1][-]{section.1.7}{Etapy konstrukcji drzew filogenetycznych}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.7.1}{Mutacje i przerwy w sekwencjach}{section.1.7}% 13
+\BOOKMARK [2][-]{subsection.1.7.2}{Przyr\363wnanie wielu sekwencji}{section.1.7}% 14
+\BOOKMARK [2][-]{subsection.1.7.3}{Modele substytucji}{section.1.7}% 15
+\BOOKMARK [2][-]{subsection.1.7.4}{Metody budowy drzew filogenetycznych}{section.1.7}% 16
+\BOOKMARK [2][-]{subsection.1.7.5}{Por\363wnanie metod UPGMA i WPGMA}{section.1.7}% 17
+\BOOKMARK [1][-]{section.1.8}{Metodologia}{chapter.1}% 18
+\BOOKMARK [0][-]{chapter.2}{Specyfikacja wewnetrzna}{}% 19
+\BOOKMARK [0][-]{chapter.3}{Specyfikacja zewnetrzna}{}% 20
+\BOOKMARK [0][-]{chapter.4}{Symulacja dzia\233ania programu}{}% 21
+\BOOKMARK [1][-]{section.4.1}{Wprowadzenie danych}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.2}{Wyznaczanie kolejnych ga\233ezi drzewa}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.2.1}{Krok pierwszy}{section.4.2}% 24
+\BOOKMARK [2][-]{subsection.4.2.2}{Krok drugi}{section.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.2.3}{Krok trzeci}{section.4.2}% 26
+\BOOKMARK [2][-]{subsection.4.2.4}{Krok czwarty}{section.4.2}% 27
+\BOOKMARK [2][-]{subsection.4.2.5}{Krok piaty}{section.4.2}% 28
+\BOOKMARK [0][-]{chapter.5}{Podsumowanie}{}% 29
